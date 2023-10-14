@@ -1,0 +1,116 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   button.h                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/14 11:52:04 by wolf              #+#    #+#             */
+/*   Updated: 2023/10/14 11:53:04 by wolf             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef BUTTON_H
+# define BUTTON_H
+
+# include <stdlib.h>
+# include <stdio.h>
+# include <stddef.h>
+# include <stdbool.h>
+# include "../../Mlx/mlx.h"
+
+# define RECT_COLOR	140
+# define ESC		65307
+
+typedef struct c_image_stuff
+{
+	void	*image_ptr;
+	char	*image_data;
+}t_image_stuff;
+
+typedef struct s_mlx_stuff
+{
+	void	*mlx_ptr;
+	void	*win_ptr;
+}t_mlx_stuff;
+
+typedef struct s_button_lst
+{	
+	void					*pointer;
+	int						id;
+	int						x;
+	int						y;
+	int						width;
+	int						height;
+	int						color;
+	struct s_button_lst		*next;	
+}t_button_lst;
+
+typedef struct s_tmp_button_min_stuff
+{	
+	int						x;
+	int						y;
+	int						width;
+	int						height;
+}t_tmp_button_min_stuff;
+
+typedef struct s_button
+{
+	int						len_of_lst;
+	t_button_lst			*head;
+	t_button_lst			*tail;
+}t_button;
+
+typedef struct s_mouse
+{
+	int	mx;
+	int	my;
+}t_mouse;
+
+typedef struct s_button_collide
+{
+	t_button_lst	*origin_one;
+	t_button_lst	*collide_image;
+}t_button_collide;
+
+t_tmp_button_min_stuff	*tmp_stuff_instance(void);
+t_tmp_button_min_stuff	*get_tmp_stuff(void);
+
+t_button_collide		*get_collide_one_instance(void);
+t_button_lst			*new_button(void *pointer_to,
+							t_tmp_button_min_stuff *tmp_stuff);
+
+t_button_lst			*get_collide_image(void);
+t_button_lst			*get_collide_origin(void);
+t_button				*button_list_instance(void);
+t_button				*button_init(void);
+
+t_mlx_stuff				*mlx_instance(void);
+t_mouse					*get_mouse_instance(void);
+
+bool					is_mouse_inside_rect(void);
+
+void					*init_button(int width, int height, int color);
+void					*init_button(int width, int height, int color);
+void					*get_mlx_ptr(void);
+void					*get_win_ptr(void);
+
+void					update_tmp_stuff(int x, int y, int width, int height);
+void					update_collide_one(t_button_lst *origin_one,
+							t_button_lst *collide_one);
+void					add_button(void *pointer,
+							t_tmp_button_min_stuff *tmp_stuff);
+void					create_button(int x, int y, int width, int height);
+void					display_collide_img(t_button_lst *to_display);
+void					update_mlx_infos(void *mlx_ptr, void *win_ptr);
+void					handle_window_close(void);
+void					free_button_list(void);
+void					update_coord(int x, int y);
+
+int						handle_keypress(int keycode);
+int						handle_mouse_click(int button);
+int						handle_mouse_move(int x, int y);
+int						get_mx(void);
+int						get_my(void);
+
+#endif

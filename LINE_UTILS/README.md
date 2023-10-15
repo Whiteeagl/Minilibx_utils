@@ -4,6 +4,7 @@ draw_line is a simple function developed for the **Mlx42**. Here, I will cover t
 # Why ?
 
 Well, if you're were, you already know why, but if you don't : the Mlx42 is a "*performant, easy to use, cross-platform, minimal windowing graphics library to create graphical applications without having to work directly with the native windowing framework of the given operating system.*". 
+
 The probem is that you also are entitled to use it if you are attending 42. But this simple library does not allow you to draw lines. Anoying.
 
 ## For you ?
@@ -21,7 +22,9 @@ Great question !
 
 ### Prototype
 
+```c
 > void  draw_line(t_line  line,  void  *img,  int  color)
+```
 
 ### Parameters
 
@@ -41,9 +44,9 @@ width is the width, in pixels, of your line.
  3. `int color` You guessed it, this is the color of your line.
  ## Usage
  
-1 - Include Mlx42 in you project (duh)
-2 - call `draw_line` with the appropriate parameters. Please note that we do NOT CHECK YOUR INPUT. Be carefull ! It's easy to make your program crash this way. 
-3 - Enjoy,  ig.
+1.  Include Mlx42 in you project (duh)
+2. call `draw_line` with the appropriate parameters. Please note that we do NOT CHECK YOUR INPUT. Be carefull ! It's easy to make your program crash this way. 
+3. Enjoy,  ig.
 
 # Notes
 ### Why a strucure ? Why not just pass coordinates of points as is ?

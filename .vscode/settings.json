@@ -1,0 +1,8 @@
+{
+	"files.associations": {
+		"line.h": "c",
+		"basique_mlx_needed.h": "c",
+		"mlx.h": "c",
+		"stdio.h": "c"
+	}
+}

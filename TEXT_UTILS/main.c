@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 16:06:53 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/15 23:14:06 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/15 23:56:12 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	tests_here(void)
 {
 	void	*test;
 
-	test = build_string("this is a button", 4, 0xFFFFFF);
+	test = build_string("looks like plain text buddy", 2, 0x00FF00);
 	display_string(test, 40, 100);
 }
 

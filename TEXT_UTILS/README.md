@@ -14,9 +14,9 @@ This repository contains a set of functions for rendering and displaying custom 
 **Description:** This function creates an image with custom text to be displayed on the MiniLibX window.
 
 **Parameters:**
-- `string` (char *): The string to display on the screen.
-- `scale` (int): The scaling factor for the text.
-- `color` (int): The color for the text.
+- `char *string` : The string to display on the screen.
+- `int  scale`   : The scaling factor for the text.
+- `int  color`   : The color for the text.
 
 **Example Usage:**
 ```c

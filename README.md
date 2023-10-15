@@ -31,7 +31,7 @@ The current compatibility version is :
 
 - norminette 3.3.51.
 
-Check your version using the command:
+Check your version using the command :
 
 ```
 norminette --version

@@ -5,11 +5,11 @@ draw_line is a simple function developed for the **Mlx42**. Here, I will cover t
 
 Well, if you're were, you already know why, but if you don't : the Mlx42 is a "*performant, easy to use, cross-platform, minimal windowing graphics library to create graphical applications without having to work directly with the native windowing framework of the given operating system.*". 
 
-The probem is that you also are entitled to use it if you are attending 42. But this simple library does not allow you to draw lines. Anoying.
+The problem is that you also are entitled to use it if you are attending 42. But this simple library does not allow you to draw lines. Anoying.
 
 ## For you ?
 
-If you are looking for a way to familiarize with the Mlx42, and to have a first understanding at how you can use this library, yes.
+If you are looking for a way to familiarize yourself with the Mlx42, and to have a first understanding of how you can use this library, yes.
 
 # How ?
 
@@ -44,12 +44,12 @@ width is the width, in pixels, of your line.
  3. `int color` You guessed it, this is the color of your line.
  ## Usage
  
-1.  Include Mlx42 in you project (duh)
-2. call `draw_line` with the appropriate parameters. Please note that we do NOT CHECK YOUR INPUT. Be carefull ! It's easy to make your program crash this way. 
+1.  Include Mlx42 in your project (duh)
+2. call `draw_line` with the appropriate parameters. Please note that we do NOT CHECK YOUR INPUT. Be careful ! It's easy to make your program crash this way. 
 3. Enjoy,  ig.
 
 # Notes
-### Why a strucure ? Why not just pass coordinates of points as is ?
+### Why a structure ? Why not just pass coordinates of points as is ?
 
  - Well, because of the norme at 42, we cannot 'send' more than 4 parameters in a function. 
  ### Is it the most optimal implementation of this algorithm ?
@@ -57,7 +57,7 @@ width is the width, in pixels, of your line.
  - Hell no.
  
 ### Can I use it in my project ?
- - You can, but we higly recommand you do not. Please, understand everything, and try to reproduce this algorithm. You can only come on top by doing it yourself.
+ - You can, but we highly recommend you do not. Please, understand everything, and try to reproduce this algorithm. You can only come on top by doing it yourself.
 
 ### Is it leak free ?
 
@@ -66,6 +66,6 @@ width is the width, in pixels, of your line.
 	 
  - It does.
 
-### Really, if it's not that optimized an I can't use it, why ?
+### Really, if it's not that optimized and I can't use it, why ?
 
  - We know that some things about the Mlx42 are hard to grasp. We just want to provide simple tools to help you understand this obscure library.

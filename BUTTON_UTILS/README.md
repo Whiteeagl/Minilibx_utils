@@ -11,7 +11,7 @@ The `create_button` function is designed to simplify the process of creating int
 void create_button(int x, int y, int width, int height);
 ```
 
-## Paramters
+## Parameters
 
 - `int x` : The x-coordinate of the top-left corner of the button.
 - `int y` : The y-coordinate of the top-left corner of the button.

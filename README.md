@@ -17,9 +17,9 @@ Working with MiniLibX can be both exciting and challenging. This repository is y
 -  **Active Development**: Only when ideas are present, shall we? 😉
   ### What tools are up ? Which ones are you working on ?
 
- - [x] Button_utils : A tool to create... Buttons. -  `Still in developpement.`
+ - [x] Button_utils : A tool to create... Buttons. -  `Still in development.`
  - [x] Line_utils : A tool to create... Lines. - ` Almost finished.`
- - [x] Text_utils : - A tool to create... Text. - `Still in active developpement`
+ - [x] Text_utils : - A tool to create... Text. - `Still in active development`
  - [ ] Circle_utils : A tool to create... circles. - `Upcoming`
  
  And more to come...

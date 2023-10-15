@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 16:20:00 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/15 01:21:06 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/15 19:13:48 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,12 @@ t_all_text	*get_all_text_instance(void)
 */
 void	err_charactere_not_recoginzed(char c)
 {
-	write(1, "Character : ", 12);
+	write_msg("Character : ");
 	if (c == 32)
-		write(1, "(space)", 7);
+		write_msg("(space)");
 	else
 		write(1, &c, 1);
-	write(1, " not supported here.\n", 22);
+	write_msg(" not supported here.\n");
 }
 
 
@@ -51,6 +51,7 @@ void	update_min_letters(char c, int (*elmt)[4])
 	idx = (c - 97);
 	all_letters = get_all_text_instance();
 	i = -1;
+	// Si 'c' est dans l'inventaire casse couilles, alors fait part1, part2
 	while (++i < 6)
 		ft_memcpy_text(all_letters->all_letters_array[idx][i],
 			elmt[i], sizeof(elmt[i]));
@@ -64,6 +65,7 @@ int	(*get_min_letters(char c))[4]
 	if (c < 97 || c > 122)
 		return (err_charactere_not_recoginzed(c), NULL);
 	idx = (c - 97);
+	// Si 'c' est dans l'I.C.C, renvoyer la premiere partie. (part1)
 	all_letters = get_all_text_instance();
 	return (all_letters->all_letters_array[idx]);
 }

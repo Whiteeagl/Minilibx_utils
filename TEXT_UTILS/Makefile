@@ -10,14 +10,19 @@ MIN_LETTERS_STUFF	= $(SRC)MIN_LETTERS/
 MLX_BASIQUE_STUFF	= ../INCLUDES/SRC/
 MLX_PATH 			= ../Mlx/
 
-FILES 				=	main.c								\
-						$(SRC)others_stuff.c				\
-						$(INCLUDE)ft_memcpy_text.c			\
-						$(INCLUDE)ft_len_text.c				\
-						$(DESIGN_P)design_p_min_letters.c	\
-						$(DESIGN_P)design_p_scale.c			\
-						$(MIN_LETTERS_STUFF)a.c				\
-						$(MIN_LETTERS_STUFF)b_c_d_e_f.c		\
+FILES 				=	main.c									\
+						$(SRC)others_stuff.c					\
+						$(INCLUDE)ft_memcpy_text.c				\
+						$(INCLUDE)ft_len_text.c					\
+						$(DESIGN_P)design_p_min_letters.c		\
+						$(DESIGN_P)design_p_icc_letters.c		\
+						$(DESIGN_P)design_p_chain_list_text.c	\
+						$(DESIGN_P)design_p_scale.c				\
+						$(CHAIN_LIST)text_chain_list.c			\
+						$(MIN_LETTERS_STUFF)a.c					\
+						$(MIN_LETTERS_STUFF)b_c_d_e_f.c			\
+						$(MIN_LETTERS_STUFF)g_h_i_j_k.c			\
+						$(MIN_LETTERS_STUFF)l_m_n_o_p.c			\
 						$(MLX_BASIQUE_STUFF)design_p_mlx.c
 
 

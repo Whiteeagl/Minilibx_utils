@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 16:00:52 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/15 16:32:50 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/15 19:59:25 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,14 +55,22 @@ typedef struct c_min_letters
 	int	z[6][4];
 }t_min_letters;
 
+typedef struct c_icc_letters
+{
+	int	m_end[6][4];
+	int	v_end[6][4];
+	int	w_end[6][4];
+}t_icc_letters;
 
-typedef struct c_all_text
+
+
+typedef struct s_all_text
 {
 	int	all_letters_array[26][6][4];
 }t_all_text;
 
 
-typedef struct c_pixel_stuff
+typedef struct s_pixel_stuff
 {
 	int	i;
 	int	j;
@@ -74,7 +82,7 @@ typedef struct c_pixel_stuff
 	int	pixel_y;
 }t_pixel_stuff;
 
-typedef struct c_tmp_pixel
+typedef struct s_tmp_pixel
 {
 	int bits_per_pixel;
 	int size_line;
@@ -82,32 +90,67 @@ typedef struct c_tmp_pixel
 }t_tmp_pixel;
 
 
-typedef struct c_tmp_scale
+typedef struct s_tmp_scale
 {
 	int	scale;
 }t_tmp_scale;
 
+typedef struct s_text_addr_lst
+{	
+	void						*pointer;
+	struct s_text_addr_lst		*next;	
+}t_text_addr_lst;
 
-t_tmp_scale	*get_scale_instance(void);
-t_all_text	*get_all_text_instance(void);
+typedef struct s_text_addr
+{
+	int						len_of_lst;
+	t_text_addr_lst			*head;
+	t_text_addr_lst			*tail;
+}t_text_addr;
 
-size_t		ft_len_text(char *string);
 
-void		*ft_memcpy_text(void *dest, const void *src, size_t n);
+t_text_addr_lst	*new_pointer(void *pointer_to);
+t_icc_letters	*get_icc_letters_instance(void);
+t_text_addr		*get_text_list_instance(void);
+t_tmp_scale		*get_scale_instance(void);
+t_all_text		*get_all_text_instance(void);
 
-void		update_min_letters(char c, int (*elmt)[4]);
-void		update_scale_value(int new_scale);
+size_t			ft_len_text(char *string);
 
-int			(*get_min_letters(char c))[4];
-int			get_scale(void);
+void			*ft_memcpy_text(void *dest, const void *src, size_t n);
 
-void	write_msg(char *string);
-void	write_func_msg(char *func_name, char *msg);
-void	create_a(t_min_letters *min_letters);
-void	create_b(t_min_letters *min_letters);
-void	create_c(t_min_letters *min_letters);
-void	create_d(t_min_letters *min_letters);
-void	create_e(t_min_letters *min_letters);
-void	create_f(t_min_letters *min_letters);
+void			update_min_letters(char c, int (*elmt)[4]);
+void			update_scale_value(int new_scale);
+void			add_text_pointer(void *pointer);
+void			free_text_addr_list(void);
+
+void			write_msg(char *string);
+void			write_func_msg(char *func_name, char *msg);
+void			create_a(t_min_letters *min_letters);
+void			create_b(t_min_letters *min_letters);
+void			create_c(t_min_letters *min_letters);
+void			create_d(t_min_letters *min_letters);
+void			create_e(t_min_letters *min_letters);
+void			create_f(t_min_letters *min_letters);
+void			create_g(t_min_letters *min_letters);
+void			create_h(t_min_letters *min_letters);
+void			create_i(t_min_letters *min_letters);
+void			create_j(t_min_letters *min_letters);
+void			create_k(t_min_letters *min_letters);
+void			create_l(t_min_letters *min_letters);
+
+void 			create_m(t_min_letters *min_letters);
+void			create_m_end(t_icc_letters *icc_l);
+
+void 			create_n(t_min_letters *min_letters);
+
+void create_o(t_min_letters *min_letters);
+
+
+
+int				(*get_min_icc_letters(char c))[4];
+int				(*get_min_letters(char c))[4];
+int				get_scale(void);
+int	icc_letters(char c);
 
 #endif

@@ -6,14 +6,61 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 16:06:53 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/15 16:36:02 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/15 20:02:18 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "INCLUDES/text.h"
 #include <stdio.h>
 
-void	init_min_letter_first_part(t_min_letters *min_letters)
+int	icc_letters(char c)
+{
+	if (c == 'm' || c == 'w' || c == 'v')
+		return (1);
+	return (0);
+}
+
+int	spaces_letters(char c)
+{
+	if (c == 'l' || c == 'i')
+		return (1);
+	return (0);
+}
+
+int	count_icc_letters(char *str)
+{
+	int	idx;
+	int	sum;
+
+	idx = 0;
+	if (!str)
+		return (idx);
+	sum = 0;
+	while (str[idx])
+	{
+		sum += icc_letters(str[idx]);
+		idx++ ;
+	}
+	return (sum);
+}
+
+void	create_icc_letters(t_min_letters *min_letters)
+{
+	t_icc_letters	*icc_l;
+
+	icc_l = get_icc_letters_instance();
+
+	create_m(min_letters);
+	create_m_end(icc_l);
+
+	//create_v(min_letters);
+	//create_v_end(icc_l);
+	
+	//create_w(min_letters);
+	//create_w_end(icc_l);
+}
+
+void	create_first_min_letters(t_min_letters *min_letters)
 {
 	create_a(min_letters);
 	create_b(min_letters);
@@ -21,7 +68,21 @@ void	init_min_letter_first_part(t_min_letters *min_letters)
 	create_d(min_letters);
 	create_e(min_letters);
 	create_f(min_letters);
+	create_g(min_letters);
+	create_h(min_letters);
+	create_i(min_letters);
+	create_j(min_letters);
+	create_k(min_letters);
+	create_l(min_letters);
+	create_m(min_letters);
+	create_n(min_letters);
+	create_o(min_letters);
+}
 
+void	init_min_letter_first_part(t_min_letters *min_letters)
+{
+	create_first_min_letters(min_letters);
+	create_icc_letters(min_letters);
 	update_min_letters('a', min_letters->a);
 	update_min_letters('b', min_letters->b);
 	update_min_letters('c', min_letters->c);
@@ -122,9 +183,9 @@ void put_pixel_to_image(void *img, int x, int y, int color)
 			&& y >= 0 && y < img_width)
     {
         pixel_offset = (y * img_width + x) * (tmp_p.bits_per_pixel / 8);
-        img_data[pixel_offset] = color;
-        img_data[pixel_offset + 1] = color;
-        img_data[pixel_offset + 2] = color;
+        img_data[pixel_offset] = color & 0xFF;
+    	img_data[pixel_offset + 1] = (color >> 8) & 0xFF;
+    	img_data[pixel_offset + 2] = (color >> 16) & 0xFF;
     }
 }
 
@@ -157,6 +218,25 @@ void	draw_pixel_baby(void *img, t_pixel_stuff *p_stuff, int (*array)[4], int col
 
 
 
+void	fill_icc_cara(void *img, char c, int x, int color)
+{
+	t_pixel_stuff	p_stuff;
+	int				(*array2)[4];
+	
+	p_stuff.x = x + (3 * get_scale());
+	p_stuff.y = 0;
+	array2 = get_min_icc_letters(c);
+	if (!array2)
+		return ;
+	p_stuff.i = -1;
+	while (++p_stuff.i < 6)
+	{
+		p_stuff.j = -1;
+		while (++p_stuff.j < 4)
+			draw_pixel_baby(img, &p_stuff, array2, color);
+	}
+}
+
 
 /*
 	Permet d'afficher un caractère donné.
@@ -166,6 +246,7 @@ void	dipslay_cara(void *img, char c, int x, int color)
 {
 	t_pixel_stuff	p_stuff;
     int				(*array)[4];
+
 
 	if (!get_scale())
 		return (write_func_msg("display_cara", ERR_PREVIOUS_SCALE));
@@ -179,10 +260,10 @@ void	dipslay_cara(void *img, char c, int x, int color)
 	{
 		p_stuff.j = -1;
 		while (++p_stuff.j < 4)
-		{
 			draw_pixel_baby(img, &p_stuff, array, color);
-		}
 	}
+	if (icc_letters(c))
+		fill_icc_cara(img, c, x, color);
 }
 
 // // // // // // //
@@ -207,6 +288,8 @@ void	*build_string(char *string, int scale, int color)
 	len_of_string = ft_len_text(string);
 	resize_space = 5 * scale;
 	len_of_string = resize_space * len_of_string;
+	if (count_icc_letters(string))
+		len_of_string *= count_icc_letters(string);
 	new_text = mlx_new_image(get_mlx_ptr(), len_of_string, 6*scale);
 	if (!new_text)
 		return (write_func_msg("build_string", ERR_ALLOCATION), NULL);
@@ -216,8 +299,14 @@ void	*build_string(char *string, int scale, int color)
 	while (string[++i])
 	{
 		dipslay_cara(new_text, string[i], tmp_x, color);
-		tmp_x += resize_space;
+		if (icc_letters(string[i]))
+			tmp_x += resize_space + (scale / 2) + 1;
+		else if (spaces_letters(string[i]))
+			tmp_x += 4 * scale;
+		else
+			tmp_x += resize_space;
 	}
+	add_text_pointer(new_text);
 	return (new_text);
 }
 
@@ -242,21 +331,19 @@ int	main(void)
 
 	init_all_min_letters(&min_letters);
 
-	display_array_value('a');
-	display_array_value('b');
-	display_array_value('c');
-	display_array_value('d');
-	display_array_value('e');
-	display_array_value('f');
+
 
 	//update_scale_value(4);
-	void *test = build_string("caca", 4, 0xFFFFFF);
+	void *test = build_string("lola ia", 14, 0x0FFFFF);
 
 	display_string(test, 100, 100);
 
+	//void	*t = build_string("lalama", 4, 0xFFFFFF);
+
+	//display_string(t, 100, 200);
+
 	//void *test = build_string("caca", 4, 0xFFFFFF);
 
-	display_string(test, 200, 100);
 	//dipslay_cara(mlx_win, 'a', 100, 0xFFFFF);
 
 

@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 19:06:31 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/15 19:32:50 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/15 22:32:25 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,11 @@ int	(*get_min_icc_letters(char c))[4]
 		return (icc_instance->v_end);
 	if (c == 'w')
 		return (icc_instance->w_end);
+	if (c == 'x')
+		return (icc_instance->x_end);
+	if (c == 'y')
+		return (icc_instance->y_end);
+	if (c == 'z')
+		return (icc_instance->z_end);
 	return (NULL);
 }

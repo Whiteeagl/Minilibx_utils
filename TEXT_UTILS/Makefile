@@ -6,23 +6,36 @@ INCLUDE				= INCLUDES/
 SRC		 			= SRC/
 DESIGN_P			= $(SRC)DESIGN_PATTERN/
 CHAIN_LIST			= $(SRC)CHAIN_LIST/
+INIT_STUFF			= $(SRC)INIT_STUFF/
+GRAPHIC_STUFF		= $(SRC)GRAPHIC_STUFF/
+TEXT_STUFF			= $(SRC)TEXT_STUFF/
+ERROR_STUFF			= $(SRC)ERROR_STUFF/
 MIN_LETTERS_STUFF	= $(SRC)MIN_LETTERS/
 MLX_BASIQUE_STUFF	= ../INCLUDES/SRC/
 MLX_PATH 			= ../Mlx/
 
 FILES 				=	main.c									\
 						$(SRC)others_stuff.c					\
+						$(SRC)icc_letters_utils.c				\
 						$(INCLUDE)ft_memcpy_text.c				\
 						$(INCLUDE)ft_len_text.c					\
 						$(DESIGN_P)design_p_min_letters.c		\
 						$(DESIGN_P)design_p_icc_letters.c		\
 						$(DESIGN_P)design_p_chain_list_text.c	\
 						$(DESIGN_P)design_p_scale.c				\
+						$(ERROR_STUFF)errors_msg.c				\
+						$(INIT_STUFF)init_min_letter.c			\
+						$(GRAPHIC_STUFF)mlx_graphic_utils.c		\
+						$(TEXT_STUFF)text_stuff_utils.c			\
 						$(CHAIN_LIST)text_chain_list.c			\
 						$(MIN_LETTERS_STUFF)a.c					\
 						$(MIN_LETTERS_STUFF)b_c_d_e_f.c			\
 						$(MIN_LETTERS_STUFF)g_h_i_j_k.c			\
 						$(MIN_LETTERS_STUFF)l_m_n_o_p.c			\
+						$(MIN_LETTERS_STUFF)q_r_s_t_u.c			\
+						$(MIN_LETTERS_STUFF)v_w_x_y_z.c			\
+						$(MIN_LETTERS_STUFF)icc_letters.c		\
+						$(MIN_LETTERS_STUFF)icc_letters2.c		\
 						$(MLX_BASIQUE_STUFF)design_p_mlx.c
 
 

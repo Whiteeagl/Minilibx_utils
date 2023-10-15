@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 17:20:18 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/15 01:07:06 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/15 20:28:58 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	create_c(t_min_letters *min_letters)
 	min_letters->c[1][0] = 0;
 	min_letters->c[1][1] = 1;
 	min_letters->c[1][2] = 1;
-	min_letters->c[1][3] = 1;
+	min_letters->c[1][3] = 0;
 	min_letters->c[2][0] = 1;
 	min_letters->c[2][1] = 0;
 	min_letters->c[2][2] = 0;
@@ -65,7 +65,7 @@ void	create_c(t_min_letters *min_letters)
 	min_letters->c[5][0] = 0;
 	min_letters->c[5][1] = 1;
 	min_letters->c[5][2] = 1;
-	min_letters->c[5][3] = 1;
+	min_letters->c[5][3] = 0;
 }
 
 void	create_d(t_min_letters *min_letters)

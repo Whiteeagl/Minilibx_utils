@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   others_stuff.c                                     :+:      :+:    :+:   */
+/*   errors_msg.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/15 15:07:11 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/15 22:37:57 by wolf             ###   ########.fr       */
+/*   Created: 2023/10/15 22:15:15 by wolf              #+#    #+#             */
+/*   Updated: 2023/10/15 22:15:32 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../INCLUDES/text.h"
+#include "../../INCLUDES/text.h"
 
-void	write_func_msg(char *func_name, char *msg)
+void	err_charactere_not_recoginzed(char c)
 {
-	write_msg(func_name);
-	write_msg("() : ");
-	write_msg(msg);
-}
-
-void	write_msg(char *string)
-{
-	int	len_of_string;
-
-	len_of_string = ft_len_text(string);
-	write(1, string, len_of_string);
+	write_msg("Character : ");
+	if (c == 32)
+		write_msg("(space)");
+	else
+		write(1, &c, 1);
+	write_msg(" not supported here.\n");
 }

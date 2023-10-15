@@ -34,7 +34,7 @@ The current compatibility version is :
 Check your version using the command:
 
 ```
-	norminette --version
+norminette --version
 ```
 
 ## Creators

@@ -1,0 +1,46 @@
+YELLOW				=\033[0;33m
+NC					=\033[0m
+
+NAME	 			= line
+SRC		 			= src/
+MLX_PATH 			= ../Mlx/
+MLX_BASIQUE_STUFF	= ../INCLUDES/SRC/
+OBJ 				=	$(addprefix obj/,${SRCS:.c=.o})
+CLEANF 			=	@(find . -name "*.o" -type f -delete)
+
+SRCS 				=	$(SRC)main.c							\
+						$(SRC)draw_lines.c						\
+						$(SRC)utils.c						\
+						$(MLX_BASIQUE_STUFF)design_p_mlx.c
+
+FLAGS 				= -Wall -Wextra -Werror -g3
+MLXFLAGS 			= -L../Mlx -lmlx -L/usr/include/../lib -lXext -lX11 -lm -lbsd
+CC 					= cc
+
+BOLD            	=       "\033[1m"
+RESET           	=       "\033[0m"
+LIGHT_GREEN     	=       "\033[92m"
+LIGHT_CYAN      	=       "\033[96m"
+
+obj/%.o: %.c
+	@mkdir -p $(dir $@)
+	@echo $(BOLD)$(LIGHT_CYAN)Compiling $<... $(RESET)
+	@$(CC) $(FLAGS) -c $< -o $@
+
+all: $(NAME)
+
+$(NAME): $(OBJ)
+	@$(MAKE) -s -C $(MLX_PATH)
+	@$(CC) $(CFLAGS) $(OBJ) $(MLXFLAGS) -o $(NAME)
+
+clean :
+	@$(CLEANF)
+	@echo $(BOLD)$(LIGHT_GREEN).o deleted.$(RESET)
+	@rm -rf obj/
+
+fclean : clean
+	@rm -f $(NAME)
+	@rm -f line.a
+
+re : fclean all
+

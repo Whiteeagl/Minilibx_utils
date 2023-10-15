@@ -31,9 +31,10 @@ int	handle_keypress(int keycode)
 //			to pass each parameter, so we use a structure.
 // Again, because of the norminette limitations, we do not
 //			check the data being passed. Be sure to pass valid data.
-// Obviously, you need to pass an adress to the image you want to draw on.
+// Obviously, you need to pass an address to the image you want to draw on.
 // The color is an unsigned int, so you can pass a hexa value.
 //			For example, 0x00FF00 is green.
+
 void	mon_programme(void *img)
 {
 	t_line		line;
@@ -109,8 +110,6 @@ void	mon_programme(void *img)
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, img, 0, 0);
 	return ;
 }
-
-// Main à retirer dans le cadre d'autres projets.
 
 int	main(void)
 {

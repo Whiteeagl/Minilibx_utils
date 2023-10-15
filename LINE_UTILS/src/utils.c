@@ -6,11 +6,15 @@
 /*   By: raphael <raphael@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 00:06:16 by raphael           #+#    #+#             */
-/*   Updated: 2023/10/16 00:13:15 by raphael          ###   ########.fr       */
+/*   Updated: 2023/10/16 01:31:25 by raphael          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/line.h"
+
+//	If you can use abs, use it. It's much faster than our implementation.
+//	We can't reproduce exactly the function, because of... 
+//	You guessed it, the norm.If not, use this.
 
 int	ft_abs(int n)
 {
@@ -18,6 +22,9 @@ int	ft_abs(int n)
 		return (-n);
 	return (n);
 }
+
+//	This function simply initializes all the variables we need to draw the line,
+//	as well as storing some data on the img we are drawing to, for... the norm.
 
 void	stuff_for_line_draw(t_data_for_line *data, t_line *line, void *img)
 {

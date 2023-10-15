@@ -6,7 +6,7 @@
 /*   By: raphael <raphael@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 19:03:42 by raphael           #+#    #+#             */
-/*   Updated: 2023/10/16 00:13:04 by raphael          ###   ########.fr       */
+/*   Updated: 2023/10/16 01:32:11 by raphael          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,8 @@ void	case_1(t_line *line, t_data_for_line *data, unsigned int color);
 void	case_2(t_line *line, t_data_for_line *data, unsigned int color);
 int		ft_abs(int n);
 void	draw_line(t_line line, void *img, int color);
-
+void	draw_actual_pixels_case_1(t_data_for_line *data, t_line *line,
+			unsigned int color);
+void	draw_actual_pixels_case_2(t_data_for_line *data, t_line *line,	
+			unsigned int color);
 #endif

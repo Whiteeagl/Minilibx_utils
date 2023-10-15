@@ -29,9 +29,9 @@ void *text_image = build_string("looks like plain text buddy", 2, 0x00FF00); // 
 
 **Parameters:** 
 
-- `img` (void *): The image containing the text to display.
-- `x` (int): The X-coordinate for the image's position on the window.
-- `y` (int): The Y-coordinate for the image's position on the window.
+- `void *img` : The image containing the text to display.
+- `int  x`    : The X-coordinate for the image's position on the window.
+- `int  y`    : The Y-coordinate for the image's position on the window.
 
 **Example Usage:**
 ```c

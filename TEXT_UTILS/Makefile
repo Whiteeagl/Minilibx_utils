@@ -1,25 +1,25 @@
 YELLOW				=\033[0;33m
 NC					=\033[0m
 
-NAME	 			= button
+NAME	 			= text
+INCLUDE				= INCLUDES/
 SRC		 			= SRC/
 DESIGN_P			= $(SRC)DESIGN_PATTERN/
 CHAIN_LIST			= $(SRC)CHAIN_LIST/
-MLX_PATH 			= ../Mlx/
+MIN_LETTERS_STUFF	= $(SRC)MIN_LETTERS/
 MLX_BASIQUE_STUFF	= ../INCLUDES/SRC/
+MLX_PATH 			= ../Mlx/
 
-FILES 				=	$(SRC)main.c							\
-						$(SRC)button_stuff.c					\
-						$(SRC)exit_stuff.c						\
-						$(SRC)mouse_stuff.c						\
-						$(SRC)keys_stuff.c						\
-						$(SRC)other_stuff.c						\
-						$(DESIGN_P)design_p_mouse.c				\
-						$(DESIGN_P)design_p_chain_list.c		\
-						$(DESIGN_P)design_p_button_collide.c	\
-						$(DESIGN_P)design_p_tmp_button_stuff.c	\
-						$(CHAIN_LIST)chain_list_button.c		\
+FILES 				=	main.c								\
+						$(SRC)others_stuff.c				\
+						$(INCLUDE)ft_memcpy_text.c			\
+						$(INCLUDE)ft_len_text.c				\
+						$(DESIGN_P)design_p_min_letters.c	\
+						$(DESIGN_P)design_p_scale.c			\
+						$(MIN_LETTERS_STUFF)a.c				\
+						$(MIN_LETTERS_STUFF)b_c_d_e_f.c		\
 						$(MLX_BASIQUE_STUFF)design_p_mlx.c
+
 
 FLAGS 				= -Wall -Wextra -Werror -g3
 MLXFLAGS 			= -L../Mlx -lmlx -L/usr/include/../lib -lXext -lX11 -lm -lbsd
@@ -36,16 +36,15 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@echo "\033[0;34m$(CURDIR)$(NC)"
-	ar rc button.a $(OBJS)
+	ar rc $(NAME).a $(OBJS)
 	$(MAKE) -s -C $(MLX_PATH)
-	gcc button.a $(MLXFLAGS) -o $(NAME)
+	gcc $(NAME).a $(MLXFLAGS) -o $(NAME)
 
 clean :
 	rm -f $(OBJS)
 
 fclean : clean
 	rm -f $(NAME)
-	rm -f button.a
+	rm -f $(NAME).a
 
 re : fclean all
-

@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exit_stuff.c                                       :+:      :+:    :+:   */
+/*   ft_len_text.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/14 11:16:06 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/15 16:39:05 by wolf             ###   ########.fr       */
+/*   Created: 2023/10/15 14:57:35 by wolf              #+#    #+#             */
+/*   Updated: 2023/10/15 15:02:21 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../INCLUDES/button.h"
+#include "text.h"
 
-/* 
-	Pour quitter le programme de manière "propre".
-
-*/
-void	handle_window_close(void)
+size_t	ft_len_text(char *string)
 {
-	free_button_list();
-	free_mlx_infos();
-	exit(EXIT_SUCCESS);
+	size_t	idx;
+
+	idx = 0;
+	if (!string)
+		return (idx);
+	while (string[idx])
+		idx++ ;
+	return (idx);
 }

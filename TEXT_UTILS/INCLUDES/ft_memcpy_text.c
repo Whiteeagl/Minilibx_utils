@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exit_stuff.c                                       :+:      :+:    :+:   */
+/*   ft_memcpy_text.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/14 11:16:06 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/15 16:39:05 by wolf             ###   ########.fr       */
+/*   Created: 2022/11/08 15:01:40 by tboldrin          #+#    #+#             */
+/*   Updated: 2023/10/14 16:16:56 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../INCLUDES/button.h"
+#include "text.h"
 
-/* 
-	Pour quitter le programme de manière "propre".
-
-*/
-void	handle_window_close(void)
+void	*ft_memcpy_text(void *dest, const void *src, size_t n)
 {
-	free_button_list();
-	free_mlx_infos();
-	exit(EXIT_SUCCESS);
+	size_t	i;
+	char	*srccpy;
+
+	i = 0;
+	srccpy = (char *)src;
+	while (i < n)
+	{
+		((char *)dest)[i] = srccpy[i];
+		i++ ;
+	}
+	return (dest);
 }

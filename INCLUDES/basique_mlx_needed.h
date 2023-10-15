@@ -1,24 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exit_stuff.c                                       :+:      :+:    :+:   */
+/*   basique_mlx_needed.h                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/14 11:16:06 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/15 16:39:05 by wolf             ###   ########.fr       */
+/*   Created: 2023/10/15 12:35:55 by wolf              #+#    #+#             */
+/*   Updated: 2023/10/15 16:40:17 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../INCLUDES/button.h"
+#ifndef BASIQUE_MLX_NEEDED_H
+# define BASIQUE_MLX_NEEDED_H
 
-/* 
-	Pour quitter le programme de manière "propre".
+# include <stdlib.h>
+# include "../Mlx/mlx.h"
 
-*/
-void	handle_window_close(void)
+typedef struct s_mlx_stuff
 {
-	free_button_list();
-	free_mlx_infos();
-	exit(EXIT_SUCCESS);
-}
+	void	*mlx_ptr;
+	void	*win_ptr;
+}t_mlx_stuff;
+
+t_mlx_stuff	*mlx_instance(void);
+
+void		*get_mlx_ptr(void);
+void		*get_win_ptr(void);
+
+void		update_mlx_infos(void *mlx_ptr, void *win_ptr);
+void		free_mlx_infos(void);
+
+#endif

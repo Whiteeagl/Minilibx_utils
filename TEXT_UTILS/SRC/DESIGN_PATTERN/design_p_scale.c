@@ -1,24 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exit_stuff.c                                       :+:      :+:    :+:   */
+/*   design_p_scale.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/14 11:16:06 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/15 16:39:05 by wolf             ###   ########.fr       */
+/*   Created: 2023/10/15 14:48:37 by wolf              #+#    #+#             */
+/*   Updated: 2023/10/15 15:02:39 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../INCLUDES/button.h"
+#include "../../INCLUDES/text.h"
 
-/* 
-	Pour quitter le programme de manière "propre".
-
-*/
-void	handle_window_close(void)
+t_tmp_scale	*get_scale_instance(void)
 {
-	free_button_list();
-	free_mlx_infos();
-	exit(EXIT_SUCCESS);
+	static t_tmp_scale	instance;
+
+	return (&instance);
+}
+
+void	update_scale_value(int new_scale)
+{
+	t_tmp_scale	*actual_scale;
+
+	actual_scale = get_scale_instance();
+	actual_scale->scale = new_scale;
+}
+
+int	get_scale(void)
+{
+	t_tmp_scale	*actual_scale;
+
+	actual_scale = get_scale_instance();
+	return (actual_scale->scale);
 }

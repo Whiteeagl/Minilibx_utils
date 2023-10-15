@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 11:52:04 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/14 11:53:04 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/15 12:44:20 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stddef.h>
 # include <stdbool.h>
 # include "../../Mlx/mlx.h"
+# include "../../INCLUDES/basique_mlx_needed.h"
 
 # define RECT_COLOR	140
 # define ESC		65307
@@ -27,12 +28,6 @@ typedef struct c_image_stuff
 	void	*image_ptr;
 	char	*image_data;
 }t_image_stuff;
-
-typedef struct s_mlx_stuff
-{
-	void	*mlx_ptr;
-	void	*win_ptr;
-}t_mlx_stuff;
 
 typedef struct s_button_lst
 {	
@@ -85,15 +80,12 @@ t_button_lst			*get_collide_origin(void);
 t_button				*button_list_instance(void);
 t_button				*button_init(void);
 
-t_mlx_stuff				*mlx_instance(void);
 t_mouse					*get_mouse_instance(void);
 
 bool					is_mouse_inside_rect(void);
 
 void					*init_button(int width, int height, int color);
 void					*init_button(int width, int height, int color);
-void					*get_mlx_ptr(void);
-void					*get_win_ptr(void);
 
 void					update_tmp_stuff(int x, int y, int width, int height);
 void					update_collide_one(t_button_lst *origin_one,
@@ -102,7 +94,6 @@ void					add_button(void *pointer,
 							t_tmp_button_min_stuff *tmp_stuff);
 void					create_button(int x, int y, int width, int height);
 void					display_collide_img(t_button_lst *to_display);
-void					update_mlx_infos(void *mlx_ptr, void *win_ptr);
 void					handle_window_close(void);
 void					free_button_list(void);
 void					update_coord(int x, int y);

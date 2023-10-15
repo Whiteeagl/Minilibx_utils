@@ -23,7 +23,7 @@ Great question !
 ### Prototype
 
 ```c
-> void  draw_line(t_line  line,  void  *img,  int  color)
+void  draw_line(t_line  line,  void  *img,  int  color)
 ```
 
 ### Parameters

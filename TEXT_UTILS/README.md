@@ -20,7 +20,7 @@ This repository contains a set of functions for rendering and displaying custom 
 
 **Example Usage:**
 ```c
-void *text_image = build_string("Hello, MiniLibX!", 2, 0x00FF00); // Creates an image with green text.
+void *text_image = build_string("looks like plain text buddy", 2, 0x00FF00); // Creates an image with green text.
 ```
 
 ### 2. `void display_string(void *img, int x, int y)`;
@@ -39,7 +39,7 @@ void *text_image = build_string("Hello, MiniLibX!", 2, 0x00FF00); // Creates an 
     {
         void	*test;
 
-        test = build_string("this is a button", 4, 0xFFFFFF);
+        test = build_string("this is a text i guess", 4, 0xFFFFFF);
         display_string(test, 40, 100);
     }
 ```

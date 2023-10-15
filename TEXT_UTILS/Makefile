@@ -14,8 +14,7 @@ MIN_LETTERS_STUFF	= $(SRC)MIN_LETTERS/
 MLX_BASIQUE_STUFF	= ../INCLUDES/SRC/
 MLX_PATH 			= ../Mlx/
 
-FILES 				=	main.c									\
-						$(SRC)others_stuff.c					\
+FILES 				=	$(SRC)others_stuff.c					\
 						$(SRC)icc_letters_utils.c				\
 						$(INCLUDE)ft_memcpy_text.c				\
 						$(INCLUDE)ft_len_text.c					\
@@ -36,7 +35,8 @@ FILES 				=	main.c									\
 						$(MIN_LETTERS_STUFF)v_w_x_y_z.c			\
 						$(MIN_LETTERS_STUFF)icc_letters.c		\
 						$(MIN_LETTERS_STUFF)icc_letters2.c		\
-						$(MLX_BASIQUE_STUFF)design_p_mlx.c
+						$(MLX_BASIQUE_STUFF)design_p_mlx.c		\
+						main.c
 
 
 FLAGS 				= -Wall -Wextra -Werror -g3

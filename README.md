@@ -14,7 +14,7 @@ Working with MiniLibX can be both exciting and challenging. This repository is y
 -  **MiniLibX Helpers**: Simplify common MiniLibX operations and functions.
 -  **Norm-Friendly**: All tools are developed to conform to the 42 norm.
 -  **Documentation**: Detailed guides and examples for each tool.
--  **Active Development**: Only when ideas are present, shall we? 😉
+-  **Active Development**: Only when ideas are present 😉
   ### What tools are up ? Which ones are you working on ?
 [x] = Usable.
 

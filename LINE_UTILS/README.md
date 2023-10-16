@@ -3,9 +3,9 @@
 draw_line is a simple function developed for the **Mlx42**. Here, I will cover the why and the how.
 # Why ?
 
-Well, if you're were, you already know why, but if you don't : the Mlx42 is a "*performant, easy to use, cross-platform, minimal windowing graphics library to create graphical applications without having to work directly with the native windowing framework of the given operating system.*". 
+Well, if you're here, you already know why, but if you don't : the Mlx42 is a "*performant, easy to use, cross-platform, minimal windowing graphics library to create graphical applications without having to work directly with the native windowing framework of the given operating system.*". 
 
-The problem is that you also are entitled to use it if you are attending 42. But this simple library does not allow you to draw lines. Anoying.
+The problem is that the use of this library is mandatory if you are attending 42. But this simple library does not allow you to draw lines. Anoying.
 
 ## For you ?
 
@@ -49,7 +49,7 @@ width is the width, in pixels, of your line.
 3. Enjoy,  ig.
 
 # Notes
-### Why a structure ? Why not just pass coordinates of points as is ?
+### Why a structure ? Why not just pass the coordinates of points as is ?
 
  - Well, because of the norme at 42, we cannot 'send' more than 4 parameters in a function. 
  ### Is it the most optimal implementation of this algorithm ?

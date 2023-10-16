@@ -13,7 +13,7 @@ If you are looking for a way to familiarize yourself with the Mlx42, and to have
 
 # How ?
 
-This function uses a simple Bresenham algorithm. This algorithm is fast and one of the simplest, but does not perform antialiasing. 
+The function uses a simple Bresenham algorithm. This algorithm is fast and one of the simplest, but does not perform antialiasing. 
 It basically looks for the nearest pixel for all points in a line.
 
 # How can I use it ?

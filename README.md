@@ -29,6 +29,9 @@ Working with MiniLibX can be both exciting and challenging. This repository is y
 To get started, explore the individual tools in this repository and refer to their respective documentation. You'll find step-by-step guides, code examples, and explanations to help you harness the power of MiniLibX while maintaining norm compliance.
 
 Enjoy !
+
+### Found a problem ? A bug ? Please, report it to us.
+
 ## Compatibility with 42 norm
 
 This toolset is designed to be compatible with the 42 norm. The current compatibility version is :

@@ -1,12 +1,16 @@
 YELLOW				=\033[0;33m
 NC					=\033[0m
 
-NAME	 			= button
+NAME	 			= button_prg
 SRC		 			= SRC/
 DESIGN_P			= $(SRC)DESIGN_PATTERN/
 CHAIN_LIST			= $(SRC)CHAIN_LIST/
 MLX_PATH 			= ../Mlx/
 MLX_BASIQUE_STUFF	= ../INCLUDES/SRC/
+TEXT_UTILS_PATH		= ../TEXT_UTILS/
+ALL_H_FILES			= INCLUDES/button.h \
+						$(TEXT_UTILS_PATH)INCLUDES/text.h
+
 
 FILES 				=	$(SRC)main.c							\
 						$(SRC)button_stuff.c					\
@@ -28,7 +32,7 @@ CC 					= gcc
 OBJS 				:= $(FILES:.c=.o)
 COMPILED 			:= 0
 
-%.o: %.c
+%.o: %.c $(ALL_H_FILES)
 	$(CC) $(FLAGS) -c $< -g -o $@
 	$(eval COMPILED=$(shell echo $$(($(COMPILED)+1))))
 
@@ -36,16 +40,19 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@echo "\033[0;34m$(CURDIR)$(NC)"
-	ar rc button.a $(OBJS)
+	ar rc $(NAME).a $(OBJS)
 	$(MAKE) -s -C $(MLX_PATH)
-	gcc button.a $(MLXFLAGS) -o $(NAME)
+	$(MAKE) -s -C $(TEXT_UTILS_PATH)
+	gcc $(NAME).a $(TEXT_UTILS_PATH)text.a $(MLXFLAGS) -o $(NAME)
 
 clean :
 	rm -f $(OBJS)
+	$(MAKE) -s -C $(TEXT_UTILS_PATH) clean
 
 fclean : clean
 	rm -f $(NAME)
-	rm -f button.a
+	rm -f $(NAME).a
+	$(MAKE) -s -C $(TEXT_UTILS_PATH) fclean
 
 re : fclean all
 

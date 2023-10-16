@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   button.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: tboldrin <tboldrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 11:52:04 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/15 12:44:20 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/16 16:50:50 by tboldrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stddef.h>
 # include <stdbool.h>
 # include "../../Mlx/mlx.h"
+# include "../../TEXT_UTILS/INCLUDES/text.h"
 # include "../../INCLUDES/basique_mlx_needed.h"
 
 # define RECT_COLOR	140

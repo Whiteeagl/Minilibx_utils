@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   text_stuff_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: tboldrin <tboldrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 22:53:51 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/15 22:58:34 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/16 18:04:54 by tboldrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	*build_string(char *string, int scale, int color)
 	resize_space = 5 * scale;
 	len_of_string = resize_space * len_of_string;
 	if (count_icc_letters(string))
-		len_of_string *= count_icc_letters(string);
+		len_of_string = dim_x_calcul(string, len_of_string);
 	new_text = mlx_new_image(get_mlx_ptr(), len_of_string, 6 * scale);
 	if (!new_text)
 		return (write_func_msg("build_string", ERR_ALLOCATION), NULL);

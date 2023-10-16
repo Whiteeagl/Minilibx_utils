@@ -35,8 +35,8 @@ FILES 				=	$(SRC)others_stuff.c					\
 						$(MIN_LETTERS_STUFF)v_w_x_y_z.c			\
 						$(MIN_LETTERS_STUFF)icc_letters.c		\
 						$(MIN_LETTERS_STUFF)icc_letters2.c		\
-						$(MLX_BASIQUE_STUFF)design_p_mlx.c		\
-						main.c
+						$(MLX_BASIQUE_STUFF)design_p_mlx.c
+
 
 
 FLAGS 				= -Wall -Wextra -Werror -g3
@@ -56,7 +56,7 @@ $(NAME): $(OBJS)
 	@echo "\033[0;34m$(CURDIR)$(NC)"
 	ar rc $(NAME).a $(OBJS)
 	$(MAKE) -s -C $(MLX_PATH)
-	gcc $(NAME).a $(MLXFLAGS) -o $(NAME)
+#gcc $(OBJS) $(NAME).a $(MLXFLAGS) -o $(NAME)
 
 clean :
 	rm -f $(OBJS)

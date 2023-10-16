@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   text.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: tboldrin <tboldrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 16:00:52 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/15 22:57:33 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/16 18:04:41 by tboldrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -183,5 +183,7 @@ int				icc_letters(char c);
 int				spaces_letters(char c);
 int				count_icc_letters(char *str);
 int				particular_scale(char c);
+int				particular_dim_scale(char c);
+int				dim_x_calcul(char *string, int len_of_string_para);
 
 #endif

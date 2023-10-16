@@ -16,6 +16,7 @@ Working with MiniLibX can be both exciting and challenging. This repository is y
 -  **Documentation**: Detailed guides and examples for each tool.
 -  **Active Development**: Only when ideas are present, shall we? 😉
   ### What tools are up ? Which ones are you working on ?
+[x] = Usable.
 
  - [x] Button_utils : A tool to create... Buttons. -  `Still in development.`
  - [x] Line_utils : A tool to create... Lines. - ` Almost finished.`

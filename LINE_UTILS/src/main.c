@@ -126,7 +126,7 @@ int	main(void)
 	img_ptr = mlx_new_image(mlx_ptr, 1000, 1000);
 	if (!img_ptr)
 		return (free(mlx_ptr), free(win_ptr), 3);
-	update_mlx_infos(mlx_ptr, win_ptr);
+	update_mlx_infos(mlx_ptr, win_ptr, img_ptr);
 	mon_programme(img_ptr);
 	mlx_hook(win_ptr, 2, 1L << 0, &handle_keypress, NULL);
 	mlx_loop(mlx_ptr);

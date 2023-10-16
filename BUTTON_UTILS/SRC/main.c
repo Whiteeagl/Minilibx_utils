@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: rciaze <rciaze@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 11:15:51 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/14 11:57:38 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/16 12:26:25 by rciaze           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	main(void)
 	win_ptr = mlx_new_window(mlx_ptr, 800, 600, "Image Minilibx");
 	if (!win_ptr)
 		return (free(mlx_ptr), 2);
-	update_mlx_infos(mlx_ptr, win_ptr);
+	update_mlx_infos(mlx_ptr, win_ptr, NULL);
 	mon_programme();
 	mlx_hook(win_ptr, 2, 1L << 0, &handle_keypress, NULL);
 	mlx_loop(mlx_ptr);

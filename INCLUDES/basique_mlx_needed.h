@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   basique_mlx_needed.h                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: rciaze <rciaze@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 12:35:55 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/15 16:40:17 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/16 12:25:55 by rciaze           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ typedef struct s_mlx_stuff
 {
 	void	*mlx_ptr;
 	void	*win_ptr;
+	void	*img_ptr;
 }t_mlx_stuff;
 
 t_mlx_stuff	*mlx_instance(void);
@@ -27,7 +28,7 @@ t_mlx_stuff	*mlx_instance(void);
 void		*get_mlx_ptr(void);
 void		*get_win_ptr(void);
 
-void		update_mlx_infos(void *mlx_ptr, void *win_ptr);
+void		update_mlx_infos(void *mlx_ptr, void *win_ptr, void *img_ptr);
 void		free_mlx_infos(void);
 
 #endif

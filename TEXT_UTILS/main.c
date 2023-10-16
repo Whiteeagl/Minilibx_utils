@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: rciaze <rciaze@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 16:06:53 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/16 00:16:15 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/16 12:26:37 by rciaze           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	main(void)
 	mlx_win = mlx_new_window(mlx_ptr, 800, 600, "Custom Text");
 	if (!mlx_win)
 		return (free(mlx_ptr), 2);
-	update_mlx_infos(mlx_ptr, mlx_win);
+	update_mlx_infos(mlx_ptr, mlx_win, NULL);
 	init_all_min_letters(&min_letters);
 	tests_here();
 	mlx_loop(mlx_ptr);

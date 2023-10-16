@@ -6,7 +6,7 @@
 /*   By: tboldrin <tboldrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 11:15:51 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/16 17:54:21 by tboldrin         ###   ########.fr       */
+/*   Updated: 2023/10/16 18:29:05 by tboldrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,22 +22,9 @@ void	mon_programme(void)
 {
 	void	*t;
 
-	t = build_string("cx", 3, 0xFFFFFF);
+	t = build_string("cx", 3, 0xFFFFFF, RECT_COLOR);
 	create_button(100, 100, 400, 400);
 	display_string(t, 105, 110);
-
-	
-	t = build_string("cx", 3, 0xFFFFFF);
-	display_string(t, 105, 140);
-
-	t = build_string("cy", 3, 0xFFFFFF);
-	display_string(t, 105, 160);
-
-	t = build_string("cw", 3, 0xFFFFFF);
-	display_string(t, 105, 180);
-
-	t = build_string("cz", 3, 0xFFFFFF);
-	display_string(t, 105, 200);
 	
 	return ;
 }

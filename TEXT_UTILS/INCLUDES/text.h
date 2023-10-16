@@ -6,7 +6,7 @@
 /*   By: tboldrin <tboldrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 16:00:52 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/16 18:04:41 by tboldrin         ###   ########.fr       */
+/*   Updated: 2023/10/16 18:27:15 by tboldrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,12 @@ typedef struct s_text_addr
 	t_text_addr_lst			*tail;
 }t_text_addr;
 
+typedef struct s_fbg_color
+{
+	int	fg_color;
+	int	bg_color;
+}t_fbg_color;
+
 t_text_addr_lst	*new_pointer(void *pointer_to);
 t_icc_letters	*get_icc_letters_instance(void);
 t_text_addr		*get_text_list_instance(void);
@@ -118,7 +124,7 @@ t_all_text		*get_all_text_instance(void);
 size_t			ft_len_text(char *string);
 
 void			*ft_memcpy_text(void *dest, const void *src, size_t n);
-void			*build_string(char *string, int scale, int color);
+void			*build_string(char *string, int scale, int fg_color, int bg_color);
 
 void			create_icc_letters(t_min_letters *min_letters);
 void			create_no_icc_letters(t_min_letters *min_letters);
@@ -130,14 +136,15 @@ void			update_scale_value(int new_scale);
 void			add_text_pointer(void *pointer);
 void			free_text_addr_list(void);
 void			err_charactere_not_recoginzed(char c);
-void			parse_and_print(void *img, char *string, int scale, int color);
+void			parse_and_print(void *img, char *string,
+					int scale, t_fbg_color *fbg_colors);
 void			display_string(void *img, int x, int y);
 void			put_pixel_to_image(void *img, int x, int y, int color);
 void			draw_pixel_baby(void *img, t_pixel_stuff *p_stuff,
-					int (*array)[4], int color);
+					int (*array)[4], t_fbg_color *fbg_colors);
 
-void			fill_icc_cara(void *img, char c, int x, int color);
-void			dipslay_cara(void *img, char c, int x, int color);
+void			fill_icc_cara(void *img, char c, int x, t_fbg_color *fbg_colors);
+void			dipslay_cara(void *img, char c, int x, t_fbg_color *fbg_colors);
 
 void			write_msg(char *string);
 void			write_func_msg(char *func_name, char *msg);

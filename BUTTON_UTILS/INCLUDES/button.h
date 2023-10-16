@@ -6,7 +6,7 @@
 /*   By: tboldrin <tboldrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 11:52:04 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/16 16:50:50 by tboldrin         ###   ########.fr       */
+/*   Updated: 2023/10/16 18:38:51 by tboldrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include "../../TEXT_UTILS/INCLUDES/text.h"
 # include "../../INCLUDES/basique_mlx_needed.h"
 
-# define RECT_COLOR	140
+# define RECT_COLOR	0x808080
 # define ESC		65307
 
 typedef struct c_image_stuff

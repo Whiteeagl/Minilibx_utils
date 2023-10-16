@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   button_stuff.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: tboldrin <tboldrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 11:16:18 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/14 11:54:50 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/16 18:35:42 by tboldrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ void	*init_button(int width, int height, int color)
 			&bits_per_pixel, &size_line, &endian);
 	while (i < width * height * (bits_per_pixel / 8))
 	{
-		img.image_data[i] = color;
-		img.image_data[i + 1] = color;
-		img.image_data[i + 2] = color;
+		img.image_data[i] = color & 0xFF;
+		img.image_data[i + 1] = (color >> 8) & 0xFF;
+		img.image_data[i + 2] = (color >> 16) & 0xFF;
 		img.image_data[i + 3] = 0;
 		i += 4;
 	}

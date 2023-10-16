@@ -6,7 +6,7 @@
 /*   By: tboldrin <tboldrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 22:51:59 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/16 17:46:41 by tboldrin         ###   ########.fr       */
+/*   Updated: 2023/10/16 18:32:50 by tboldrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,34 +46,42 @@ void	put_pixel_to_image(void *img, int x, int y, int color)
 	cases ajoutées sur la même ligne.)
 
 */
-void	draw_pixel_baby(void *img, t_pixel_stuff *p_stuff,
-			int (*array)[4], int color)
+
+void	check_if_one(void *img, t_pixel_stuff *p_stuff, int color)
 {
 	int	scale;
 
 	scale = get_scale();
-	if (array[p_stuff->i][p_stuff->j])
+	p_stuff->dx = 0;
+	while (p_stuff->dx < scale)
 	{
-		p_stuff->dx = 0;
-		while (p_stuff->dx < scale)
+		p_stuff->dy = 0;
+		while (p_stuff->dy < scale)
 		{
-			p_stuff->dy = 0;
-			while (p_stuff->dy < scale)
-			{
-				p_stuff->pixel_x = (p_stuff->x
-						+ p_stuff->j * scale + p_stuff->dx);
-				p_stuff->pixel_y = (p_stuff->y
-						+ p_stuff->i * scale + p_stuff->dy);
-				put_pixel_to_image(img, p_stuff->pixel_x,
-					p_stuff->pixel_y, color);
-				p_stuff->dy += 1;
-			}
-			p_stuff->dx += 1;
+			p_stuff->pixel_x = (p_stuff->x
+					+ p_stuff->j * scale + p_stuff->dx);
+			p_stuff->pixel_y = (p_stuff->y
+					+ p_stuff->i * scale + p_stuff->dy);
+			put_pixel_to_image(img, p_stuff->pixel_x,
+				p_stuff->pixel_y, color);
+			p_stuff->dy += 1;
 		}
+		p_stuff->dx += 1;
 	}
 }
 
-void	fill_icc_cara(void *img, char c, int x, int color)
+
+void	draw_pixel_baby(void *img, t_pixel_stuff *p_stuff,
+			int (*array)[4], t_fbg_color *fbg_colors)
+{
+	if (array[p_stuff->i][p_stuff->j])
+		check_if_one(img, p_stuff, fbg_colors->bg_color);
+	//else
+	//	check_if_one(img, p_stuff, fbg_colors->bg_color);
+
+}
+
+void	fill_icc_cara(void *img, char c, int x, t_fbg_color *fbg_colors)
 {
 	t_pixel_stuff	p_stuff;
 	int				(*array2)[4];
@@ -88,7 +96,7 @@ void	fill_icc_cara(void *img, char c, int x, int color)
 	{
 		p_stuff.j = -1;
 		while (++p_stuff.j < 4)
-			draw_pixel_baby(img, &p_stuff, array2, color);
+			draw_pixel_baby(img, &p_stuff, array2, fbg_colors);
 	}
 }
 
@@ -97,7 +105,7 @@ void	fill_icc_cara(void *img, char c, int x, int color)
 	sur une image donnée.
 
 */
-void	dipslay_cara(void *img, char c, int x, int color)
+void	dipslay_cara(void *img, char c, int x, t_fbg_color *fbg_colors)
 {
 	t_pixel_stuff	p_stuff;
 	int				(*array)[4];
@@ -114,8 +122,8 @@ void	dipslay_cara(void *img, char c, int x, int color)
 	{
 		p_stuff.j = -1;
 		while (++p_stuff.j < 4)
-			draw_pixel_baby(img, &p_stuff, array, color);
+			draw_pixel_baby(img, &p_stuff, array, fbg_colors);
 	}
 	if (icc_letters(c))
-		fill_icc_cara(img, c, x, color);
+		fill_icc_cara(img, c, x, fbg_colors);
 }

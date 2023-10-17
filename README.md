@@ -21,7 +21,9 @@ Working with MiniLibX can be both exciting and challenging. This repository is y
  - [x] Button_utils : A tool to create... Buttons. -  `Still in development.`
  - [x] Line_utils : A tool to create... Lines. - ` Almost finished.`
  - [x] Text_utils : - A tool to create... Text. - `Still in active development`
- - [ ] Circle_utils : A tool to create... circles. - `Upcoming`
+ - [ ] Circle_utils : A tool to create... Circles. - `Upcoming`
+ - [ ] Triangle_utils : A tool to create... Triangles. - `Upcoming`
+ - [ ] Square_utils : A tool to create... Squares. - `Upcoming`
  
  And more to come...
 ## Usage

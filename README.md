@@ -23,7 +23,7 @@ Working with MiniLibX can be both exciting and challenging. This repository is y
  - [x] Text_utils : - A tool to create... Text. - `Still in active development`
  - [ ] Circle_utils : A tool to create... Circles. - `Upcoming`
  - [ ] Triangle_utils : A tool to create... Triangles. - `Upcoming`
- - [ ] Square_utils : A tool to create... Squares. - `Upcoming`
+ - [ ] Rectangle_utils : A tool to create... Rectangle. - `Upcoming`
  
  And more to come...
 ## Usage

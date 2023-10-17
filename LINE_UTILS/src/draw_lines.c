@@ -6,7 +6,7 @@
 /*   By: rciaze <rciaze@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 23:57:06 by raphael           #+#    #+#             */
-/*   Updated: 2023/10/17 15:11:10 by rciaze           ###   ########.fr       */
+/*   Updated: 2023/10/17 15:20:12 by rciaze           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,12 @@ void	draw_line(t_line line, void *img, int color)
 	else
 		case_2(&line, &data, color);
 }
+
+//	These two function are used to calculate the alghorithm.
+//	No pixels are drawn here.
+//	The algorithm, as you can see, is very simple.
+//	I will not explain it here,
+//	but you can find very good explanations of it on youtube.
 
 void	case_1(t_line *line, t_data_for_line *data, unsigned int color)
 {
@@ -63,6 +69,9 @@ void	case_2(t_line *line, t_data_for_line *data, unsigned int color)
 		}
 	}
 }
+
+//	These two functions are used to draw the actual pixels.
+//	No calculations are done here, : we just draw the pixels.
 
 void	draw_actual_pixels_case_1(t_data_for_line *data, t_line *line,
 		unsigned int color)

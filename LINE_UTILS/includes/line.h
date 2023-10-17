@@ -6,7 +6,7 @@
 /*   By: rciaze <rciaze@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 19:03:42 by raphael           #+#    #+#             */
-/*   Updated: 2023/10/17 15:12:57 by rciaze           ###   ########.fr       */
+/*   Updated: 2023/10/17 15:20:29 by rciaze           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,5 @@ void	draw_actual_pixels_case_1(t_data_for_line *data, t_line *line,
 void	draw_actual_pixels_case_2(t_data_for_line *data, t_line *line,	
 			unsigned int color);
 t_line	init_line(int x1, int y1, int x2, int y2);
-		
+
 #endif

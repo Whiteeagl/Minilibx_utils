@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_lines.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raphael <raphael@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rciaze <rciaze@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 23:57:06 by raphael           #+#    #+#             */
-/*   Updated: 2023/10/16 01:33:47 by raphael          ###   ########.fr       */
+/*   Updated: 2023/10/17 15:11:10 by rciaze           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,19 +70,19 @@ void	draw_actual_pixels_case_1(t_data_for_line *data, t_line *line,
 	char			*pixel_offset;
 	int				w;
 
-	pixel_offset = data->img_data + (line->y1 * data->img_width + line->x1) 
+	pixel_offset = data->img_data + (line->y1 * data->img_width + line->x1)
 		* (data->bits_per_pixel / 8);
 	*(unsigned int *)pixel_offset = color;
 	w = 0;
 	while (++w <= line->width / 2)
 	{
-		pixel_offset = data->img_data + ((line->y1 - w) * 
-				data->img_width + line->x1) * (data->bits_per_pixel / 8);
+		pixel_offset = data->img_data + ((line->y1 - w)
+				* data->img_width + line->x1) * (data->bits_per_pixel / 8);
 		*(unsigned int *)pixel_offset = color;
 		if (w != line->width / 2 || line->width % 2 == 1)
 		{
-			pixel_offset = data->img_data + ((line->y1 + w) * 
-					data->img_width + line->x1) * (data->bits_per_pixel / 8);
+			pixel_offset = data->img_data + ((line->y1 + w)
+					* data->img_width + line->x1) * (data->bits_per_pixel / 8);
 			*(unsigned int *)pixel_offset = color;
 		}
 	}

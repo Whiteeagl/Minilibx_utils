@@ -1,13 +1,13 @@
 /* ************************************************************************** */
-/*																			*/
-/*														:::	  ::::::::   */
-/*   main.c											 :+:	  :+:	:+:   */
-/*													+:+ +:+		 +:+	 */
-/*   By: raphael <raphael@student.42.fr>			+#+  +:+	   +#+		*/
-/*												+#+#+#+#+#+   +#+		   */
-/*   Created: 2023/10/15 19:06:18 by raphael		   #+#	#+#			 */
-/*   Updated: 2023/10/15 22:42:43 by raphael		  ###   ########.fr	   */
-/*																			*/
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rciaze <rciaze@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/17 15:09:53 by rciaze            #+#    #+#             */
+/*   Updated: 2023/10/17 15:09:56 by rciaze           ###   ########.fr       */
+/*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/line.h"
@@ -41,72 +41,51 @@ void	mon_programme(void *img)
 	t_mlx_stuff	*mlx;
 
 	mlx = mlx_instance();
-	line.x1 = 350;
-	line.y1 = 850;
-	line.x2 = 350;
-	line.y2 = 650;
+
+	line = init_line(350, 850, 350, 650);
 	line.width = 30;
 	draw_line(line, img, 0x00FF00);
-	line.x1 = 425;
-	line.y1 = 850;
-	line.x2 = 425;
-	line.y2 = 650;
+
+	line = init_line(425, 850, 425, 650);
 	line.width = 25;
 	draw_line(line, img, 0x0000FF);
-	line.x1 = 500;
-	line.y1 = 850;
-	line.x2 = 500;
-	line.y2 = 650;
+
+	line = init_line(500, 850, 500, 650);
 	line.width = 20;
 	draw_line(line, img, 0x00FFFF);
-	line.x1 = 575;
-	line.y1 = 850;
-	line.x2 = 575;
-	line.y2 = 650;
+
+	line = init_line(575, 850, 575, 650);
 	line.width = 15;
 	draw_line(line, img, 0xFF00FF);
-	line.x1 = 650;
-	line.y1 = 850;
-	line.x2 = 650;
-	line.y2 = 650;
+
+	line = init_line(650, 850, 650, 650);
 	line.width = 10;
 	draw_line(line, img, 0xFFFF00);
-	line.x1 = 725;
-	line.y1 = 850;
-	line.x2 = 725;
-	line.y2 = 650;
+
+	line = init_line(725, 850, 725, 650);
 	line.width = 5;
 	draw_line(line, img, 0xFFFFFF);
-	line.x1 = 720;
-	line.y1 = 648;
-	line.x2 = 900;
-	line.y2 = 850;
+
+	line = init_line(720, 648, 900, 850);
 	line.width = 15;
 	draw_line(line, img, 0xFF0F0F);
-	line.x1 = 335;
-	line.y1 = 648;
-	line.x2 = 175;
-	line.y2 = 850;
+
+	line = init_line(335, 648, 175, 850);
 	line.width = 15;
 	draw_line(line, img, 0xFF0F0F);
-	line.x1 = 727;
-	line.y1 = 650;
-	line.x2 = 336;
-	line.y2 = 650;
+
+	line = init_line(727, 650, 336, 650);
 	line.width = 5;
 	draw_line(line, img, 0xFF0F0F);
-	line.x1 = 727;
-	line.y1 = 650;
-	line.x2 = 336;
-	line.y2 = 650;
+
+	line = init_line(727, 650, 336, 650);
 	line.width = 5;
 	draw_line(line, img, 0xFF0F0F);
-	line.x1 = 50;
-	line.y1 = 850;
-	line.x2 = 950;
-	line.y2 = 850;
+
+	line = init_line(50, 850, 950, 850);
 	line.width = 50;
 	draw_line(line, img, 0xFFFFFF);
+
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, img, 0, 0);
 	return ;
 }

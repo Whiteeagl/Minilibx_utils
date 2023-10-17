@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   line.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raphael <raphael@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rciaze <rciaze@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 19:03:42 by raphael           #+#    #+#             */
-/*   Updated: 2023/10/16 01:32:11 by raphael          ###   ########.fr       */
+/*   Updated: 2023/10/17 15:12:57 by rciaze           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,6 @@ void	draw_actual_pixels_case_1(t_data_for_line *data, t_line *line,
 			unsigned int color);
 void	draw_actual_pixels_case_2(t_data_for_line *data, t_line *line,	
 			unsigned int color);
+t_line	init_line(int x1, int y1, int x2, int y2);
+		
 #endif

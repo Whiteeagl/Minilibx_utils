@@ -3,14 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raphael <raphael@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rciaze <rciaze@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 00:06:16 by raphael           #+#    #+#             */
-/*   Updated: 2023/10/16 01:31:25 by raphael          ###   ########.fr       */
+/*   Updated: 2023/10/17 15:05:11 by rciaze           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/line.h"
+
+// This function is used to initialize a line structure.
+// It's not necessary, but it's cleaner to use it.
+// It allows you to save line, in order to make the norme happy.
+
+t_line	init_line(int x1, int y1, int x2, int y2)
+{
+	t_line	line;
+
+	line.x1 = x1;
+	line.y1 = y1;
+	line.x2 = x2;
+	line.y2 = y2;
+	return (line);
+}
 
 //	If you can use abs, use it. It's much faster than our implementation.
 //	We can't reproduce exactly the function, because of... 

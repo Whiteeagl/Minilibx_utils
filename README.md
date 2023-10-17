@@ -30,7 +30,7 @@ To get started, explore the individual tools in this repository and refer to the
 
 Enjoy !
 
-### Found a problem ? A bug ? Please, report it to us.
+### [Found a problem ? A bug ? Please, report it to us.](https://github.com/Whiteeagl/Minilibx_utils/issues)
 
 ## Compatibility with 42 norm
 

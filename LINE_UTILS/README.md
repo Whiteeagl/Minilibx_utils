@@ -62,9 +62,6 @@ width is the width, in pixels, of your line.
 ### Is it leak free ?
 
  - It is.
- ### Does it follow the norm ?
-	 
- - It does.
 
 ### Really, if it's not that optimized and I can't use it, why ?
 

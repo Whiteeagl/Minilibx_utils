@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 16:00:52 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/19 23:20:33 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/19 23:43:20 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,11 +144,13 @@ void			add_text_pointer(void *pointer);
 void			free_text_addr_list(void);
 void			err_charactere_not_recoginzed(char c);
 void			parse_and_print(void *img, char *string,
-					int scale, t_fbg_color *fbg_colors);
+					t_fbg_color *fbg_colors);
 void			display_string(void *img, int x, int y);
 void			put_pixel_to_image(void *img, int x, int y, int color);
 void			draw_pixel_baby(void *img, t_pixel_stuff *p_stuff,
 					int (*array)[WIDTH], t_fbg_color *fbg_colors);
+void			check_if_one(void *img,
+					t_pixel_stuff *p_stuff, int color);
 
 void			fill_icc_cara(void *img, char c, int x, t_fbg_color *fbg_colors);
 void			dipslay_cara(void *img, char c, int x, t_fbg_color *fbg_colors);

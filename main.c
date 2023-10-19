@@ -22,7 +22,7 @@ void    mon_prog(void)
 
     create_empty_button(0, 0, 1800, 500);
     //build_string("abcdefghijklnopqrstu", 10, WHITE, RECT_COLOR);
-    build_string("abcdefghijklmnopqrstuvwxyz", 8, WHITE, RECT_COLOR);
+    build_string("abcdefghijklmnopqrstuvwxyz", 10, WHITE, RECT_COLOR);
     //display_string(t, 10, 400); abcdefuvwxy
 }
 

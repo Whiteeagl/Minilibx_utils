@@ -1,58 +1,38 @@
-YELLOW				=\033[0;33m
-NC					=\033[0m
+PARENT_DIR			:=	$(notdir $(patsubst %/,%,$(dir $(abspath $(lastword $(MAKEFILE_LIST))))))
 
-NAME	 			= button_prg
-SRC		 			= SRC/
-DESIGN_P			= $(SRC)DESIGN_PATTERN/
-CHAIN_LIST			= $(SRC)CHAIN_LIST/
-MLX_PATH 			= ../Mlx/
-MLX_BASIQUE_STUFF	= ../INCLUDES/SRC/
-TEXT_UTILS_PATH		= ../TEXT_UTILS/
-ALL_H_FILES			= INCLUDES/button.h \
-						$(TEXT_UTILS_PATH)INCLUDES/text.h
+SRC					=	SRC/
+DESIGN_P			=	$(SRC)DESIGN_PATTERN/
+CHAIN_LIST			=	$(SRC)CHAIN_LIST/
+MLX_BASIQUE_STUFF	=	../INCLUDES/SRC/
 
+NAME				=	button_utils
 
-FILES 				=	$(SRC)main.c							\
-						$(SRC)button_stuff.c					\
-						$(SRC)exit_stuff.c						\
-						$(SRC)mouse_stuff.c						\
-						$(SRC)keys_stuff.c						\
-						$(SRC)other_stuff.c						\
-						$(DESIGN_P)design_p_mouse.c				\
-						$(DESIGN_P)design_p_chain_list.c		\
-						$(DESIGN_P)design_p_button_collide.c	\
-						$(DESIGN_P)design_p_tmp_button_stuff.c	\
-						$(CHAIN_LIST)chain_list_button.c		\
-						$(MLX_BASIQUE_STUFF)design_p_mlx.c
+vpath %.c			$(SRC) 					\
+					$(DESIGN_P)				\
+					$(CHAIN_LIST)			\
+					$(MLX_BASIQUE_STUFF)
 
-FLAGS 				= -Wall -Wextra -Werror -g3
-MLXFLAGS 			= -L../Mlx -lmlx -L/usr/include/../lib -lXext -lX11 -lm -lbsd
-CC 					= gcc
+FILES				:=	$(wildcard $(SRC)*.c)				\
+						$(wildcard $(DESIGN_P)*.c)			\
+						$(wildcard $(CHAIN_LIST)*.c)		\
+						$(wildcard $(MLX_BASIQUE_STUFF)*.c)
 
-OBJS 				:= $(FILES:.c=.o)
-COMPILED 			:= 0
+FLAGS				=	-Wall -Wextra -Werror -g3
+CC					=	gcc
 
-%.o: %.c $(ALL_H_FILES)
-	$(CC) $(FLAGS) -c $< -g -o $@
-	$(eval COMPILED=$(shell echo $$(($(COMPILED)+1))))
+OBJ_DIR				=	../obj/$(PARENT_DIR)
+OBJS				=	$(addprefix $(OBJ_DIR)/, $(notdir $(FILES:.c=.o)))
 
 all: $(NAME)
 
+$(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
+	$(CC) $(FLAGS) -c $< -g -o $@
+
+$(OBJ_DIR):
+	mkdir -p $@
+
 $(NAME): $(OBJS)
-	@echo "\033[0;34m$(CURDIR)$(NC)"
 	ar rc $(NAME).a $(OBJS)
-	$(MAKE) -s -C $(MLX_PATH)
-	$(MAKE) -s -C $(TEXT_UTILS_PATH)
-	gcc $(NAME).a $(TEXT_UTILS_PATH)text.a $(MLXFLAGS) -o $(NAME)
+	mv $(NAME).a ../lib
 
-clean :
-	rm -f $(OBJS)
-	$(MAKE) -s -C $(TEXT_UTILS_PATH) clean
-
-fclean : clean
-	rm -f $(NAME)
-	rm -f $(NAME).a
-	$(MAKE) -s -C $(TEXT_UTILS_PATH) fclean
-
-re : fclean all
-
+.PHONY: all

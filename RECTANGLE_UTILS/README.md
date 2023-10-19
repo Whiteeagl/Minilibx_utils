@@ -11,8 +11,9 @@ Please, read the README for this function, and come back, I'll be waiting.
 ## init_rectangle in more details :
 
 So, this function's prototype is :
-
+```c
     t_line  init_rectangle(int  x1,  int  y1,  int  x2,  int  y2)
+```
 It's as simple as it sounds :
 
  - x1, y1	: These are to coordinates of your upper-left corner.
@@ -27,14 +28,20 @@ To simplify the amount of code you have to understand (and the amount I have to 
 
 No problem ! Just declare a t_line variable :
 
+```c
 	t_line	rectangle;
+```
 
 (i know it sounds weird)
 
 And store the return value of init_rectangle :
 
+```c
 	rectangle = init_rectangle(50,  100,  300,  200);
+```
 
 As you probably guessed, because of the... Norm ! You, unfortunately, can't store colour directly in your variable, as it would break the four arguments limit. You will need to choose it when printing your rectangle :
 
+```c
 	draw_line(rectangle,  img,  0x00FF00);
+```

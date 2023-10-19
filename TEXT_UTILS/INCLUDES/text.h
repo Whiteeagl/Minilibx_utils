@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 16:00:52 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/19 23:43:20 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/20 00:26:18 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,6 @@ typedef struct s_pixel_stuff
 	int	pixel_y;
 }t_pixel_stuff;
 
-
 typedef struct s_tmp_scale
 {
 	int	scale;
@@ -124,11 +123,11 @@ t_text_addr		*get_text_list_instance(void);
 t_tmp_scale		*get_scale_instance(void);
 t_all_text		*get_all_text_instance(void);
 
-
 size_t			ft_len_text(char *string);
 
 void			*ft_memcpy_text(void *dest, const void *src, size_t n);
-void			*build_string(char *string, int scale, int fg_color, int bg_color);
+void			*build_string(char *string,
+					int scale, int fg_color, int bg_color);
 
 void			create_icc_letters(t_min_letters *min_letters);
 void			create_no_icc_letters(t_min_letters *min_letters);
@@ -152,8 +151,10 @@ void			draw_pixel_baby(void *img, t_pixel_stuff *p_stuff,
 void			check_if_one(void *img,
 					t_pixel_stuff *p_stuff, int color);
 
-void			fill_icc_cara(void *img, char c, int x, t_fbg_color *fbg_colors);
-void			dipslay_cara(void *img, char c, int x, t_fbg_color *fbg_colors);
+void			fill_icc_cara(void *img,
+					char c, int x, t_fbg_color *fbg_colors);
+void			dipslay_cara(void *img,
+					char c, int x, t_fbg_color *fbg_colors);
 
 void			write_msg(char *string);
 void			write_func_msg(char *func_name, char *msg);

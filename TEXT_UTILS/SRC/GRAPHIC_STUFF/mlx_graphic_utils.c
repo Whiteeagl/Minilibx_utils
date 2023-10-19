@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 22:51:59 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/19 23:25:19 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/20 00:19:31 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ void	put_pixel_to_image(void *img, int x, int y, int color)
 	cases ajoutées sur la même ligne.)
 
 */
-
 void	check_if_one(void *img, t_pixel_stuff *p_stuff, int color)
 {
 	int	scale;
@@ -64,13 +63,16 @@ void	check_if_one(void *img, t_pixel_stuff *p_stuff, int color)
 					+ p_stuff->i * scale + p_stuff->dy);
 			put_pixel_to_image(img, p_stuff->pixel_x,
 				p_stuff->pixel_y, color);
-			display_string(img, 0, 100);
 			p_stuff->dy += 1;
 		}
 		p_stuff->dx += 1;
 	}
 }
 
+/*
+	Permet de checker si c'est un pixel à allumer, si oui ON L'ALLUME
+
+*/
 void	draw_pixel_baby(void *img, t_pixel_stuff *p_stuff,
 			int (*array)[WIDTH], t_fbg_color *fbg_colors)
 {
@@ -78,7 +80,6 @@ void	draw_pixel_baby(void *img, t_pixel_stuff *p_stuff,
 		check_if_one(img, p_stuff, fbg_colors->fg_color);
 	else
 		check_if_one(img, p_stuff, fbg_colors->bg_color);
-
 }
 
 void	fill_icc_cara(void *img, char c, int x, t_fbg_color *fbg_colors)

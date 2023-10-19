@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 23:16:18 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/19 23:17:06 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/20 00:24:22 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 t_special_cara	*get_special_cara_instance(void)
 {
 	static t_special_cara	instance;
-	
+
 	return (&instance);
 }

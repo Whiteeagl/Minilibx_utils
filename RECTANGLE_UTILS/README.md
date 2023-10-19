@@ -4,7 +4,10 @@ Great question ! I got you. We will use draw_line, in coordination with another 
 Alright alright.
 You shall draw a rectangle this way :
 
+```c
     draw_line(init_rectangle(50,  100,  300,  200),  img,  0x00FF00);
+```
+
 ### What the hell is draw_line ?
 Please, read the README for this function, and come back, I'll be waiting.
 

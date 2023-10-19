@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 11:52:04 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/19 16:42:11 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/20 00:48:26 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,5 +104,10 @@ int						handle_mouse_click(int button);
 int						handle_mouse_move(int x, int y);
 int						get_mx(void);
 int						get_my(void);
+
+
+
+void	create_text_button(int x, int y, char *string, int scale);
+
 
 #endif

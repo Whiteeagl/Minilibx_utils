@@ -2,10 +2,8 @@
 
 void	mon_prog(void)
 {
-	void	*t;
-
-	t = build_string("coucou", 10, WHITE, RED);
-	display_string(t, 100, 100);
+	create_text_button(50, 50, "one", 6);
+	create_text_button(50, 150, "two", 6);
 }
 
 int main(void)

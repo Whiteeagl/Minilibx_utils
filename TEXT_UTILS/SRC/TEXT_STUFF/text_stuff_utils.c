@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 22:53:51 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/20 00:24:49 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/20 00:45:35 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	*build_string(char *string, int scale, int fg_color, int bg_color)
 	update_scale_value(scale);
 	width = sum_icc_letters(string) * get_scale();
 	width = width + (ft_len_text(string) - 1) * get_scale();
-	new_text = mlx_new_image(get_mlx_ptr(), width, 100);
+	new_text = mlx_new_image(get_mlx_ptr(), width, scale * LENGTH);
 	if (!new_text)
 		return (write_func_msg("build_string", ERR_ALLOCATION), NULL);
 	parse_and_print(new_text, string, &fbg_colors);

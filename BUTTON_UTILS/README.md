@@ -26,27 +26,27 @@ To create and display an interactive button using the create_button function, fo
 2. Call `create_button` with the appropriate parameters to generate the button:
 
 ```c
-	create_button(100, 200, 120, 40);
+create_button(100, 200, 120, 40);
 ```
 
 3. You can customize the behavior of the button as you see fit. You can obtain the ID of the clicked button using the following design pattern: `get_collide_origin()->id`. You have the option to modify an included function in the program called 'handle_mouse_click(int button)' or create your own.
 
 
 ```c
-	int	handle_mouse_click(int button)
+int	handle_mouse_click(int button)
+{
+	if (button == 1)
 	{
-		if (button == 1)
-		{
-			if (is_mouse_inside_rect())
-				printf("Clic on bouton (ID : %d)\n", get_collide_origin()->id);
-		if (get_collide_origin())
-		{
-			if (get_collide_origin()->id == 2)
-				printf("Hey ! I'm a button.\n");
-			}
+		if (is_mouse_inside_rect())
+			printf("Clic on bouton (ID : %d)\n", get_collide_origin()->id);
+	if (get_collide_origin())
+	{
+		if (get_collide_origin()->id == 2)
+			printf("Hey ! I'm a button.\n");
 		}
-		return (0);
 	}
+	return (0);
+}
 ```
 
 Enjoy !

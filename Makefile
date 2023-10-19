@@ -7,13 +7,13 @@ FLAGS		=	-Wall -Wextra -Werror -g3
 
 .PHONY: all clean $(SUBDIRS)
 
-all: create_obj_lib $(SUBDIRS)
+all: $(SUBDIRS)
 
 create_obj_lib:
 	mkdir -p obj/
 	mkdir -p lib/
 
-$(SUBDIRS):
+$(SUBDIRS): create_obj_lib
 	$(MAKE) -C $@
 
 compile: $(SUBDIRS)

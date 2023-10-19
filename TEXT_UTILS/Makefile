@@ -8,6 +8,7 @@ CHAIN_LIST			=	$(SRC)CHAIN_LIST/
 INIT_STUFF			=	$(SRC)INIT_STUFF/
 GRAPHIC_STUFF		=	$(SRC)GRAPHIC_STUFF/
 TEXT_STUFF			=	$(SRC)TEXT_STUFF/
+SPECIAL_CARA		=	$(SRC)SPECIAL_CARA/
 ERROR_STUFF			=	$(SRC)ERROR_STUFF/
 MIN_LETTERS_STUFF	=	$(SRC)MIN_LETTERS/
 MLX_BASIQUE_STUFF	=	../INCLUDES/SRC/
@@ -21,6 +22,7 @@ vpath %.c			$(SRC)					\
 					$(CHAIN_LIST)			\
 					$(INIT_STUFF)			\
 					$(ERROR_STUFF)			\
+					$(SPECIAL_CARA)			\
 					$(GRAPHIC_STUFF)		\
 					$(MIN_LETTERS_STUFF)	\
 					$(MLX_BASIQUE_STUFF)
@@ -32,6 +34,7 @@ FILES				:= 	$(wildcard $(SRC)*.c)				\
 						$(wildcard $(CHAIN_LIST)*.c)		\
 						$(wildcard $(INIT_STUFF)*.c)		\
 						$(wildcard $(ERROR_STUFF)*.c)		\
+						$(wildcard $(SPECIAL_CARA)*.c)		\
 						$(wildcard $(GRAPHIC_STUFF)*.c)		\
 						$(wildcard $(MIN_LETTERS_STUFF)*.c)	\
 						$(wildcard $(MLX_BASIQUE_STUFF)*.c)

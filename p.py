@@ -81,8 +81,17 @@ lz_end = [
     [1, 1, 0, 0]
 ]
 
-l_all   = [lz, lz_end]
-l_n_all = ["z", "z_end"]
+l_space = [
+    [1, 0, 0, 0],
+    [1, 0, 0, 0],
+    [1, 0, 0, 0],
+    [1, 0, 0, 0],
+    [1, 0, 0, 0],
+    [1, 0, 0, 0]
+]
+
+l_all   = [l_space]
+l_n_all = ["space"]
 
 
 for letter_idx, letter in enumerate(l_all):

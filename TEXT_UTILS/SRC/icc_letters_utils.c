@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 22:37:29 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/19 22:40:19 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/19 22:54:15 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	particular_scale(char c)
 		return (5);
 	if (c == 'w')
 		return (7);
-	return (4);
+	return (WIDTH);
 }
 
 int	sum_icc_letters(char *str)

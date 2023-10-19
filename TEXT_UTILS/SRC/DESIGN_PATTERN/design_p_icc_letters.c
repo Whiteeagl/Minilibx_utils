@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 19:06:31 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/15 22:32:25 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/19 22:49:53 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_icc_letters	*get_icc_letters_instance(void)
 	return (&instance);
 }
 
-int	(*get_min_icc_letters(char c))[4]
+int	(*get_min_icc_letters(char c))[WIDTH]
 {
 	t_icc_letters	*icc_instance;
 

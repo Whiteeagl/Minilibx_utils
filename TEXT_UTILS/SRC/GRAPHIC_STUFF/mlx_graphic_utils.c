@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 22:51:59 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/19 20:24:28 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/19 23:25:19 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	put_pixel_to_image(void *img, int x, int y, int color)
 
 /*
 	Permet d'appliquer le facteur de résolution (scale)
-	sur une map (6 * 4) qui représente une lettre particulière.
+	sur une map (LENGTH * WIDTH) qui représente une lettre particulière.
 
 	(On va élargir le tableau de la lettre actuelle en (scale * scale)
 	Un fois élargi on va dupliquer les pixels à allumer dans chacune des
@@ -71,46 +71,20 @@ void	check_if_one(void *img, t_pixel_stuff *p_stuff, int color)
 	}
 }
 
-int	does_we_stop(int (*array)[4]);
-
 void	draw_pixel_baby(void *img, t_pixel_stuff *p_stuff,
-			int (*array)[4], t_fbg_color *fbg_colors)
+			int (*array)[WIDTH], t_fbg_color *fbg_colors)
 {
-	if (array[p_stuff->i][p_stuff->j])
+	if (array[p_stuff->i][p_stuff->j] == 1)
 		check_if_one(img, p_stuff, fbg_colors->fg_color);
 	else
 		check_if_one(img, p_stuff, fbg_colors->bg_color);
 
 }
 
-int	does_we_stop(int (*array)[4])
-{
-	int	sum;
-	int	goal;
-	int	i;
-	int	j;
-
-	i = -1;
-	goal = 4;
-	while (++i < goal)
-	{
-		j = -1;
-		sum = 0;
-		while (++j < 6)
-		{
-			if (array[j][i] == 0)
-				sum++ ;
-		}
-		if (sum == 6)
-			return (i);
-	}
-	return (goal);
-}
-
 void	fill_icc_cara(void *img, char c, int x, t_fbg_color *fbg_colors)
 {
 	t_pixel_stuff	p_stuff;
-	int				(*array2)[4];
+	int				(*array2)[WIDTH];
 	int				stop;
 
 	p_stuff.x = x + (3 * get_scale());
@@ -119,8 +93,8 @@ void	fill_icc_cara(void *img, char c, int x, t_fbg_color *fbg_colors)
 	if (!array2)
 		return ;
 	p_stuff.i = -1;
-	stop = does_we_stop(array2);
-	while (++p_stuff.i < 6)
+	stop = do_we_stop(array2);
+	while (++p_stuff.i < LENGTH)
 	{
 		p_stuff.j = -1;
 		while (++p_stuff.j < stop)
@@ -136,7 +110,7 @@ void	fill_icc_cara(void *img, char c, int x, t_fbg_color *fbg_colors)
 void	dipslay_cara(void *img, char c, int x, t_fbg_color *fbg_colors)
 {
 	t_pixel_stuff	p_stuff;
-	int				(*array)[4];
+	int				(*array)[WIDTH];
 	int				stop;
 
 	if (!get_scale())
@@ -147,9 +121,8 @@ void	dipslay_cara(void *img, char c, int x, t_fbg_color *fbg_colors)
 	array = get_min_letters(c);
 	if (!array)
 		return ;
-
-	stop = does_we_stop(array);
-	while (++p_stuff.i < 6)
+	stop = do_we_stop(array);
+	while (++p_stuff.i < LENGTH)
 	{
 		p_stuff.j = -1;
 		while (++p_stuff.j < stop)

@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 16:20:00 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/15 22:14:58 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/19 23:19:39 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_all_text	*get_all_text_instance(void)
 }
 
 /*
-	Ici on va récupérer un sous élément tel que a[6][4]. (une lettre)
+	Ici on va récupérer un sous élément tel que a[LENGTH][WIDTH]. (une lettre)
 	On va ensuite le mettre dans le tableau des lettres générales.
 	
 	Pour cela on va copier le contenu de a,
@@ -29,18 +29,19 @@ t_all_text	*get_all_text_instance(void)
 	Autrement dit dans all_letters->all_letters_array[ son_idx_d_emplacement ].
 
 */
-void	update_min_letters(char c, int (*elmt)[4])
+void	update_min_letters(char c, int (*elmt)[WIDTH])
 {
 	t_all_text	*all_letters;
 	int			idx;
 	int			i;
 
 	if (c < 97 || c > 122)
-		return (err_charactere_not_recoginzed(c));
+		return (write_func_msg("update_min_letters",
+				"Doit être une lettre en minuscule."));
 	idx = (c - 97);
 	all_letters = get_all_text_instance();
 	i = -1;
-	while (++i < 6)
+	while (++i < LENGTH)
 		ft_memcpy_text(all_letters->all_letters_array[idx][i],
 			elmt[i], sizeof(elmt[i]));
 }
@@ -49,11 +50,15 @@ void	update_min_letters(char c, int (*elmt)[4])
 	On renvoie le tableau de pixel qui représente la lettre en question.
 
 */
-int	(*get_min_letters(char c))[4]
+int	(*get_min_letters(char c))[WIDTH]
 {
 	t_all_text	*all_letters;
 	int			idx;
+	int			(*tmp_array)[WIDTH];
 
+	tmp_array = is_it_a_special_cara(c);
+	if (tmp_array != NULL)
+		return (tmp_array);
 	if (c < 97 || c > 122)
 		return (err_charactere_not_recoginzed(c), NULL);
 	idx = (c - 97);

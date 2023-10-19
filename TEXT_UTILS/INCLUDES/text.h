@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 16:00:52 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/19 22:40:59 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/19 23:20:33 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,52 +24,60 @@
 
 # define DEFAULT_SCALE		4
 
+# define LENGTH				6
+# define WIDTH				4
+
 # include "../../Mlx/mlx.h"
 # include "../../INCLUDES/basique_mlx_needed.h"
 
 typedef struct c_min_letters
 {
-	int	a[6][4];
-	int	b[6][4];
-	int	c[6][4];
-	int	d[6][4];
-	int	e[6][4];
-	int	f[6][4];
-	int	g[6][4];
-	int	h[6][4];
-	int	i[6][4];
-	int	j[6][4];
-	int	k[6][4];
-	int	l[6][4];
-	int	m[6][4];
-	int	n[6][4];
-	int	o[6][4];
-	int	p[6][4];
-	int	q[6][4];
-	int	r[6][4];
-	int	s[6][4];
-	int	t[6][4];
-	int	u[6][4];
-	int	v[6][4];
-	int	w[6][4];
-	int	x[6][4];
-	int	y[6][4];
-	int	z[6][4];
+	int	a[LENGTH][WIDTH];
+	int	b[LENGTH][WIDTH];
+	int	c[LENGTH][WIDTH];
+	int	d[LENGTH][WIDTH];
+	int	e[LENGTH][WIDTH];
+	int	f[LENGTH][WIDTH];
+	int	g[LENGTH][WIDTH];
+	int	h[LENGTH][WIDTH];
+	int	i[LENGTH][WIDTH];
+	int	j[LENGTH][WIDTH];
+	int	k[LENGTH][WIDTH];
+	int	l[LENGTH][WIDTH];
+	int	m[LENGTH][WIDTH];
+	int	n[LENGTH][WIDTH];
+	int	o[LENGTH][WIDTH];
+	int	p[LENGTH][WIDTH];
+	int	q[LENGTH][WIDTH];
+	int	r[LENGTH][WIDTH];
+	int	s[LENGTH][WIDTH];
+	int	t[LENGTH][WIDTH];
+	int	u[LENGTH][WIDTH];
+	int	v[LENGTH][WIDTH];
+	int	w[LENGTH][WIDTH];
+	int	x[LENGTH][WIDTH];
+	int	y[LENGTH][WIDTH];
+	int	z[LENGTH][WIDTH];
 }t_min_letters;
 
 typedef struct c_icc_letters
 {
-	int	m_end[6][4];
-	int	v_end[6][4];
-	int	w_end[6][4];
-	int	x_end[6][4];
-	int	y_end[6][4];
-	int	z_end[6][4];
+	int	m_end[LENGTH][WIDTH];
+	int	v_end[LENGTH][WIDTH];
+	int	w_end[LENGTH][WIDTH];
+	int	x_end[LENGTH][WIDTH];
+	int	y_end[LENGTH][WIDTH];
+	int	z_end[LENGTH][WIDTH];
 }t_icc_letters;
+
+typedef struct c_special_cara
+{
+	int	space[LENGTH][WIDTH];
+}t_special_cara;
 
 typedef struct s_all_text
 {
-	int	all_letters_array[26][6][4];
+	int	all_letters_array[26][LENGTH][WIDTH];
 }t_all_text;
 
 typedef struct s_pixel_stuff
@@ -110,10 +118,12 @@ typedef struct s_fbg_color
 }t_fbg_color;
 
 t_text_addr_lst	*new_pointer(void *pointer_to);
+t_special_cara	*get_special_cara_instance(void);
 t_icc_letters	*get_icc_letters_instance(void);
 t_text_addr		*get_text_list_instance(void);
 t_tmp_scale		*get_scale_instance(void);
 t_all_text		*get_all_text_instance(void);
+
 
 size_t			ft_len_text(char *string);
 
@@ -124,8 +134,11 @@ void			create_icc_letters(t_min_letters *min_letters);
 void			create_no_icc_letters(t_min_letters *min_letters);
 void			init_min_letter_first_part(t_min_letters *min_letters);
 void			init_min_letter_last_part(t_min_letters *min_letters);
+
 void			init_all_min_letters(void);
-void			update_min_letters(char c, int (*elmt)[4]);
+void			init_all_special_cara(void);
+
+void			update_min_letters(char c, int (*elmt)[WIDTH]);
 void			update_scale_value(int new_scale);
 void			add_text_pointer(void *pointer);
 void			free_text_addr_list(void);
@@ -135,7 +148,7 @@ void			parse_and_print(void *img, char *string,
 void			display_string(void *img, int x, int y);
 void			put_pixel_to_image(void *img, int x, int y, int color);
 void			draw_pixel_baby(void *img, t_pixel_stuff *p_stuff,
-					int (*array)[4], t_fbg_color *fbg_colors);
+					int (*array)[WIDTH], t_fbg_color *fbg_colors);
 
 void			fill_icc_cara(void *img, char c, int x, t_fbg_color *fbg_colors);
 void			dipslay_cara(void *img, char c, int x, t_fbg_color *fbg_colors);
@@ -176,8 +189,10 @@ void			create_x_end(t_icc_letters *icc_l);
 void			create_y_end(t_icc_letters *icc_l);
 void			create_z_end(t_icc_letters *icc_l);
 
-int				(*get_min_icc_letters(char c))[4];
-int				(*get_min_letters(char c))[4];
+void			create_spc_space(t_special_cara *special_cara);
+
+int				(*get_min_icc_letters(char c))[WIDTH];
+int				(*get_min_letters(char c))[WIDTH];
 int				get_scale(void);
 int				icc_letters(char c);
 int				icc_letters(char c);
@@ -185,5 +200,7 @@ int				spaces_letters(char c);
 int				count_icc_letters(char *str);
 int				particular_scale(char c);
 int				sum_icc_letters(char *str);
+int				do_we_stop(int (*array)[WIDTH]);
+int				(*is_it_a_special_cara(char c))[WIDTH];
 
 #endif

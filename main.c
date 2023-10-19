@@ -22,8 +22,8 @@ void    mon_prog(void)
 
     create_empty_button(0, 0, 1800, 500);
     //build_string("abcdefghijklnopqrstu", 10, WHITE, RECT_COLOR);
-    build_string("abcdefghijklmnopqrstuvwxyz", 20, WHITE, RECT_COLOR);
-    //display_string(l, 10, 400);
+    build_string("abcdefghijklmnopqrstuvwxyz", 13, WHITE, RECT_COLOR);
+    //display_string(t, 10, 400); abcdefuvwxy
 }
 
 

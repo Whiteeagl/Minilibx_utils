@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 22:37:29 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/19 21:39:46 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/19 22:40:19 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,13 @@ int	count_icc_letters(char *str)
 
 int	particular_scale(char c)
 {
-	if (c == 'c' || c == 'i' || c == 'j' || c == 'l' || c == 'p' || c == 't')
+	if (c == 'c' || c == 'i'
+		|| c == 'j' || c == 'l'
+		|| c == 'p' || c == 't')
 		return (3);
-	if (c == 'm' || c == 'v' || c == 'x' || c == 'y' || c == 'z')
+	if (c == 'm' || c == 'v'
+		|| c == 'x' || c == 'y'
+		|| c == 'z')
 		return (5);
 	if (c == 'w')
 		return (7);
@@ -70,6 +74,7 @@ int	sum_icc_letters(char *str)
 	while (str[i])
 	{
 		sum += particular_scale(str[i]);
+		printf("%d\n", sum);
 		i++ ;
 	}
 	return (sum);

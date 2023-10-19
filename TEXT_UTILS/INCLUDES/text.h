@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 16:00:52 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/19 18:50:02 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/19 21:32:32 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -184,7 +184,7 @@ int				icc_letters(char c);
 int				spaces_letters(char c);
 int				count_icc_letters(char *str);
 int				particular_scale(char c);
-int				particular_dim_scale(char c);
-int				dim_x_calcul(char *string, int len_of_string_para);
+int				dim_x_calcul(char *string);//, int len_of_string_para);
+int				sum_icc_letters(char *str);
 
 #endif

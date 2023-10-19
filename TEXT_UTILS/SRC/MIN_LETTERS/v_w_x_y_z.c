@@ -6,13 +6,13 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 17:10:26 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/15 22:29:18 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/19 20:59:02 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../INCLUDES/text.h"
 
-void	create_v(t_min_letters *min_letters)
+/* void	create_v(t_min_letters *min_letters)
 {
 	min_letters->v[0][0] = 0;
 	min_letters->v[0][1] = 0;
@@ -38,6 +38,35 @@ void	create_v(t_min_letters *min_letters)
 	min_letters->v[5][1] = 0;
 	min_letters->v[5][2] = 1;
 	min_letters->v[5][3] = 0;
+} */
+
+
+void create_v(t_min_letters *min_letters)
+{
+min_letters->v[0][0] = 0;
+min_letters->v[0][1] = 0;
+min_letters->v[0][2] = 0;
+min_letters->v[0][3] = 0;
+min_letters->v[1][0] = 1;
+min_letters->v[1][1] = 0;
+min_letters->v[1][2] = 0;
+min_letters->v[1][3] = 0;
+min_letters->v[2][0] = 1;
+min_letters->v[2][1] = 0;
+min_letters->v[2][2] = 0;
+min_letters->v[2][3] = 0;
+min_letters->v[3][0] = 0;
+min_letters->v[3][1] = 1;
+min_letters->v[3][2] = 0;
+min_letters->v[3][3] = 0;
+min_letters->v[4][0] = 0;
+min_letters->v[4][1] = 1;
+min_letters->v[4][2] = 0;
+min_letters->v[4][3] = 0;
+min_letters->v[5][0] = 0;
+min_letters->v[5][1] = 0;
+min_letters->v[5][2] = 1;
+min_letters->v[5][3] = 0;
 }
 
 void	create_w(t_min_letters *min_letters)

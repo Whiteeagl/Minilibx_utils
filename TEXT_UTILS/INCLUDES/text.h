@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   text.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tboldrin <tboldrin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 16:00:52 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/16 18:27:15 by tboldrin         ###   ########.fr       */
+/*   Updated: 2023/10/19 18:50:02 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,12 +84,6 @@ typedef struct s_pixel_stuff
 	int	pixel_y;
 }t_pixel_stuff;
 
-typedef struct s_tmp_pixel
-{
-	int	bits_per_pixel;
-	int	size_line;
-	int	endian;
-}t_tmp_pixel;
 
 typedef struct s_tmp_scale
 {
@@ -130,7 +124,7 @@ void			create_icc_letters(t_min_letters *min_letters);
 void			create_no_icc_letters(t_min_letters *min_letters);
 void			init_min_letter_first_part(t_min_letters *min_letters);
 void			init_min_letter_last_part(t_min_letters *min_letters);
-void			init_all_min_letters(t_min_letters *min_letters);
+void			init_all_min_letters(void);
 void			update_min_letters(char c, int (*elmt)[4]);
 void			update_scale_value(int new_scale);
 void			add_text_pointer(void *pointer);

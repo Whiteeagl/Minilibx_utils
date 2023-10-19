@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 21:43:44 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/15 22:00:53 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/19 18:50:24 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,8 +92,10 @@ void	init_min_letter_last_part(t_min_letters *min_letters)
 	update_min_letters('z', min_letters->z);
 }
 
-void	init_all_min_letters(t_min_letters *min_letters)
+void	init_all_min_letters(void)
 {
-	init_min_letter_first_part(min_letters);
-	init_min_letter_last_part(min_letters);
+	t_min_letters	min_letters;
+	
+	init_min_letter_first_part(&min_letters);
+	init_min_letter_last_part(&min_letters);
 }

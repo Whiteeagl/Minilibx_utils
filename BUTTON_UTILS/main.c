@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tboldrin <tboldrin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 11:15:51 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/16 18:29:05 by tboldrin         ###   ########.fr       */
+/*   Updated: 2023/10/19 16:42:19 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@
 	Ici on met le code à tester.
 	Exemple :
 
-			○ create_button(x, y, width, height)
+			○ create_empty_button(x, y, width, height)
 */
 void	mon_programme(void)
 {
 	void	*t;
 
 	t = build_string("cx", 3, 0xFFFFFF, RECT_COLOR);
-	create_button(100, 100, 400, 400);
+	create_empty_button(100, 100, 400, 400);
 	display_string(t, 105, 110);
 	
 	return ;

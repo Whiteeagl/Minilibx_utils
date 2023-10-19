@@ -3,14 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   text_stuff_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tboldrin <tboldrin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 22:53:51 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/16 18:27:26 by tboldrin         ###   ########.fr       */
+/*   Updated: 2023/10/19 20:41:52 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../INCLUDES/text.h"
+
+int	dim_x_calcul(char *string, int len_of_string_para)
+{	
+	int	test;
+
+	printf("%c\n", string[ft_len_text(string) - 1]);
+	test = particular_dim_scale(string[ft_len_text(string) - 1]);
+	printf("test : %d\n", test);
+	return ((len_of_string_para + count_icc_letters(string)) + test);
+		//+ particular_dim_scale(string[ft_len_text(string) - 1]));
+}
 
 /*
 	Permet de parser chaque caractères de la string,
@@ -31,11 +42,11 @@ void	parse_and_print(void *img, char *string,
 	{
 		dipslay_cara(img, string[i], tmp_x, fbg_colors);
 		if (icc_letters(string[i]))
-			tmp_x += tmp_resize + (scale / 2) + particular_scale(string[i]);
-		else if (spaces_letters(string[i]))
-			tmp_x += 4 * scale;
-		else
-			tmp_x += tmp_resize;
+			tmp_x += tmp_resize + particular_scale(string[i]);
+		//else if (spaces_letters(string[i]))
+		//tmp_x += 4 * scale;
+		//else
+		//	tmp_x += tmp_resize;
 	}
 }
 
@@ -57,15 +68,15 @@ void	*build_string(char *string, int scale, int fg_color, int bg_color)
 	fbg_colors.bg_color = bg_color;
 	if (scale <= 0)
 		return (write_func_msg("build_string", ERR_SCALE_VALUE), NULL);
+	update_scale_value(scale);
 	len_of_string = ft_len_text(string);
-	resize_space = 5 * scale;
+	resize_space = 4 * scale;
 	len_of_string = resize_space * len_of_string;
 	if (count_icc_letters(string))
 		len_of_string = dim_x_calcul(string, len_of_string);
 	new_text = mlx_new_image(get_mlx_ptr(), len_of_string, 6 * scale);
 	if (!new_text)
 		return (write_func_msg("build_string", ERR_ALLOCATION), NULL);
-	update_scale_value(scale);
 	parse_and_print(new_text, string, scale, &fbg_colors);
 	add_text_pointer(new_text);
 	return (new_text);

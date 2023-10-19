@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   line.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raphael <raphael@student.42.fr>            +#+  +:+       +#+        */
+/*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 19:03:42 by raphael           #+#    #+#             */
-/*   Updated: 2023/10/16 01:32:11 by raphael          ###   ########.fr       */
+/*   Updated: 2023/10/19 18:38:44 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,6 @@
 # include "../../INCLUDES/basique_mlx_needed.h"
 
 # define ESC		65307
-
-typedef struct c_tmp_pixel
-{
-	int	bits_per_pixel;
-	int	size_line;
-	int	endian;
-}t_tmp_pixel;
 
 typedef struct s_line
 {

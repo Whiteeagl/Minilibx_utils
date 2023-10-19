@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   others_stuff.c                                     :+:      :+:    :+:   */
+/*   colors.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/15 15:07:11 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/19 18:53:16 by wolf             ###   ########.fr       */
+/*   Created: 2023/10/19 18:32:26 by wolf              #+#    #+#             */
+/*   Updated: 2023/10/19 19:41:23 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../INCLUDES/text.h"
+#ifndef COLORS_H
+# define COLORS_H
 
-void	write_func_msg(char *func_name, char *msg)
-{
-	write_msg(func_name);
-	write_msg("() : ");
-	write_msg(msg);
-}
+# define WHITE  0xFFFFFF
 
-void	write_msg(char *string)
-{
-	int	len_of_string;
-
-	len_of_string = ft_len_text(string);
-	write(1, string, len_of_string);
-}
+#endif

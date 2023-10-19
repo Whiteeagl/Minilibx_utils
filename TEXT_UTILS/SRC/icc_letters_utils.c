@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   icc_letters_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tboldrin <tboldrin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 22:37:29 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/16 18:01:08 by tboldrin         ###   ########.fr       */
+/*   Updated: 2023/10/19 20:40:41 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,7 @@ int	particular_dim_scale(char c)
 {
 	if (c == 'w')
 		return (3);
-	return (0);
+
+	printf("%d\n", get_scale());
+	return (10 * particular_scale(c));
 }

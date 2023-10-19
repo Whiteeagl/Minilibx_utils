@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   button.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tboldrin <tboldrin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 11:52:04 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/16 18:38:51 by tboldrin         ###   ########.fr       */
+/*   Updated: 2023/10/19 16:42:11 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ void					update_collide_one(t_button_lst *origin_one,
 							t_button_lst *collide_one);
 void					add_button(void *pointer,
 							t_tmp_button_min_stuff *tmp_stuff);
-void					create_button(int x, int y, int width, int height);
+void					create_empty_button(int x, int y, int width, int height);
 void					display_collide_img(t_button_lst *to_display);
 void					handle_window_close(void);
 void					free_button_list(void);

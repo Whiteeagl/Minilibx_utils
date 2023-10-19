@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 11:16:18 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/19 15:35:30 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/19 18:41:18 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	*init_button(int width, int height, int color)
 		img.image_data[i] = color & 0xFF;
 		img.image_data[i + 1] = (color >> 8) & 0xFF;
 		img.image_data[i + 2] = (color >> 16) & 0xFF;
-		img.image_data[i + 3] = 0;
+		img.image_data[i + 3] = (color >> 24) & 0xFF;
 		i += 4;
 	}
 	return (img.image_ptr);
@@ -51,7 +51,7 @@ void	*init_button(int width, int height, int color)
 			● Detection des collisions + clic.
  
 */
-void	create_button(int x, int y, int width, int height)
+void	create_empty_button(int x, int y, int width, int height)
 {
 	void					*image;
 	void					*collide_image;
@@ -61,7 +61,7 @@ void	create_button(int x, int y, int width, int height)
 	image = init_button(width, height, color);
 	if (!image)
 		return (free_button_list(), exit(EXIT_FAILURE));
-	collide_image = init_button(width, height, 255);
+	collide_image = init_button(width, height, 0xFFFFFF);
 	if (!collide_image)
 		return (free_button_list(), exit(EXIT_FAILURE));
 	update_tmp_stuff(x, y, width, height);

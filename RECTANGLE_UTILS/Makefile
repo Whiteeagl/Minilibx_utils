@@ -1,30 +1,25 @@
-YELLOW		   		=   \033[0;33m
-NC			   		=   \033[0m
-
 NAME				=	rectangle
 SRC					=	src/
 SRC_LINE		 	=	../LINE_UTILS/src/
 MLX_PATH		 	=	../Mlx/
 MLX_BASIQUE_STUFF	=	../INCLUDES/SRC/
+FLAGS				=	-Wall -Wextra -Werror -g3
+MLXFLAGS		 	=	-L../Mlx -lmlx -L/usr/include/../lib -lXext -lX11 -lm -lbsd
+CC			   		=	cc
 
-SRCS			 	=   $(SRC)main.c							\
-						$(SRC)rectangle.c						\
-						$(SRC_LINE)draw_lines.c					\
-						$(SRC_LINE)utils.c						\
-						$(MLX_BASIQUE_STUFF)design_p_mlx.c	  
+SRCS			 	=	main.c							\
+						rectangle.c						\
+						draw_lines.c					\
+						utils.c							\
+						design_p_mlx.c
 
-OBJ					=	$(patsubst %.c, obj/%.o, $(notdir $(SRCS)))
+OBJ					=	$(patsubst %.c, obj/%.o, $(SRCS))
+CLEANF				=	@(find . -name "*.o" -type f -delete)
 
-CLEANF				=   @(find . -name "*.o" -type f -delete)
-
-FLAGS			=   -Wall -Wextra -Werror -g3
-MLXFLAGS		 =   -L../Mlx -lmlx -L/usr/include/../lib -lXext -lX11 -lm -lbsd
-CC			   =   cc
-
-BOLD			 =   "\033[1m"
-RESET			=   "\033[0m"
-LIGHT_GREEN	  =   "\033[92m"
-LIGHT_CYAN	   =   "\033[96m"
+BOLD				=	"\033[1m"
+RESET				=	"\033[0m"
+LIGHT_GREEN	 		=	"\033[92m"
+LIGHT_CYAN	  		=	"\033[96m"
 
 all: $(NAME)
 

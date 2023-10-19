@@ -1,28 +1,25 @@
-YELLOW				=\033[0;33m
-NC					=\033[0m
+NAME	 			=	line
+SRC		 			=	src/
+MLX_PATH 			=	../Mlx/
+MLX_BASIQUE_STUFF	=	../INCLUDES/SRC/
+OBJ					=	$(patsubst %.c, obj/%.o, $(SRCS))
+CLEANF 				=	@(find . -name "*.o" -type f -delete)
 
-NAME	 			= line
-SRC		 			= src/
-MLX_PATH 			= ../Mlx/
-MLX_BASIQUE_STUFF	= ../INCLUDES/SRC/
-OBJ 				=	$(addprefix obj/,${SRCS:.c=.o})
-CLEANF 			=	@(find . -name "*.o" -type f -delete)
+SRCS 				=	main.c						\
+						draw_lines.c				\
+						utils.c						\
+						design_p_mlx.c
 
-SRCS 				=	$(SRC)main.c							\
-						$(SRC)draw_lines.c						\
-						$(SRC)utils.c						\
-						$(MLX_BASIQUE_STUFF)design_p_mlx.c
+FLAGS 				=	-Wall -Wextra -Werror -g3
+MLXFLAGS 			=	-L../Mlx -lmlx -L/usr/include/../lib -lXext -lX11 -lm -lbsd
+CC 					=	cc
 
-FLAGS 				= -Wall -Wextra -Werror -g3
-MLXFLAGS 			= -L../Mlx -lmlx -L/usr/include/../lib -lXext -lX11 -lm -lbsd
-CC 					= cc
+BOLD            	=   "\033[1m"
+RESET           	=   "\033[0m"
+LIGHT_GREEN     	=   "\033[92m"
+LIGHT_CYAN      	=   "\033[96m"
 
-BOLD            	=       "\033[1m"
-RESET           	=       "\033[0m"
-LIGHT_GREEN     	=       "\033[92m"
-LIGHT_CYAN      	=       "\033[96m"
-
-obj/%.o: %.c
+obj/%.o: %.c 
 	@mkdir -p $(dir $@)
 	@echo $(BOLD)$(LIGHT_CYAN)Compiling $<... $(RESET)
 	@$(CC) $(FLAGS) -c $< -o $@
@@ -44,3 +41,4 @@ fclean : clean
 
 re : fclean all
 
+vpath %.c $(SRC) $(SRC_LINE) $(MLX_BASIQUE_STUFF)

@@ -83,6 +83,17 @@ void  tests_here(void)
 }
 
 ```
+
+## To prevent memory leaks
+
+1. If you want to clean up all the images created to prevent memory leaks, call the `free_text_addr_list()` function when necessary.
+
+**Example Usage:**
+
+```c
+free_text_addr_list();
+```
+
 Enjoy !
 
 ## Implementation Status
@@ -92,5 +103,5 @@ Enjoy !
 | -------| --------------- |
 | Lowercase letters | :white_check_mark: Implemented |
 | Uppercase letters | In Progress |
-| Numbers | In Progress |
+| Numbers | :white_check_mark: Implemented |
 | Special characters | In Progress |

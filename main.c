@@ -2,8 +2,8 @@
 
 void	mon_prog(void)
 {
-	create_empty_button(0, 0, 1800, 900);
-	void *t = build_string("ab", 0, WHITE, RED);
+	//create_empty_button(0, 0, 1800, 900);
+	void *t = build_string("0123456789", 5, WHITE, BLACK);
 	display_string(t, 100, 100);
 }
 
@@ -13,8 +13,7 @@ int main(void)
 	void	*win_ptr = mlx_new_window(mlx_ptr, 1800, 900, "Custom Text");
 
 	update_mlx_infos(mlx_ptr, win_ptr, NULL);
-	init_all_min_letters();
-	init_all_special_cara();
+	init_all_text_stuff();
 
 	mon_prog();
 

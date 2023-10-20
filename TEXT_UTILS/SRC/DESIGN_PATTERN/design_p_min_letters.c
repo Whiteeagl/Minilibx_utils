@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   design_p_min_letters.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: tboldrin <tboldrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 16:20:00 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/19 23:19:39 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/20 15:17:00 by tboldrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	(*get_min_letters(char c))[WIDTH]
 	int			idx;
 	int			(*tmp_array)[WIDTH];
 
-	tmp_array = is_it_a_special_cara(c);
+	tmp_array = maybe_not_a_letter(c);
 	if (tmp_array != NULL)
 		return (tmp_array);
 	if (c < 97 || c > 122)

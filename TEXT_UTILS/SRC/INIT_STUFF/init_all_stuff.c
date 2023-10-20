@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exit_stuff.c                                       :+:      :+:    :+:   */
+/*   init_all_tuff.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tboldrin <tboldrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/14 11:16:06 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/20 15:59:17 by tboldrin         ###   ########.fr       */
+/*   Created: 2023/10/20 15:17:35 by tboldrin          #+#    #+#             */
+/*   Updated: 2023/10/20 15:19:13 by tboldrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../INCLUDES/button.h"
+#include "../../INCLUDES/text.h"
 
-/* 
-	Pour quitter le programme de manière "propre".
-
-*/
-void	handle_window_close(void)
+void	init_all_text_stuff(void)
 {
-	free_button_list();
-	free_text_addr_list();
-	free_mlx_infos();
-	exit(EXIT_SUCCESS);
+	init_all_special_cara();
+	init_all_min_letters();
+	init_all_numbers();
 }

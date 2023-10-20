@@ -9,6 +9,7 @@ INIT_STUFF			=	$(SRC)INIT_STUFF/
 GRAPHIC_STUFF		=	$(SRC)GRAPHIC_STUFF/
 TEXT_STUFF			=	$(SRC)TEXT_STUFF/
 SPECIAL_CARA		=	$(SRC)SPECIAL_CARA/
+NUMBERS				=	$(SRC)NUMBERS/
 ERROR_STUFF			=	$(SRC)ERROR_STUFF/
 MIN_LETTERS_STUFF	=	$(SRC)MIN_LETTERS/
 MLX_BASIQUE_STUFF	=	../INCLUDES/SRC/
@@ -17,6 +18,7 @@ NAME				=	text_utils
 
 vpath %.c			$(SRC)					\
 					$(INCLUDE)				\
+					$(NUMBERS)				\
 					$(DESIGN_P)				\
 					$(TEXT_STUFF)			\
 					$(CHAIN_LIST)			\
@@ -29,6 +31,7 @@ vpath %.c			$(SRC)					\
 
 FILES				:= 	$(wildcard $(SRC)*.c)				\
 						$(wildcard $(INCLUDE)*.c)			\
+						$(wildcard $(NUMBERS)*.c)			\
 						$(wildcard $(DESIGN_P)*.c)			\
 						$(wildcard $(TEXT_STUFF)*.c)		\
 						$(wildcard $(CHAIN_LIST)*.c)		\

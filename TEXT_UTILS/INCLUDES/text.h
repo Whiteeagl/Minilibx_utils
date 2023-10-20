@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   text.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: tboldrin <tboldrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 16:00:52 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/20 00:26:18 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/20 15:58:00 by tboldrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,21 @@
 
 # include "../../Mlx/mlx.h"
 # include "../../INCLUDES/basique_mlx_needed.h"
+
+typedef struct c_numbers
+{
+	int	n_0[LENGTH][WIDTH];
+	int	n_1[LENGTH][WIDTH];
+	int	n_2[LENGTH][WIDTH];
+	int	n_3[LENGTH][WIDTH];
+	int	n_4[LENGTH][WIDTH];
+	int	n_5[LENGTH][WIDTH];
+	int	n_6[LENGTH][WIDTH];
+	int	n_7[LENGTH][WIDTH];
+	int	n_8[LENGTH][WIDTH];
+	int	n_9[LENGTH][WIDTH];
+}t_numbers;
+
 
 typedef struct c_min_letters
 {
@@ -78,6 +93,7 @@ typedef struct c_special_cara
 typedef struct s_all_text
 {
 	int	all_letters_array[26][LENGTH][WIDTH];
+	int	all_numbers_array[10][LENGTH][WIDTH];
 }t_all_text;
 
 typedef struct s_pixel_stuff
@@ -122,6 +138,7 @@ t_icc_letters	*get_icc_letters_instance(void);
 t_text_addr		*get_text_list_instance(void);
 t_tmp_scale		*get_scale_instance(void);
 t_all_text		*get_all_text_instance(void);
+t_numbers		*get_numbers_instance(void);
 
 size_t			ft_len_text(char *string);
 
@@ -136,7 +153,11 @@ void			init_min_letter_last_part(t_min_letters *min_letters);
 
 void			init_all_min_letters(void);
 void			init_all_special_cara(void);
+void			init_all_numbers(void);
 
+void			init_all_text_stuff(void);
+
+void			update_numbers(char c, int (*elmt)[WIDTH]);
 void			update_min_letters(char c, int (*elmt)[WIDTH]);
 void			update_scale_value(int new_scale);
 void			add_text_pointer(void *pointer);
@@ -158,6 +179,19 @@ void			dipslay_cara(void *img,
 
 void			write_msg(char *string);
 void			write_func_msg(char *func_name, char *msg);
+
+void			create_n_0(t_numbers *n_numb);
+void			create_n_1(t_numbers *n_numb);
+void			create_n_2(t_numbers *n_numb);
+void			create_n_3(t_numbers *n_numb);
+void			create_n_4(t_numbers *n_numb);
+void			create_n_5(t_numbers *n_numb);
+void			create_n_6(t_numbers *n_numb);
+//void			create_n_7(t_numbers *n_numb);
+//void			create_n_8(t_numbers *n_numb);
+//void			create_n_9(t_numbers *n_numb);
+
+
 void			create_a(t_min_letters *min_letters);
 void			create_b(t_min_letters *min_letters);
 void			create_c(t_min_letters *min_letters);
@@ -196,6 +230,11 @@ void			create_spc_space(t_special_cara *special_cara);
 
 int				(*get_min_icc_letters(char c))[WIDTH];
 int				(*get_min_letters(char c))[WIDTH];
+int				(*is_it_a_special_cara(char c))[WIDTH];
+int				(*get_number_array(char c))[WIDTH];
+int				(*is_it_a_number(char c))[WIDTH];
+int				(*maybe_not_a_letter(char c))[WIDTH];
+
 int				get_scale(void);
 int				icc_letters(char c);
 int				icc_letters(char c);
@@ -204,6 +243,5 @@ int				count_icc_letters(char *str);
 int				particular_scale(char c);
 int				sum_icc_letters(char *str);
 int				do_we_stop(int (*array)[WIDTH]);
-int				(*is_it_a_special_cara(char c))[WIDTH];
 
 #endif

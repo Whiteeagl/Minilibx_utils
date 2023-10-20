@@ -78,7 +78,7 @@ void  tests_here(void)
 	test = build_string("this is a text i guess 123", 4, 0xFFFFFF, 0x000000);
 	display_string(test, 40, 100);
 
-	test = build_string("use macro amigo", 10, WHITE, RED); // You can use our color macro for better usage.
+	test = build_string("use macro amigo", 10, COLOR_WHITE, COLOR_RED); // You can use our color macro for better usage.
 	display_string(test, 100, 200);
 }
 

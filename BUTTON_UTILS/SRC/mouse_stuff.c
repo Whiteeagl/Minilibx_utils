@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 11:15:40 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/20 01:07:25 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/20 22:37:34 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,9 +92,9 @@ int	handle_mouse_click(int button)
 	void	*main_one;
 	
 	if (!first_one)
-		first_one = build_string("i am the first button", 4, WHITE, BLACK);
+		first_one = build_string("i am the first button", 4, COLOR_WHITE, COLOR_BLACK);
 	if (!second_one)
-		second_one = build_string("i am the second button", 4, WHITE, BLACK);
+		second_one = build_string("i am the second button", 4, COLOR_WHITE, COLOR_BLACK);
 	
 	if (button == 1)
 	{

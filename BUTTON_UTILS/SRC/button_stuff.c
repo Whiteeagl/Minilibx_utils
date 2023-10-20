@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 11:16:18 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/20 00:52:25 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/20 22:37:00 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,14 +81,14 @@ void	create_text_button(int x, int y, char *string, int scale)
 	int						width;
 
 	update_scale_value(scale);
-	text = build_string(string, scale, BLACK, RECT_COLOR);
+	text = build_string(string, scale, COLOR_BLACK, RECT_COLOR);
 	width = sum_icc_letters(string) * get_scale();
 	width = width + (ft_len_text(string) - 1) * get_scale();
 	width += get_scale() * 3;
 	image = init_button(width, (get_scale() * LENGTH) * 2, RECT_COLOR);
 	if (!image)
 		return (free_button_list(), exit(EXIT_FAILURE));
-	collide_image = init_button(width, (get_scale() * LENGTH) * 2, 0xFFFFFF);
+	collide_image = init_button(width, (get_scale() * LENGTH) * 2, COLOR_WHITE);
 	if (!collide_image)
 		return (free_button_list(), exit(EXIT_FAILURE));
 	update_tmp_stuff(x, y, width, (get_scale() * LENGTH) * 2);

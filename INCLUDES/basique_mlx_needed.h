@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   basique_mlx_needed.h                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rciaze <rciaze@student.42.fr>              +#+  +:+       +#+        */
+/*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 12:35:55 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/16 12:25:55 by rciaze           ###   ########.fr       */
+/*   Updated: 2023/10/19 19:41:48 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,11 @@
 # define BASIQUE_MLX_NEEDED_H
 
 # include <stdlib.h>
+# include "colors.h"
 # include "../Mlx/mlx.h"
+# include "../BUTTON_UTILS/INCLUDES/button.h"
+# include "../TEXT_UTILS/INCLUDES/text.h"
+# include "../LINE_UTILS/includes/line.h"
 
 typedef struct s_mlx_stuff
 {
@@ -22,6 +26,13 @@ typedef struct s_mlx_stuff
 	void	*win_ptr;
 	void	*img_ptr;
 }t_mlx_stuff;
+
+typedef struct c_tmp_pixel
+{
+	int	bits_per_pixel;
+	int	size_line;
+	int	endian;
+}t_tmp_pixel;
 
 t_mlx_stuff	*mlx_instance(void);
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   design_p_scale.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: tboldrin <tboldrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 14:48:37 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/15 15:02:39 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/20 14:09:08 by tboldrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@ void	update_scale_value(int new_scale)
 {
 	t_tmp_scale	*actual_scale;
 
+	if (new_scale <= 0)
+		return (write_func_msg("update_scale_value",
+				ERR_SCALE_VALUE));
 	actual_scale = get_scale_instance();
 	actual_scale->scale = new_scale;
 }

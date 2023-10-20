@@ -1,13 +1,13 @@
 /* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   l_m_n_o_p.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/15 17:10:10 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/15 22:27:24 by wolf             ###   ########.fr       */
-/*                                                                            */
+/*																			*/
+/*														:::	  ::::::::   */
+/*   l_m_n_o_p.c										:+:	  :+:	:+:   */
+/*													+:+ +:+		 +:+	 */
+/*   By: tboldrin <tboldrin@student.42.fr>		  +#+  +:+	   +#+		*/
+/*												+#+#+#+#+#+   +#+		   */
+/*   Created: 2023/10/15 17:10:10 by wolf			  #+#	#+#			 */
+/*   Updated: 2023/10/20 14:25:10 by tboldrin		 ###   ########.fr	   */
+/*																			*/
 /* ************************************************************************** */
 
 #include "../../INCLUDES/text.h"
@@ -34,10 +34,10 @@ void	create_l(t_min_letters *min_letters)
 	min_letters->l[4][1] = 1;
 	min_letters->l[4][2] = 0;
 	min_letters->l[4][3] = 0;
-	min_letters->l[5][0] = 1;
-	min_letters->l[5][1] = 1;
+	min_letters->l[5][0] = 0;
+	min_letters->l[5][1] = 0;
 	min_letters->l[5][2] = 1;
-	min_letters->l[5][3] = 0;
+	min_letters->l[5][3] = 1;
 }
 
 void	create_m(t_min_letters *min_letters)

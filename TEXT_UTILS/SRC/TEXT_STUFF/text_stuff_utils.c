@@ -3,38 +3,55 @@
 /*                                                        :::      ::::::::   */
 /*   text_stuff_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: tboldrin <tboldrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 22:53:51 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/15 22:58:34 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/20 13:52:08 by tboldrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../INCLUDES/text.h"
 
 /*
+	Permet de combler les espaces entre les lettres avec la couleur background.
+
+*/
+void	fill_whitespace(void *img, int x_start, int bg_color)
+{
+	t_pixel_stuff	p_stuff;
+
+	p_stuff.x = x_start;
+	p_stuff.y = 0;
+	p_stuff.i = -1;
+	while (++p_stuff.i < LENGTH)
+	{
+		p_stuff.j = -1;
+		while (++p_stuff.j < WIDTH / 2)
+			check_if_one(img, &p_stuff, bg_color);
+	}
+}
+
+/*
 	Permet de parser chaque caractères de la string,
 	et de l'afficher sur l'image en question via la fonction "display_cara"
 
 */
-void	parse_and_print(void *img, char *string, int scale, int color)
+void	parse_and_print(void *img, char *string, t_fbg_color *fbg_colors)
 {
-	int		tmp_resize;
 	int		tmp_x;
 	int		i;
+	int		len_string;
 
 	tmp_x = 0;
 	i = -1;
-	tmp_resize = 5 * scale;
+	len_string = ft_len_text(string);
 	while (string[++i])
 	{
-		dipslay_cara(img, string[i], tmp_x, color);
-		if (icc_letters(string[i]))
-			tmp_x += tmp_resize + (scale / 2) + particular_scale(string[i]);
-		else if (spaces_letters(string[i]))
-			tmp_x += 4 * scale;
-		else
-			tmp_x += tmp_resize;
+		dipslay_cara(img, string[i], tmp_x, fbg_colors);
+		tmp_x += get_scale() * particular_scale(string[i]);
+		if (i < len_string - 1)
+			fill_whitespace(img, tmp_x, fbg_colors->bg_color);
+		tmp_x += get_scale();
 	}
 }
 
@@ -45,24 +62,23 @@ void	parse_and_print(void *img, char *string, int scale, int color)
 	pour un confort optimal à tous voyons.
 
 */
-void	*build_string(char *string, int scale, int color)
+void	*build_string(char *string, int scale, int fg_color, int bg_color)
 {
-	void	*new_text;
-	int		resize_space;
-	int		len_of_string;
+	t_fbg_color	fbg_colors;
+	void		*new_text;
+	int			width;
 
+	fbg_colors.fg_color = fg_color;
+	fbg_colors.bg_color = bg_color;
 	if (scale <= 0)
 		return (write_func_msg("build_string", ERR_SCALE_VALUE), NULL);
-	len_of_string = ft_len_text(string);
-	resize_space = 5 * scale;
-	len_of_string = resize_space * len_of_string;
-	if (count_icc_letters(string))
-		len_of_string *= count_icc_letters(string);
-	new_text = mlx_new_image(get_mlx_ptr(), len_of_string, 6 * scale);
+	update_scale_value(scale);
+	width = sum_icc_letters(string) * get_scale();
+	width = width + (ft_len_text(string) - 1) * get_scale();
+	new_text = mlx_new_image(get_mlx_ptr(), width, scale * LENGTH);
 	if (!new_text)
 		return (write_func_msg("build_string", ERR_ALLOCATION), NULL);
-	update_scale_value(scale);
-	parse_and_print(new_text, string, scale, color);
+	parse_and_print(new_text, string, &fbg_colors);
 	add_text_pointer(new_text);
 	return (new_text);
 }

@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exit_stuff.c                                       :+:      :+:    :+:   */
+/*   colors.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tboldrin <tboldrin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/14 11:16:06 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/20 15:59:17 by tboldrin         ###   ########.fr       */
+/*   Created: 2023/10/19 18:32:26 by wolf              #+#    #+#             */
+/*   Updated: 2023/10/19 23:59:01 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../INCLUDES/button.h"
+#ifndef COLORS_H
+# define COLORS_H
 
-/* 
-	Pour quitter le programme de manière "propre".
+#define RED		0xFF0000
+#define GREEN	0x00FF00
+#define BLUE	0x0000FF
+#define YELLOW	0xFFFF00
+#define WHITE	0xFFFFFF
+#define BLACK	0x000000
 
-*/
-void	handle_window_close(void)
-{
-	free_button_list();
-	free_text_addr_list();
-	free_mlx_infos();
-	exit(EXIT_SUCCESS);
-}
+#endif

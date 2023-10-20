@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 11:52:04 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/15 12:44:20 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/20 00:48:26 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,10 @@
 # include <stddef.h>
 # include <stdbool.h>
 # include "../../Mlx/mlx.h"
+# include "../../TEXT_UTILS/INCLUDES/text.h"
 # include "../../INCLUDES/basique_mlx_needed.h"
 
-# define RECT_COLOR	140
+# define RECT_COLOR	0x808080
 # define ESC		65307
 
 typedef struct c_image_stuff
@@ -92,7 +93,7 @@ void					update_collide_one(t_button_lst *origin_one,
 							t_button_lst *collide_one);
 void					add_button(void *pointer,
 							t_tmp_button_min_stuff *tmp_stuff);
-void					create_button(int x, int y, int width, int height);
+void					create_empty_button(int x, int y, int width, int height);
 void					display_collide_img(t_button_lst *to_display);
 void					handle_window_close(void);
 void					free_button_list(void);
@@ -103,5 +104,10 @@ int						handle_mouse_click(int button);
 int						handle_mouse_move(int x, int y);
 int						get_mx(void);
 int						get_my(void);
+
+
+
+void	create_text_button(int x, int y, char *string, int scale);
+
 
 #endif

@@ -1,51 +1,38 @@
-YELLOW				=\033[0;33m
-NC					=\033[0m
+PARENT_DIR			:=	$(notdir $(patsubst %/,%,$(dir $(abspath $(lastword $(MAKEFILE_LIST))))))
 
-NAME	 			= button
-SRC		 			= SRC/
-DESIGN_P			= $(SRC)DESIGN_PATTERN/
-CHAIN_LIST			= $(SRC)CHAIN_LIST/
-MLX_PATH 			= ../Mlx/
-MLX_BASIQUE_STUFF	= ../INCLUDES/SRC/
+SRC					=	SRC/
+DESIGN_P			=	$(SRC)DESIGN_PATTERN/
+CHAIN_LIST			=	$(SRC)CHAIN_LIST/
+MLX_BASIQUE_STUFF	=	../INCLUDES/SRC/
 
-FILES 				=	$(SRC)main.c							\
-						$(SRC)button_stuff.c					\
-						$(SRC)exit_stuff.c						\
-						$(SRC)mouse_stuff.c						\
-						$(SRC)keys_stuff.c						\
-						$(SRC)other_stuff.c						\
-						$(DESIGN_P)design_p_mouse.c				\
-						$(DESIGN_P)design_p_chain_list.c		\
-						$(DESIGN_P)design_p_button_collide.c	\
-						$(DESIGN_P)design_p_tmp_button_stuff.c	\
-						$(CHAIN_LIST)chain_list_button.c		\
-						$(MLX_BASIQUE_STUFF)design_p_mlx.c
+NAME				=	button_utils
 
-FLAGS 				= -Wall -Wextra -Werror -g3
-MLXFLAGS 			= -L../Mlx -lmlx -L/usr/include/../lib -lXext -lX11 -lm -lbsd
-CC 					= gcc
+vpath %.c			$(SRC) 					\
+					$(DESIGN_P)				\
+					$(CHAIN_LIST)			\
+					$(MLX_BASIQUE_STUFF)
 
-OBJS 				:= $(FILES:.c=.o)
-COMPILED 			:= 0
+FILES				:=	$(wildcard $(SRC)*.c)				\
+						$(wildcard $(DESIGN_P)*.c)			\
+						$(wildcard $(CHAIN_LIST)*.c)		\
+						$(wildcard $(MLX_BASIQUE_STUFF)*.c)
 
-%.o: %.c
-	$(CC) $(FLAGS) -c $< -g -o $@
-	$(eval COMPILED=$(shell echo $$(($(COMPILED)+1))))
+FLAGS				=	-Wall -Wextra -Werror -g3
+CC					=	gcc
+
+OBJ_DIR				=	../obj/$(PARENT_DIR)
+OBJS				=	$(addprefix $(OBJ_DIR)/, $(notdir $(FILES:.c=.o)))
 
 all: $(NAME)
 
+$(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
+	$(CC) $(FLAGS) -c $< -g -o $@
+
+$(OBJ_DIR):
+	mkdir -p $@
+
 $(NAME): $(OBJS)
-	@echo "\033[0;34m$(CURDIR)$(NC)"
-	ar rc button.a $(OBJS)
-	$(MAKE) -s -C $(MLX_PATH)
-	gcc button.a $(MLXFLAGS) -o $(NAME)
+	ar rc $(NAME).a $(OBJS)
+	mv $(NAME).a ../lib
 
-clean :
-	rm -f $(OBJS)
-
-fclean : clean
-	rm -f $(NAME)
-	rm -f button.a
-
-re : fclean all
-
+.PHONY: all

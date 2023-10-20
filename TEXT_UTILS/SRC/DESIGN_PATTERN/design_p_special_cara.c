@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exit_stuff.c                                       :+:      :+:    :+:   */
+/*   design_p_special_cara.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tboldrin <tboldrin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/14 11:16:06 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/20 15:59:17 by tboldrin         ###   ########.fr       */
+/*   Created: 2023/10/19 23:16:18 by wolf              #+#    #+#             */
+/*   Updated: 2023/10/20 00:24:22 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../INCLUDES/button.h"
+#include "../../INCLUDES/text.h"
 
-/* 
-	Pour quitter le programme de manière "propre".
-
-*/
-void	handle_window_close(void)
+t_special_cara	*get_special_cara_instance(void)
 {
-	free_button_list();
-	free_text_addr_list();
-	free_mlx_infos();
-	exit(EXIT_SUCCESS);
+	static t_special_cara	instance;
+
+	return (&instance);
 }

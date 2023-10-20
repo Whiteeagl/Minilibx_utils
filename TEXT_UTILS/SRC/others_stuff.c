@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 15:07:11 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/15 22:37:57 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/19 22:56:57 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,26 @@ void	write_msg(char *string)
 
 	len_of_string = ft_len_text(string);
 	write(1, string, len_of_string);
+}
+
+int	do_we_stop(int (*array)[WIDTH])
+{
+	int	sum;
+	int	i;
+	int	j;
+
+	i = -1;
+	while (++i < WIDTH)
+	{
+		j = -1;
+		sum = 0;
+		while (++j < LENGTH)
+		{
+			if (array[j][i] == 0)
+				sum++ ;
+		}
+		if (sum == LENGTH)
+			return (i);
+	}
+	return (WIDTH);
 }

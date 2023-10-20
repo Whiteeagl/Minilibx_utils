@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rciaze <rciaze@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tboldrin <tboldrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 16:06:53 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/16 12:26:37 by rciaze           ###   ########.fr       */
+/*   Updated: 2023/10/16 15:31:20 by tboldrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	tests_here(void)
 {
 	void	*test;
 
-	test = build_string("looks like plain text buddy", 2, 0x00FF00);
-	display_string(test, 40, 100);
+	test = build_string("abcdefghijklmnopqrstuvwxyz", 4, 0x00FF00);
+	display_string(test, 10, 400);
 }
 
 int	main(void)

@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   other_stuff.c                                      :+:      :+:    :+:   */
+/*   init_special_cara.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/14 11:15:31 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/19 18:48:44 by wolf             ###   ########.fr       */
+/*   Created: 2023/10/19 23:00:43 by wolf              #+#    #+#             */
+/*   Updated: 2023/10/20 00:25:09 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../INCLUDES/button.h"
+#include "../../INCLUDES/text.h"
 
-/*
-	Permet d'afficher un bouton d'origine et son mirroir.
-
-*/
-void	display_collide_img(t_button_lst *to_display)
+void	init_special_cara(t_special_cara *special_cara)
 {
-	mlx_put_image_to_window(get_mlx_ptr(), get_win_ptr(),
-		to_display->pointer, to_display->x, to_display->y);
+	create_spc_space(special_cara);
+}
+
+void	init_all_special_cara(void)
+{
+	t_special_cara	*special_cara;
+
+	special_cara = get_special_cara_instance();
+	init_special_cara(special_cara);
 }

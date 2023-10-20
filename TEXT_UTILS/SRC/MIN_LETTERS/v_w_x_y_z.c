@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 17:10:26 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/15 22:29:18 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/20 00:24:16 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ void	create_v(t_min_letters *min_letters)
 	min_letters->v[3][0] = 0;
 	min_letters->v[3][1] = 1;
 	min_letters->v[3][2] = 0;
-	min_letters->v[3][3] = 1;
+	min_letters->v[3][3] = 0;
 	min_letters->v[4][0] = 0;
 	min_letters->v[4][1] = 1;
 	min_letters->v[4][2] = 0;
-	min_letters->v[4][3] = 1;
+	min_letters->v[4][3] = 0;
 	min_letters->v[5][0] = 0;
 	min_letters->v[5][1] = 0;
 	min_letters->v[5][2] = 1;
@@ -81,7 +81,7 @@ void	create_x(t_min_letters *min_letters)
 	min_letters->x[2][0] = 0;
 	min_letters->x[2][1] = 1;
 	min_letters->x[2][2] = 0;
-	min_letters->x[2][3] = 1;
+	min_letters->x[2][3] = 0;
 	min_letters->x[3][0] = 0;
 	min_letters->x[3][1] = 0;
 	min_letters->x[3][2] = 1;
@@ -89,7 +89,7 @@ void	create_x(t_min_letters *min_letters)
 	min_letters->x[4][0] = 0;
 	min_letters->x[4][1] = 1;
 	min_letters->x[4][2] = 0;
-	min_letters->x[4][3] = 1;
+	min_letters->x[4][3] = 0;
 	min_letters->x[5][0] = 1;
 	min_letters->x[5][1] = 0;
 	min_letters->x[5][2] = 0;
@@ -109,7 +109,7 @@ void	create_y(t_min_letters *min_letters)
 	min_letters->y[2][0] = 0;
 	min_letters->y[2][1] = 1;
 	min_letters->y[2][2] = 0;
-	min_letters->y[2][3] = 1;
+	min_letters->y[2][3] = 0;
 	min_letters->y[3][0] = 0;
 	min_letters->y[3][1] = 0;
 	min_letters->y[3][2] = 1;
@@ -133,11 +133,11 @@ void	create_z(t_min_letters *min_letters)
 	min_letters->z[1][0] = 1;
 	min_letters->z[1][1] = 1;
 	min_letters->z[1][2] = 1;
-	min_letters->z[1][3] = 1;
+	min_letters->z[1][3] = 0;
 	min_letters->z[2][0] = 0;
 	min_letters->z[2][1] = 0;
 	min_letters->z[2][2] = 0;
-	min_letters->z[2][3] = 1;
+	min_letters->z[2][3] = 0;
 	min_letters->z[3][0] = 0;
 	min_letters->z[3][1] = 0;
 	min_letters->z[3][2] = 1;
@@ -149,5 +149,5 @@ void	create_z(t_min_letters *min_letters)
 	min_letters->z[5][0] = 1;
 	min_letters->z[5][1] = 1;
 	min_letters->z[5][2] = 1;
-	min_letters->z[5][3] = 1;
+	min_letters->z[5][3] = 0;
 }

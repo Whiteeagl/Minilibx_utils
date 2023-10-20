@@ -6,7 +6,7 @@
 /*   By: tboldrin <tboldrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 16:00:52 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/20 15:58:00 by tboldrin         ###   ########.fr       */
+/*   Updated: 2023/10/20 17:51:47 by tboldrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ typedef struct c_numbers
 	int	n_8[LENGTH][WIDTH];
 	int	n_9[LENGTH][WIDTH];
 }t_numbers;
-
 
 typedef struct c_min_letters
 {
@@ -187,10 +186,9 @@ void			create_n_3(t_numbers *n_numb);
 void			create_n_4(t_numbers *n_numb);
 void			create_n_5(t_numbers *n_numb);
 void			create_n_6(t_numbers *n_numb);
-//void			create_n_7(t_numbers *n_numb);
-//void			create_n_8(t_numbers *n_numb);
-//void			create_n_9(t_numbers *n_numb);
-
+void			create_n_7(t_numbers *n_numb);
+void			create_n_8(t_numbers *n_numb);
+void			create_n_9(t_numbers *n_numb);
 
 void			create_a(t_min_letters *min_letters);
 void			create_b(t_min_letters *min_letters);

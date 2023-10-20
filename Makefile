@@ -23,6 +23,9 @@ clean:
 	rm -rf obj/
 	rm -rf lib/
 
+fclean: clean
+	rm $(EXEC_NAME)
+
 re: clean all
 
 .PHONY: all $(SUBDIRS) clean

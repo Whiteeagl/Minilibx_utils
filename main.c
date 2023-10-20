@@ -2,8 +2,9 @@
 
 void	mon_prog(void)
 {
-	create_text_button(50, 50, "one", 6);
-	create_text_button(50, 150, "two", 6);
+	create_empty_button(0, 0, 1800, 900);
+	void *t = build_string("ab", 0, WHITE, RED);
+	display_string(t, 100, 100);
 }
 
 int main(void)

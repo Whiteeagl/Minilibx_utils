@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_graphic_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: tboldrin <tboldrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 22:51:59 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/20 00:19:31 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/20 14:02:13 by tboldrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	put_pixel_to_image(void *img, int x, int y, int color)
 			&tmp_p.size_line, &tmp_p.endian);
 	img_width = tmp_p.size_line / 4;
 	if (x / 4 >= 0 && x / 4 < img_width
-		&& y >= 0 && y < img_width)
+		&& y / 6 >= 0 && y / 6 < img_width)
 	{
 		pixel_offset = (y * img_width + x) * (tmp_p.bits_per_pixel / 8);
 		img_data[pixel_offset] = color & 0xFF;

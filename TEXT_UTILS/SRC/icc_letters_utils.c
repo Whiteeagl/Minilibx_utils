@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   icc_letters_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tboldrin <tboldrin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 22:37:29 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/20 15:45:51 by tboldrin         ###   ########.fr       */
+/*   Updated: 2023/10/20 22:46:18 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,6 @@ int	sum_icc_letters(char *str)
 	while (str[i])
 	{
 		sum += particular_scale(str[i]);
-		printf("%d\n", sum);
 		i++ ;
 	}
 	return (sum);

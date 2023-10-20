@@ -38,7 +38,7 @@ int	handle_mouse_click(int button)
 	if (button == 1)
 	{
 		if (is_mouse_inside_rect())
-			printf("Clic on bouton (ID : %d)\n", get_collide_origin()->id);
+			printf("Clic on bouton (ID : %d)\n", get_collide_origin()->id); // Be cautious with printf.
 	if (get_collide_origin())
 	{
 		if (get_collide_origin()->id == 2)

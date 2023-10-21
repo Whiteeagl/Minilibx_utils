@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 11:16:18 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/20 22:37:00 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/21 22:17:20 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void	*init_button(int width, int height, int color)
 */
 void	create_empty_button(int x, int y, int width, int height)
 {
+	static int				id;
 	void					*image;
 	void					*collide_image;
 	int						color;
@@ -68,10 +69,11 @@ void	create_empty_button(int x, int y, int width, int height)
 	add_button(image, get_tmp_stuff());
 	add_button(collide_image, get_tmp_stuff());
 	mlx_put_image_to_window(get_mlx_ptr(), get_win_ptr(), image, x, y);
-	mlx_mouse_hook(get_win_ptr(), handle_mouse_click, NULL);
 	mlx_hook(get_win_ptr(), 6, (1L << 6), handle_mouse_move, NULL);
+	printf("ID : %d\n", id);
+	add_event_to_lst(id, NULL);
+	id++ ;
 }
-
 
 void	create_text_button(int x, int y, char *string, int scale)
 {
@@ -95,7 +97,6 @@ void	create_text_button(int x, int y, char *string, int scale)
 	add_button(image, get_tmp_stuff());
 	add_button(collide_image, get_tmp_stuff());
 	mlx_put_image_to_window(get_mlx_ptr(), get_win_ptr(), image, x, y);
-	mlx_mouse_hook(get_win_ptr(), handle_mouse_click, NULL);
 	mlx_hook(get_win_ptr(), 6, (1L << 6), handle_mouse_move, NULL);
 	display_string(text, x + get_scale(), y + (get_scale() * 2));
 }

@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 11:15:51 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/19 16:42:19 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/21 22:17:54 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ void	mon_programme(void)
 	t = build_string("cx", 3, 0xFFFFFF, RECT_COLOR);
 	create_empty_button(100, 100, 400, 400);
 	display_string(t, 105, 110);
-	
 	return ;
 }
 

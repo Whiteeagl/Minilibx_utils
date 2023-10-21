@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 12:35:55 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/19 19:41:48 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/21 22:21:02 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@
 # include "../BUTTON_UTILS/INCLUDES/button.h"
 # include "../TEXT_UTILS/INCLUDES/text.h"
 # include "../LINE_UTILS/includes/line.h"
+
+# define ERR_ALLOCATION		"Cannot allocate enough memory. Allocation failed.\n"
+# define ERR_NULL_VALUE		"Error, must me != NULL.\n"
 
 typedef struct s_mlx_stuff
 {

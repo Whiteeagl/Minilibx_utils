@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 11:17:17 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/15 16:49:33 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/21 21:58:58 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,4 +107,5 @@ void	free_button_list(void)
 		free(save);
 		save = garbage->head;
 	}
+	free_button_event_list();
 }

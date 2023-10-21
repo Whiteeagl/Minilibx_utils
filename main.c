@@ -6,18 +6,31 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 22:34:45 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/20 22:39:00 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/21 22:11:33 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "INCLUDES/basique_mlx_needed.h"
 
+
+void	my_event_function(void)
+{
+	write_msg("Coucou je suis un bouton\n");
+}
+
+void	another_event_function(void)
+{
+	write_msg("Coucou je suis un autre bouton\n");
+}
+
 void	mon_prog(void)
 {
-	//create_empty_button(0, 0, 1800, 900);
-	void *t = build_string("0123456789", 5, COLOR_SLATEGRAY, COLOR_BLACK);
-	display_string(t, 100, 100);
+	create_empty_button(10, 10, 100, 100);
+	add_button_event(0, my_event_function);
+
+	create_empty_button(10, 120, 100, 100);
+	add_button_event(1, another_event_function);
 }
 
 int main(void)
@@ -27,6 +40,7 @@ int main(void)
 
 	update_mlx_infos(mlx_ptr, win_ptr, NULL);
 	init_all_text_stuff();
+	init_button_event();
 
 	mon_prog();
 
@@ -34,3 +48,4 @@ int main(void)
 	mlx_loop(mlx_ptr);
 	return (0);
 }
+

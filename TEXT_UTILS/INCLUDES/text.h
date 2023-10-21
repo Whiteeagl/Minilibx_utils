@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   text.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tboldrin <tboldrin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 16:00:52 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/20 17:51:47 by tboldrin         ###   ########.fr       */
+/*   Updated: 2023/10/21 22:20:50 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,8 @@
 # include <unistd.h>
 # include <stddef.h>
 
-# define ERR_ALLOCATION 	"Cannot allocate enough memory. Allocation failed.\n"
 # define ERR_SCALE_VALUE	"Error on scale value. Must be a posive one > 0.\n"
 # define ERR_PREVIOUS_SCALE	"Error, can not found previous scale.\n"
-# define ERR_NULL_VALUE		"Error, must me != NULL.\n"
 
 # define DEFAULT_SCALE		4
 

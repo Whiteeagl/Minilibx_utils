@@ -6,37 +6,50 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 22:34:45 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/21 22:11:33 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/22 01:13:06 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "INCLUDES/basique_mlx_needed.h"
 
-
-void	my_event_function(void)
+int	handle_keypress(int keycode)
 {
-	write_msg("Coucou je suis un bouton\n");
+	if (keycode == ESC)
+		handle_window_close("Window closed by ESC key");
+	return (0);
 }
 
-void	another_event_function(void)
+void	a(void)
 {
-	write_msg("Coucou je suis un autre bouton\n");
+	write_msg("Je suis un bouton\n");
+}
+
+
+void	b(void)
+{
+	write_msg("Je suis un autre bouton\n");
 }
 
 void	mon_prog(void)
 {
-	create_empty_button(10, 10, 100, 100);
-	add_button_event(0, my_event_function);
+	void	*button_1;
 
-	create_empty_button(10, 120, 100, 100);
-	add_button_event(1, another_event_function);
+	update_scale_value(4);
+	button_1 = create_button("test", COLOR_BLACK, COLOR_GREEN, a);
+	button_place(button_1, 100, 100, get_win_ptr()); 
+
+	void *button_2;
+
+	button_2 = create_button("test2", COLOR_BLACK, COLOR_RED, b);
+	button_place(button_2, 100, 300, get_win_ptr());
+
 }
 
 int main(void)
 {
 	void	*mlx_ptr = mlx_init();
-	void	*win_ptr = mlx_new_window(mlx_ptr, 1800, 900, "Custom Text");
+	void	*win_ptr = mlx_new_window(mlx_ptr, 400, 500, "Custom Text");
 
 	update_mlx_infos(mlx_ptr, win_ptr, NULL);
 	init_all_text_stuff();

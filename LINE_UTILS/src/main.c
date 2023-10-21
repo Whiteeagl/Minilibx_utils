@@ -3,25 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rciaze <rciaze@student.42.fr>              +#+  +:+       +#+        */
+/*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 15:09:53 by rciaze            #+#    #+#             */
-/*   Updated: 2023/10/17 15:09:56 by rciaze           ###   ########.fr       */
+/*   Updated: 2023/10/21 23:19:23 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/line.h"
 
-void	handle_window_close(void)
-{
-	free_mlx_infos();
-	exit(EXIT_SUCCESS);
-}
-
 int	handle_keypress(int keycode)
 {
 	if (keycode == ESC)
-		handle_window_close();
+		handle_window_close("Window closed by ESC key");
 	return (0);
 }
 

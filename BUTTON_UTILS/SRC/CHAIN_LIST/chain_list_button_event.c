@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 21:12:35 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/21 22:28:15 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/22 01:17:46 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,14 +78,16 @@ int	update_button_event(int button_id, t_event_function event_function)
 	Permet d'ajouter à l'historique des évènements boutons.
 
 */
-void	add_event_to_lst(int button_id, t_event_function event_function)
+void	add_event_to_lst(void *button_img, t_event_function event_function)
 {
 	t_event_button		*garbage;
 	t_event_button_lst	*new;
 	int					existing_one;
 
 	garbage = button_event_list_instance();
-	existing_one = update_button_event(button_id, event_function);
+	printf("get_... %d\n", get_button_id_by_addr(button_img) / 2);
+	existing_one = update_button_event(get_button_id_by_addr(button_img) / 2,
+		event_function);
 	if (existing_one < 0)
 		write_func_msg("add_event_to_lst",
 			"Creation of an additional memory block.\n");

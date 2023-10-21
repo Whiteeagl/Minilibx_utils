@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 23:05:54 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/21 22:25:20 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/22 01:19:02 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ int	mouse_hook_function(int click_id, int x, int y)
 	return (0);
 }
 
-void	add_button_event(int button_id, t_event_function event_func)
+void	add_button_event(void *button, t_event_function event_func)
 {
-	add_event_to_lst(button_id, event_func);
+	add_event_to_lst(button, event_func);
 	mlx_mouse_hook(get_win_ptr(), mouse_hook_function, NULL);
 }

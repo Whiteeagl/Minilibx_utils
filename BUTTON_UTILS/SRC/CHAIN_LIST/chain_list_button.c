@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 11:17:17 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/21 21:58:58 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/22 00:42:19 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,14 @@ t_button_lst	*new_button(void *pointer_to,
 	else
 		new->pointer = pointer_to;
 	new->id = button_id;
-	new->x = tmp_stuff->x;
-	new->y = tmp_stuff->y;
+	new->color = tmp_stuff->bg_color;
 	new->width = tmp_stuff->width;
-	new->height = tmp_stuff->height;
-	new->color = RECT_COLOR;
+	new->height = tmp_stuff->heigth;
+	new->sub_data = tmp_stuff->sub_data;
+	new->sub_data->event_function = tmp_stuff->sub_data->event_function;
+	new->sub_data->text_img = tmp_stuff->sub_data->text_img;
+	new->sub_data->x = tmp_stuff->sub_data->x;
+	new->sub_data->y = tmp_stuff->sub_data->y;
 	new->next = NULL;
 	button_id += 1;
 	return (new);

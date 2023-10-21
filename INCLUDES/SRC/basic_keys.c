@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   keys_stuff.c                                       :+:      :+:    :+:   */
+/*   basic_keys.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/14 11:15:58 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/21 22:19:53 by wolf             ###   ########.fr       */
+/*   Created: 2023/10/21 23:12:47 by wolf              #+#    #+#             */
+/*   Updated: 2023/10/21 23:13:18 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../INCLUDES/button.h"
+#include "../basique_mlx_needed.h"
 
-/*
-	Pour récupérer les différentes touches du clavier.
-
-*/
 int	handle_keypress(int keycode)
 {
 	if (keycode == ESC)
-		handle_window_close();
+		handle_window_close("Window closed by ESC key");
 	return (0);
 }

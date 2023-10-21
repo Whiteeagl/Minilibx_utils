@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 11:15:40 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/21 22:17:37 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/22 01:01:59 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ bool	is_mouse_inside_rect(void)
 	y = get_my();
 	while (idx)
 	{
-		if (x >= idx->x && x <= idx->x + idx->width
-			&& y >= idx->y && y <= idx->y + idx->height)
+		if (x >= idx->sub_data->x && x <= idx->sub_data->x + idx->width
+			&& y >= idx->sub_data->y && y <= idx->sub_data->y + idx->height)
 			return (update_collide_one(idx, idx->next), true);
 		idx = idx->next;
 	}

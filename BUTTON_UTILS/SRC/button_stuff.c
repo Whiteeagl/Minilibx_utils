@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 11:16:18 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/21 22:17:20 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/21 22:31:41 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,6 @@ void	create_empty_button(int x, int y, int width, int height)
 	add_button(collide_image, get_tmp_stuff());
 	mlx_put_image_to_window(get_mlx_ptr(), get_win_ptr(), image, x, y);
 	mlx_hook(get_win_ptr(), 6, (1L << 6), handle_mouse_move, NULL);
-	printf("ID : %d\n", id);
 	add_event_to_lst(id, NULL);
 	id++ ;
 }

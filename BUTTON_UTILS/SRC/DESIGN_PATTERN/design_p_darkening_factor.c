@@ -1,25 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   other_stuff.c                                      :+:      :+:    :+:   */
+/*   design_p_darkening_factor.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/14 11:15:31 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/22 01:28:45 by wolf             ###   ########.fr       */
+/*   Created: 2023/10/22 01:36:46 by wolf              #+#    #+#             */
+/*   Updated: 2023/10/22 01:39:48 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../INCLUDES/button.h"
+#include "../../INCLUDES/button.h"
 
-/*
-	Permet d'afficher un bouton d'origine et son mirroir.
-
-*/
-void	display_collide_img(t_button_lst *to_display, void *window_ptr)
+t_darkening_factor	*get_d_factor_instance(void)
 {
-	if (!window_ptr)
-		window_ptr = get_win_ptr();
-	mlx_put_image_to_window(get_mlx_ptr(), window_ptr,
-		to_display->pointer, to_display->sub_data->x, to_display->sub_data->y);
+	static t_darkening_factor	instance;
+
+	return (&instance);
+}
+
+void	update_d_factor(int factor)
+{
+	t_darkening_factor	*f;
+
+	f = get_d_factor_instance();
+	f->dark_factor = factor;
+}
+
+int	get_d_factor(void)
+{
+	t_darkening_factor	*f;
+
+	f = get_d_factor_instance();
+	return (f->dark_factor);
 }

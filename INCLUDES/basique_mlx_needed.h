@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 12:35:55 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/22 01:06:32 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/22 12:04:43 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,34 @@ typedef struct c_tmp_pixel
 	int	endian;
 }t_tmp_pixel;
 
-t_mlx_stuff	*mlx_instance(void);
+typedef struct s_garbage_lst
+{	
+	void					*pointer;
+	struct s_garbage_lst	*next;	
+}t_garbage_lst;
 
-void		*get_mlx_ptr(void);
-void		*get_win_ptr(void);
+typedef struct s_garbage
+{
+	int						len_of_lst;
+	t_garbage_lst			*head;
+	t_garbage_lst			*tail;
+}t_garbage;
 
-void		update_mlx_infos(void *mlx_ptr, void *win_ptr, void *img_ptr);
-void		free_mlx_infos(void);
-void		handle_window_close(char *msg);
+
+t_garbage_lst	*new_elmt(void *pointer_to);
+t_mlx_stuff		*mlx_instance(void);
+t_garbage		*start_garbage(void);
+t_garbage		*get_garbage_instance(void);
+
+void			*get_mlx_ptr(void);
+void			*get_win_ptr(void);
+void			*ft_malloc(size_t size);
+
+void			update_mlx_infos(void *mlx_ptr, void *win_ptr, void *img_ptr);
+void			free_mlx_infos(void);
+void			handle_window_close(char *msg);
+void			handle_window_close_err_alloc(char *function);
+void			garbage_add(void *pointer);
+void			free_garbage(void);
 
 #endif

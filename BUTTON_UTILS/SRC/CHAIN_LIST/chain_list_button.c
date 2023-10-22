@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 11:17:17 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/22 00:42:19 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/22 12:10:23 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ t_button_lst	*new_button(void *pointer_to,
 	t_button_lst	*new;
 	static int		button_id;
 
-	new = malloc(sizeof(t_button_lst));
+	new = ft_malloc(sizeof(t_button_lst));
 	if (!new)
-		free_button_list();
+		handle_window_close_err_alloc("new_button");
 	if (!pointer_to)
 		new->pointer = NULL;
 	else
@@ -94,6 +94,7 @@ void	free_button_list(void)
 {
 	t_button				*garbage;
 	t_button_lst			*save;
+	//t_button_sub_data		*tmp_sub_data;
 	int						i;
 
 	i = -1;
@@ -107,7 +108,6 @@ void	free_button_list(void)
 			save->pointer = NULL;
 		}
 		garbage->head = save->next;
-		free(save);
 		save = garbage->head;
 	}
 	free_button_event_list();

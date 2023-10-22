@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   other_stuff.c                                      :+:      :+:    :+:   */
+/*   design_p_garbage_malloc.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/14 11:15:31 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/22 01:28:45 by wolf             ###   ########.fr       */
+/*   Created: 2023/10/22 11:54:53 by wolf              #+#    #+#             */
+/*   Updated: 2023/10/22 11:55:32 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../INCLUDES/button.h"
+#include "../basique_mlx_needed.h"
 
-/*
-	Permet d'afficher un bouton d'origine et son mirroir.
-
-*/
-void	display_collide_img(t_button_lst *to_display, void *window_ptr)
+t_garbage	*get_garbage_instance(void)
 {
-	if (!window_ptr)
-		window_ptr = get_win_ptr();
-	mlx_put_image_to_window(get_mlx_ptr(), window_ptr,
-		to_display->pointer, to_display->sub_data->x, to_display->sub_data->y);
+	static t_garbage	instance;
+
+	return (&instance);
 }

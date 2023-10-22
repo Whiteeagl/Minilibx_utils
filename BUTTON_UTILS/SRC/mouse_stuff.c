@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 11:15:40 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/22 01:01:59 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/22 01:29:23 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ bool	is_mouse_inside_rect(void)
 		Pour la detection des collisions.
 
 */
-int	handle_mouse_move(int x, int y)
+int	handle_mouse_move(int x, int y, void *window_ptr)
 {
 	t_button_lst	*o_collide;
 	t_button_lst	*img_collide;
@@ -63,14 +63,14 @@ int	handle_mouse_move(int x, int y)
 	{
 		if (o_collide && !already_set)
 		{
-			display_collide_img(img_collide);
+			display_collide_img(img_collide, window_ptr);
 			already_set = true;
 		}
 	}
 	else
 	{
 		if (o_collide)
-			display_collide_img(o_collide);
+			display_collide_img(o_collide, window_ptr);
 		update_collide_one(NULL, NULL);
 		already_set = false;
 	}

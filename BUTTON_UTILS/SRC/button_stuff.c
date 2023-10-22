@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 11:16:18 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/22 01:07:47 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/22 12:23:54 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ void	*init_button(int width, int height, int color)
 			&bits_per_pixel, &size_line, &endian);
 	while (i < width * height * (bits_per_pixel / 8))
 	{
-		img.image_data[i] = color & 0xFF;
-		img.image_data[i + 1] = (color >> 8) & 0xFF;
-		img.image_data[i + 2] = (color >> 16) & 0xFF;
-		img.image_data[i + 3] = (color >> 24) & 0xFF;
+		img.image_data[i] = (color & 0xFF);
+		img.image_data[i + 1] = ((color >> 8) & 0xFF);
+		img.image_data[i + 2] = ((color >> 16) & 0xFF);
+		img.image_data[i + 3] = ((color >> 24) & 0xFF);
 		i += 4;
 	}
 	return (img.image_ptr);
@@ -81,15 +81,24 @@ t_button_sub_data	*sub_data(void *text_img, void (*event_func)(void), int x, int
 {
 	t_button_sub_data	*sub_data;
 
-	sub_data = malloc(sizeof(t_button_sub_data *));
+	sub_data = ft_malloc(sizeof(t_button_sub_data *));
 	if (!sub_data)
-		return (write_func_msg("sub_data", ERR_ALLOCATION),
-			handle_window_close(WINDOW_CLOSE_ERR_ALLOC), NULL);
+		handle_window_close_err_alloc("sub_data");
 	sub_data->text_img = text_img;
 	sub_data->event_function = event_func;
 	sub_data->x = x;
 	sub_data->y = y;
 	return (sub_data);
+}
+
+void	*create_button_img(int width, int length, int color)
+{
+	void	*img;
+
+	img = init_button(width, length, color);
+	if (!img)
+		handle_window_close_err_alloc("create_button_img");
+	return (img);
 }
 
 void	*create_button(char *string, int fg_color,
@@ -107,21 +116,17 @@ void	*create_button(char *string, int fg_color,
 	if (!get_scale())
 		return (write_func_msg("create_button", ERR_PREVIOUS_SCALE),
 			NULL);
-	text = build_string(string, get_scale(), fg_color, bg_color);
+	text = build_string(string, get_scale(), fg_color, bg_color / 3);
 	
 	width = sum_icc_letters(string) * get_scale();
 	width = width + (ft_len_text(string) - 1) * get_scale();
 	width += get_scale() * 3;
 
-	image = init_button(width, (get_scale() * LENGTH) * 2, bg_color);
-	if (!image)
-		return (handle_window_close(ERR_ALLOCATION),
-			exit(EXIT_FAILURE), NULL);
-	collide_image = init_button(width, (get_scale() * LENGTH) * 2, COLOR_WHITE);
-	if (!collide_image)
-		return (handle_window_close(ERR_ALLOCATION),
-			exit(EXIT_FAILURE), NULL);
-	update_tmp_stuff(bg_color, width, (get_scale() * LENGTH) * 2, sub_data(text, event_func, 0, 0));
+	image = create_button_img(width, (get_scale() * LENGTH) * 2, bg_color / 3);
+	collide_image = create_button_img(width, (get_scale() * LENGTH) * 2, bg_color);
+
+	update_tmp_stuff(bg_color, width, (get_scale() * LENGTH) * 2,
+		sub_data(text, event_func, 0, 0));
 	add_button(image, get_tmp_stuff());
 	add_button(collide_image, get_tmp_stuff());
 	add_event_to_lst(image, NULL);
@@ -171,8 +176,8 @@ void	button_place(void *button, int x, int y, void *window_ptr)
 	y = button_stuff->sub_data->y;
 
 	mlx_put_image_to_window(get_mlx_ptr(), window_ptr, button, x, y);
-	mlx_hook(window_ptr, 6, (1L << 6), handle_mouse_move, NULL);
+	mlx_hook(window_ptr, 6, (1L << 6), handle_mouse_move, window_ptr);
 	display_string(button_stuff->sub_data->text_img,
-		x + get_scale(), y + (get_scale() * 2));
+		x + get_scale(), y + (get_scale() * 2), window_ptr);
 	add_button_event(button, button_stuff->sub_data->event_function);
 }

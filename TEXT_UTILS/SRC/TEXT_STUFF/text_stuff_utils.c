@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   text_stuff_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tboldrin <tboldrin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 22:53:51 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/20 13:52:08 by tboldrin         ###   ########.fr       */
+/*   Updated: 2023/10/22 01:27:18 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,10 +88,12 @@ void	*build_string(char *string, int scale, int fg_color, int bg_color)
 	sur l'écran.
 
 */
-void	display_string(void *img, int x, int y)
+void	display_string(void *img, int x, int y, void *window_ptr)
 {
 	if (!img)
 		return (write_func_msg("display_string", ERR_NULL_VALUE));
-	mlx_put_image_to_window(get_mlx_ptr(), get_win_ptr(),
+	if (!window_ptr)
+		window_ptr = get_win_ptr();
+	mlx_put_image_to_window(get_mlx_ptr(), window_ptr,
 		img, x, y);
 }

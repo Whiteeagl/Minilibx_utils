@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 21:12:35 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/22 01:17:46 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/22 12:20:50 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,7 @@ t_event_button_lst	*new_button_event(t_event_function event_function)
 
 	new = malloc(sizeof(t_event_button_lst));
 	if (!new)
-		return (free_button_event_list(),
-			write_msg(ERR_ALLOCATION), exit(EXIT_FAILURE), NULL);
+		handle_window_close_err_alloc("new_button_event");
 	if (first_one == 0)
 		new->event_func = NULL;
 	else
@@ -66,7 +65,7 @@ int	update_button_event(int button_id, t_event_function event_function)
 			-1);
 	while (current != NULL && ++idx < button_id)
 		current = current->next;
-	if (current != NULL && idx == button_id)
+	if (current != NULL)
 	{
 		current->event_func = event_function;
 		return (1);

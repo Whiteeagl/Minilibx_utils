@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 11:16:06 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/21 23:08:46 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/22 12:07:31 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,18 @@ void	handle_window_close(char *msg)
 	free_button_list();
 	free_text_addr_list();
 	free_mlx_infos();
+	free_garbage();
 	exit(EXIT_SUCCESS);
 }
+
+void	handle_window_close_err_alloc(char *function)
+{
+	write_func_msg(function, ERR_ALLOCATION);
+	write_msg(WINDOW_CLOSE_ERR_ALLOC);
+	free_button_list();
+	free_text_addr_list();
+	free_mlx_infos();
+	free_garbage();
+	exit(EXIT_SUCCESS);
+}
+

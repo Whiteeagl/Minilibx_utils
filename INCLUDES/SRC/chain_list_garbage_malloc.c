@@ -1,45 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   text_chain_list.c                                  :+:      :+:    :+:   */
+/*   chain_list_garbage_malloc.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/15 16:47:36 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/22 12:10:09 by wolf             ###   ########.fr       */
+/*   Created: 2023/10/22 11:44:11 by wolf              #+#    #+#             */
+/*   Updated: 2023/10/22 12:08:27 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../INCLUDES/text.h"
+#include "../basique_mlx_needed.h"
 
-t_text_addr_lst	*new_pointer(void *pointer_to)
+t_garbage	*start_garbage(void)
 {
-	t_text_addr_lst	*new;
-	static int		button_id;
+	t_garbage	*garbage;
 
-	new = ft_malloc(sizeof(t_text_addr_lst));
+	garbage = get_garbage_instance();
+	garbage->head = NULL;
+	garbage->tail = NULL;
+	garbage->len_of_lst = 0;
+	return (garbage);
+}
+
+t_garbage_lst	*new_elmt(void *pointer_to)
+{
+	t_garbage_lst	*new;
+
+	new = malloc(sizeof(t_garbage_lst));
 	if (!new)
-		handle_window_close_err_alloc("new_pointer");
+		handle_window_close_err_alloc("new_elmt");
 	if (!pointer_to)
 		new->pointer = NULL;
 	else
 		new->pointer = pointer_to;
 	new->next = NULL;
-	button_id += 1;
 	return (new);
 }
 
-/*
-	On ajoute l'adresse de l'image qu'on a créée pour loger le texte.
-
-*/
-void	add_text_pointer(void *pointer)
+// Doit etre call quand nouvelle allocation
+void	garbage_add(void *pointer)
 {
-	t_text_addr		*garbage;
-	t_text_addr_lst	*new;
+	t_garbage		*garbage;
+	t_garbage_lst	*new;
 
-	garbage = get_text_list_instance();
-	new = new_pointer(pointer);
+	garbage = get_garbage_instance();
+	new = new_elmt(pointer);
 	if (garbage->head == NULL)
 	{
 		garbage->head = new;
@@ -53,28 +59,25 @@ void	add_text_pointer(void *pointer)
 	garbage->len_of_lst++;
 }
 
-/*
-	Permet de free l'historique des adresses sur images.
-	Les Détruits toutes.
-
-*/
-void	free_text_addr_list(void)
+// Doit etre call dans les secu ft_malloc
+void	free_garbage(void)
 {
-	t_text_addr				*garbage;
-	t_text_addr_lst			*save;
-	int						i;
+	t_garbage		*garbage;
+	t_garbage_lst	*save;
+	int				i;
 
 	i = -1;
-	garbage = get_text_list_instance();
+	garbage = get_garbage_instance();
 	save = garbage->head;
 	while (++i < garbage->len_of_lst)
 	{
 		if (save->pointer)
 		{
-			mlx_destroy_image(get_mlx_ptr(), save->pointer);
+			free(save->pointer);
 			save->pointer = NULL;
 		}
 		garbage->head = save->next;
+		free(save);
 		save = garbage->head;
 	}
 }

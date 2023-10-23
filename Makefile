@@ -1,7 +1,8 @@
 SUBDIRS		=	TEXT_UTILS/
 
+MLX_PATH	=	./Mlx
 EXEC_NAME	=	exec
-MLXFLAGS 	=	-L./Mlx -lmlx -L/usr/include/../lib -lXext -lX11 -lm -lbsd
+MLXFLAGS 	=	-L$(MLX_PATH) -lmlx -L/usr/include/../lib -lXext -lX11 -lm -lbsd
 FLAGS		=	-Wall -Wextra -Werror -g3
 
 .PHONY: all clean $(SUBDIRS)
@@ -12,7 +13,10 @@ create_obj_lib:
 	mkdir -p obj/
 	mkdir -p lib/
 
-$(SUBDIRS): create_obj_lib
+compile_mlx:
+	$(MAKE) -C $(MLX_PATH)/
+
+$(SUBDIRS): create_obj_lib compile_mlx
 	$(MAKE) -C $@
 
 compile: $(SUBDIRS)
@@ -23,6 +27,7 @@ clean:
 	rm -rf lib/
 
 fclean: clean
+	$(MAKE) -C $(MLX_PATH)/ clean
 	rm $(EXEC_NAME)
 
 re: clean all

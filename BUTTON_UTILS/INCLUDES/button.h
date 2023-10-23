@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 11:52:04 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/23 23:01:30 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/23 23:35:42 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ typedef struct c_B
 	t_event_function	event_function;
 }t_B;
 
-
 typedef struct c_image_stuff
 {
 	void	*image_ptr;
@@ -40,7 +39,6 @@ typedef struct c_image_stuff
 }t_image_stuff;
 
 // 				START : BUTTON
-
 typedef struct c_button_sub_data
 {
 	void					*text_img;
@@ -123,21 +121,16 @@ typedef struct s_darkening_factor
 t_tmp_button_min_stuff	*tmp_stuff_instance(void);
 t_tmp_button_min_stuff	*get_tmp_stuff(void);
 
-
-
 t_darkening_factor		*get_d_factor_instance(void);
 
 t_button_sub_data		*sub_data(void *text_img,
 							void *text_collide_img, void (*event_func)(void));
-
 
 t_button_collide		*get_collide_one_instance(void);
 t_event_button			*button_event_list_instance(void);
 t_event_function		get_button_event(int button_id);
 t_button_lst			*new_button(void *pointer_to,
 							t_tmp_button_min_stuff *tmp_stuff);
-
-							
 
 t_button_lst			*get_collide_image(void);
 t_button_lst			*get_collide_origin(void);
@@ -164,7 +157,8 @@ void					update_collide_one(t_button_lst *origin_one,
 void					add_button(void *pointer,
 							t_tmp_button_min_stuff *tmp_stuff);
 void					update_button_coord(void *button, int x, int y);
-void					display_collide_img(t_button_lst *to_display, void *window_ptr);
+void					display_collide_img(t_button_lst *to_display,
+							void *window_ptr);
 void					free_button_list(void);
 void					update_coord(int x, int y);
 void					add_button_event(void *button,

@@ -6,11 +6,11 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 19:25:39 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/23 19:30:47 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/23 23:38:11 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../basique_mlx_needed.h"
+#include "../basique_mlx_needed.h"
 
 void	handle_window_close(char *msg)
 {

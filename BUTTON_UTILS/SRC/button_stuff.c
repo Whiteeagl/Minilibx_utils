@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 11:16:18 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/23 23:12:40 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/23 23:31:12 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,15 +94,15 @@ void	*create_button(char *string, int fg_color,
 		return (write_func_msg("create_button", "Error, need text title."),
 			NULL);
 	if (!get_scale())
-		return (write_func_msg("create_button", ERR_PREVIOUS_SCALE),
-			NULL);
+		return (write_func_msg("create_button", ERR_PREVIOUS_SCALE), NULL);
 	text = build_string(string, get_scale(), fg_color, bg_color / 3);
 	text_collide = build_string(string, get_scale(), fg_color, bg_color);
 	width = sum_icc_letters(string) * get_scale();
 	width = width + (ft_len_text(string) - 1) * get_scale();
 	width += get_scale() * 3;
 	image = create_button_img(width, (get_scale() * LENGTH) * 2, bg_color / 3);
-	collide_image = create_button_img(width, (get_scale() * LENGTH) * 2, bg_color);
+	collide_image = create_button_img(width,
+			(get_scale() * LENGTH) * 2, bg_color);
 	update_tmp_stuff(bg_color, width, (get_scale() * LENGTH) * 2,
 		sub_data(text, text_collide, event_func));
 	add_button(image, get_tmp_stuff());

@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 12:35:55 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/23 22:15:12 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/23 23:37:48 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,10 @@
 
 # define WINDOW_CLOSE_ERR_ALLOC	"The window closed due to a failed allocation.\n"
 
-# define ERR_ID_BUTTON_EVENT_GREATER	"Error, the button's ID is greater than the length of the event list.\n"
-# define ERR_ID_BUTTON_GREATER			"Error, the button's ID is greater than the length of the button list.\n"
+# define ERR_ID_BUTTON_EVENT_GREATER	"Error, the button's ID is \
+									greater than the length of the event list.\n"
+# define ERR_ID_BUTTON_GREATER 			"Error, the button's ID is \
+								greater than the length of the button list.\n"
 
 typedef struct s_mlx_stuff
 {
@@ -54,7 +56,6 @@ typedef struct s_garbage
 	t_garbage_lst			*head;
 	t_garbage_lst			*tail;
 }t_garbage;
-
 
 t_garbage_lst	*new_elmt(void *pointer_to);
 t_mlx_stuff		*mlx_instance(void);

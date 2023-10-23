@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 11:16:06 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/22 12:07:31 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/23 23:32:18 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,3 @@ void	handle_window_close_err_alloc(char *function)
 	free_garbage();
 	exit(EXIT_SUCCESS);
 }
-

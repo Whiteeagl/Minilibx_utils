@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 21:12:35 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/23 22:34:36 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/23 23:34:04 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void	add_event_to_lst(void *button_img, t_event_function event_function)
 
 	garbage = button_event_list_instance();
 	existing_one = update_button_event(get_button_id_by_addr(button_img) / 2,
-		event_function);
+			event_function);
 	if (existing_one < 0)
 		write_func_msg("add_event_to_lst",
 			"Creation of an additional memory block.\n");

@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 11:15:40 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/23 23:09:49 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/23 23:32:06 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,6 @@ bool	is_mouse_inside_rect(void)
 		Pour la detection des collisions.
 
 */
-
-
 void	display_origin_img(t_button_lst	*o_collide,
 			bool *already_set, void *window_ptr)
 {
@@ -62,8 +60,8 @@ void	display_origin_img(t_button_lst	*o_collide,
 		scale = o_collide->sub_data->text_scale;
 		display_collide_img(o_collide, window_ptr);
 		display_string(o_collide->sub_data->text_img,
-				o_collide->sub_data->x + scale,
-				o_collide->sub_data->y + (scale * 2), window_ptr);
+			o_collide->sub_data->x + scale,
+			o_collide->sub_data->y + (scale * 2), window_ptr);
 	}
 	update_collide_one(NULL, NULL);
 	*already_set = false;
@@ -81,8 +79,8 @@ void	display_collided_img(t_button_lst *o_collide,
 		scale = img_collide->sub_data->text_scale;
 		display_collide_img(img_collide, window_ptr);
 		display_string(img_collide->sub_data->text_collide_img,
-				img_collide->sub_data->x + scale,
-				img_collide->sub_data->y + (scale * 2), window_ptr);
+			img_collide->sub_data->x + scale,
+			img_collide->sub_data->y + (scale * 2), window_ptr);
 		*already_set = true;
 	}
 }
@@ -90,12 +88,10 @@ void	display_collided_img(t_button_lst *o_collide,
 int	handle_mouse_move(int x, int y, void *window_ptr)
 {
 	t_button_lst	*o_collide;
-
 	static bool		already_set;
 
 	update_coord(x, y);
-	o_collide = get_collide_origin();	
-	
+	o_collide = get_collide_origin();
 	if (is_mouse_inside_rect())
 		display_collided_img(o_collide, &already_set, window_ptr);
 	else

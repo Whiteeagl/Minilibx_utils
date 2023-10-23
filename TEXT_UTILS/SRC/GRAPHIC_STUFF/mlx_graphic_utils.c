@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 22:51:59 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/23 23:16:39 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/23 23:38:40 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ void	fill_icc_cara(void *img, char c, int x, t_fbg_color *fbg_colors)
 	array2 = get_min_icc_letters(c);
 	if (!array2)
 		return (write_func_msg("fill_icc_cara",
-			"Error, can not find the letter array.\n"));
+				"Error, can not find the letter array.\n"));
 	p_stuff.i = -1;
 	stop = do_we_stop(array2);
 	while (++p_stuff.i < LENGTH)
@@ -123,7 +123,7 @@ void	dipslay_cara(void *img, char c, int x, t_fbg_color *fbg_colors)
 	array = get_min_letters(c);
 	if (!array)
 		return (write_func_msg("dipslay_cara",
-			"Error, can not find the letter array.\n"));
+				"Error, can not find the letter array.\n"));
 	stop = do_we_stop(array);
 	while (++p_stuff.i < LENGTH)
 	{

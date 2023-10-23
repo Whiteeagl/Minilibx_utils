@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 11:17:17 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/23 23:13:14 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/23 23:33:50 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,6 @@ void	free_button_list(void)
 {
 	t_button				*garbage;
 	t_button_lst			*save;
-	//t_button_sub_data		*tmp_sub_data;
 	int						i;
 
 	i = -1;

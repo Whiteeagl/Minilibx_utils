@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_all_tuff.c                                    :+:      :+:    :+:   */
+/*   init_all_stuff.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tboldrin <tboldrin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 15:17:35 by tboldrin          #+#    #+#             */
-/*   Updated: 2023/10/20 15:19:13 by tboldrin         ###   ########.fr       */
+/*   Updated: 2023/10/23 19:41:28 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,4 +17,5 @@ void	init_all_text_stuff(void)
 	init_all_special_cara();
 	init_all_min_letters();
 	init_all_numbers();
+	update_scale_value(4);
 }

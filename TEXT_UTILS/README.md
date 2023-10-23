@@ -20,7 +20,7 @@ init_all_text_stuff();
 
 - [1. `void *build_string(char *string, int scale, int color);`](#1-void-build_stringchar-string-int-scale-int-color)
 
-- [2. `void display_string(void *img, int x, int y);`](#2-void-display_stringvoid-img-int-x-int-y)
+- [2. `void display_string(void *img, int x, int y, void *window_ptr);`](#2-void-display_stringvoid-img-int-x-int-y)
 
 
 ## Functions
@@ -51,7 +51,7 @@ void *text_image = build_string("looks like plain text buddy", 2, 0x00FF00, 0x00
 
   
 
-### 2. `void display_string(void *img, int x, int y)`;
+### 2. `void display_string(void *img, int x, int y, void *window_ptr)`;
 
 
 **Description:** This function displays an image containing text at a specified position on the MiniLibX window.
@@ -66,6 +66,8 @@ void *text_image = build_string("looks like plain text buddy", 2, 0x00FF00, 0x00
 
 -  `int y` : The Y-coordinate for the image's position on the window.
 
+-  `void *window_ptr` : the address of the window on which you want to display text.
+
 
 **Example Usage:**
 
@@ -76,10 +78,10 @@ void  tests_here(void)
 	void *test;
 
 	test = build_string("this is a text i guess 123", 4, 0xFFFFFF, 0x000000);
-	display_string(test, 40, 100);
+	display_string(test, 40, 100, get_win_ptr());
 
 	test = build_string("use macro amigo", 10, COLOR_WHITE, COLOR_RED); // You can use our color macro for better usage.
-	display_string(test, 100, 200);
+	display_string(test, 100, 200, get_win_ptr());
 }
 
 ```

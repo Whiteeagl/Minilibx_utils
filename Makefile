@@ -1,5 +1,4 @@
-SUBDIRS		=	BUTTON_UTILS/ \
-				TEXT_UTILS/
+SUBDIRS		=	TEXT_UTILS/
 
 EXEC_NAME	=	exec
 MLXFLAGS 	=	-L./Mlx -lmlx -L/usr/include/../lib -lXext -lX11 -lm -lbsd

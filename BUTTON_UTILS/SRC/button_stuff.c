@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 11:16:18 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/22 12:23:54 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/22 17:53:27 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ t_button_sub_data	*sub_data(void *text_img, void (*event_func)(void), int x, int
 {
 	t_button_sub_data	*sub_data;
 
-	sub_data = ft_malloc(sizeof(t_button_sub_data *));
+	sub_data = ft_malloc(sizeof(sub_data));
 	if (!sub_data)
 		handle_window_close_err_alloc("sub_data");
 	sub_data->text_img = text_img;
@@ -109,6 +109,8 @@ void	*create_button(char *string, int fg_color,
 	void					*text;
 	int						width;
 
+	t_button_sub_data		*d;
+
 	if (!string)
 		return (write_func_msg("create_button", "Error, need text title."),
 			NULL);
@@ -125,8 +127,9 @@ void	*create_button(char *string, int fg_color,
 	image = create_button_img(width, (get_scale() * LENGTH) * 2, bg_color / 3);
 	collide_image = create_button_img(width, (get_scale() * LENGTH) * 2, bg_color);
 
+	d = sub_data(text, event_func, 0, 0);
 	update_tmp_stuff(bg_color, width, (get_scale() * LENGTH) * 2,
-		sub_data(text, event_func, 0, 0));
+		d);
 	add_button(image, get_tmp_stuff());
 	add_button(collide_image, get_tmp_stuff());
 	add_event_to_lst(image, NULL);
@@ -162,8 +165,6 @@ void	*create_button(char *string, int fg_color,
 	
 } */
 /// /// /// /// /// /// /// /// /// /// /// ///...
-
-
 
 void	button_place(void *button, int x, int y, void *window_ptr)
 {

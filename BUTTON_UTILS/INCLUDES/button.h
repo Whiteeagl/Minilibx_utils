@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 11:52:04 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/22 12:14:54 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/22 17:27:08 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,14 @@ typedef struct s_mouse
 	int	mx;
 	int	my;
 }t_mouse;
+
+typedef struct c_tmp_mouse_stuff
+{
+	void	*text_ptr;
+	void	*window_ptr;
+	int		text_x;
+	int		text_y;
+}t_tmp_mouse_stuff;
 
 typedef struct s_button_collide
 {

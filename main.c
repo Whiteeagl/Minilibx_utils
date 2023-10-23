@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 22:34:45 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/22 01:13:06 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/22 16:59:01 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,18 @@ int	handle_keypress(int keycode)
 	return (0);
 }
 
+static int	sum;
+
 void	a(void)
 {
-	write_msg("Je suis un bouton\n");
+	sum += 1 ;
+	write_msg("+1\n");
 }
 
 
 void	b(void)
 {
-	write_msg("Je suis un autre bouton\n");
+	printf("sum : %d\n", sum);
 }
 
 void	mon_prog(void)
@@ -36,14 +39,13 @@ void	mon_prog(void)
 	void	*button_1;
 
 	update_scale_value(4);
-	button_1 = create_button("test", COLOR_BLACK, COLOR_GREEN, a);
+	button_1 = create_button("test", COLOR_GOLD, COLOR_GREEN, a);
 	button_place(button_1, 100, 100, get_win_ptr()); 
 
 	void *button_2;
 
-	button_2 = create_button("test2", COLOR_BLACK, COLOR_RED, b);
+	button_2 = create_button("test2", COLOR_CORAL, COLOR_TOMATO, b);
 	button_place(button_2, 100, 300, get_win_ptr());
-
 }
 
 int main(void)

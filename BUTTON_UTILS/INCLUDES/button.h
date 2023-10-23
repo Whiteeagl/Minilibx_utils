@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 11:52:04 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/22 17:27:08 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/23 23:01:30 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # define RECT_COLOR	0x808080
 # define ESC		65307
 
-typedef void	(*t_event_function)();
+typedef void	(*t_event_function)(void);
 
 typedef struct c_B
 {
@@ -44,6 +44,8 @@ typedef struct c_image_stuff
 typedef struct c_button_sub_data
 {
 	void					*text_img;
+	void					*text_collide_img;
+	int						text_scale;
 	int						x;
 	int						y;
 	t_event_function		event_function;
@@ -121,13 +123,21 @@ typedef struct s_darkening_factor
 t_tmp_button_min_stuff	*tmp_stuff_instance(void);
 t_tmp_button_min_stuff	*get_tmp_stuff(void);
 
+
+
 t_darkening_factor		*get_d_factor_instance(void);
+
+t_button_sub_data		*sub_data(void *text_img,
+							void *text_collide_img, void (*event_func)(void));
+
 
 t_button_collide		*get_collide_one_instance(void);
 t_event_button			*button_event_list_instance(void);
 t_event_function		get_button_event(int button_id);
 t_button_lst			*new_button(void *pointer_to,
 							t_tmp_button_min_stuff *tmp_stuff);
+
+							
 
 t_button_lst			*get_collide_image(void);
 t_button_lst			*get_collide_origin(void);

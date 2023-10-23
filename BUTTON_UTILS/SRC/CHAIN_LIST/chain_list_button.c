@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 11:17:17 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/22 17:08:31 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/23 23:13:14 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,6 @@ t_button_lst	*new_button(void *pointer_to,
 	static int		button_id;
 
 	new = ft_malloc(sizeof(t_button_lst));
-	if (!new)
-		handle_window_close_err_alloc("new_button");
 	if (!pointer_to)
 		new->pointer = NULL;
 	else

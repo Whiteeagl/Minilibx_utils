@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 16:47:36 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/22 12:10:09 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/23 23:15:10 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ t_text_addr_lst	*new_pointer(void *pointer_to)
 	static int		button_id;
 
 	new = ft_malloc(sizeof(t_text_addr_lst));
-	if (!new)
-		handle_window_close_err_alloc("new_pointer");
 	if (!pointer_to)
 		new->pointer = NULL;
 	else

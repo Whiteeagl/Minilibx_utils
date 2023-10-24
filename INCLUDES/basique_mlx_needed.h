@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 12:35:55 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/24 17:46:39 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/24 20:15:34 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void			*ft_malloc(size_t size);
 void			update_mlx_infos(void *mlx_ptr, void *win_ptr, void *img_ptr);
 void			free_mlx_infos(void);
 void			handle_window_close(char *msg);
-void			handle_window_close_err_alloc(char *function);
+void			handle_window_close_err_alloc(char *function_name);
 void			garbage_add(void *pointer);
 void			free_garbage(void);
 

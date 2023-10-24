@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 16:21:14 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/24 17:37:12 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/24 18:59:56 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,4 +120,9 @@ int	button_width_calcul(char *string)
 	width = width + (ft_len_text(string) - 1) * get_scale();
 	width += get_scale() * 3;
 	return (width);
+}
+
+int	button_length_calcul(void)
+{
+	return ((get_scale() * (LENGTH + LENGTH / 3)) * 2);
 }

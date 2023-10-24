@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 22:34:45 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/24 18:52:38 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/24 19:04:04 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ void	mon_prog(void)
 	button_1 = create_button("first one", COLOR_BLACK, COLOR_GREEN, a);
 	button_place(button_1, 100, 100);
 
-	update_scale_value(20);
+	update_scale_value(10);
 	button_1 = create_button("test2", COLOR_BLACK, COLOR_GREEN, NULL);
-	button_place(button_1, 100, 200); 
+	button_place(button_1, 100, 200);
 }
 
 int main(void)

@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 11:16:18 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/24 17:53:28 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/24 18:59:22 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,10 @@ void	*create_button(char *string, int fg_color,
 	text_collide = build_string(string, get_scale(), fg_color, bg_color);
 	width = button_width_calcul(string);
 	image = create_button_img(width + width / 3,
-			(get_scale() * (BUTTON_LENGTH)) * 2, bg_color / 3);
+			button_length_calcul(), bg_color / 3);
 	collide_image = create_button_img(width + width / 3,
-			(get_scale() * BUTTON_LENGTH) * 2, bg_color);
-	update_tmp_stuff(bg_color, width, (get_scale() * BUTTON_LENGTH) * 2,
+			button_length_calcul(), bg_color);
+	update_tmp_stuff(bg_color, width, button_length_calcul(),
 		sub_data(text, text_collide, event_func));
 	add_button(image, get_tmp_stuff());
 	add_button(collide_image, get_tmp_stuff());

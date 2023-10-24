@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 11:52:04 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/24 18:27:13 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/24 18:59:00 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -180,5 +180,6 @@ int						get_my(void);
 int						get_button_id_by_addr(void *button);
 int						get_d_factor(void);
 int						button_width_calcul(char *string);
+int						button_length_calcul(void);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 16:00:52 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/24 18:29:57 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/24 19:01:30 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@
 # define DEFAULT_SCALE		4
 
 # define LENGTH				6
-# define BUTTON_LENGTH		(LENGTH + LENGTH/3)
-
 # define WIDTH				4
 
 # include "../../Mlx/mlx.h"
@@ -160,7 +158,6 @@ void			update_numbers(char c, int (*elmt)[WIDTH]);
 void			update_min_letters(char c, int (*elmt)[WIDTH]);
 void			update_scale_value(int new_scale);
 void			add_text_pointer(void *pointer);
-void			free_all_text_stuff(void);
 void			err_charactere_not_recoginzed(char c);
 void			parse_and_print(void *img, char *string,
 					t_fbg_color *fbg_colors);
@@ -178,6 +175,7 @@ void			dipslay_cara(void *img,
 
 void			write_msg(char *string);
 void			write_func_msg(char *func_name, char *msg);
+void			free_all_text_stuff(void);
 
 void			create_n_0(t_numbers *n_numb);
 void			create_n_1(t_numbers *n_numb);

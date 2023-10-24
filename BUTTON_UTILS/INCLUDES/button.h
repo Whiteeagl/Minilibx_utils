@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 11:52:04 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/24 18:59:00 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/24 23:32:55 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@
 # include <stdio.h>
 # include <stddef.h>
 # include <stdbool.h>
-# include "../../Mlx/mlx.h"
-# include "../../TEXT_UTILS/INCLUDES/text.h"
 # include "../../INCLUDES/basique_mlx_needed.h"
 
 # define RECT_COLOR	0x808080

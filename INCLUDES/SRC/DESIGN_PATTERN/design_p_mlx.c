@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   design_p_mlx.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tboldrin <tboldrin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 11:16:59 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/16 15:25:47 by tboldrin         ###   ########.fr       */
+/*   Updated: 2023/10/24 23:30:40 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../basique_mlx_needed.h"
+#include "../../basique_mlx_needed.h"
 
 t_mlx_stuff	*mlx_instance(void)
 {

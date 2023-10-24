@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 12:35:55 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/23 23:37:48 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/24 17:46:39 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # define ERR_NULL_VALUE		"Error, must me != NULL.\n"
 
 # define WINDOW_CLOSE_ERR_ALLOC	"The window closed due to a failed allocation.\n"
+# define WINDOW_CLOSE_ESC	"Window closed by ESC key"
 
 # define ERR_ID_BUTTON_EVENT_GREATER	"Error, the button's ID is \
 									greater than the length of the event list.\n"

@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 11:16:18 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/24 17:37:12 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/24 17:53:28 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,10 +101,12 @@ void	*create_button(char *string, int fg_color,
 	│		● Associating its event.
 
 */
-void	button_place(void *button, int x, int y, void *window_ptr)
+void	button_place(void *button, int x, int y)
 {
 	t_button_lst		*button_stuff;
+	void				*window_ptr;
 
+	window_ptr = get_win_ptr();
 	button_stuff = get_button_stuff_by_addr(button);
 	update_button_coord(button, x, y);
 	mlx_put_image_to_window(get_mlx_ptr(), window_ptr, button, x, y);

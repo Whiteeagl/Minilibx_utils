@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 22:34:45 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/24 17:12:16 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/24 18:52:38 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	handle_keypress(int keycode)
 {
 	if (keycode == ESC)
-		handle_window_close_err_alloc("handle_keypress");
+		handle_window_close(WINDOW_CLOSE_ESC);
 	return (0);
 }
 
@@ -35,20 +35,25 @@ void	mon_prog(void)
 	void	*button_1;
 
 	button_1 = create_button("first one", COLOR_BLACK, COLOR_GREEN, a);
-	button_place(button_1, 100, 100, get_win_ptr());
+	button_place(button_1, 100, 100);
 
 	update_scale_value(20);
 	button_1 = create_button("test2", COLOR_BLACK, COLOR_GREEN, NULL);
-	button_place(button_1, 100, 200, get_win_ptr()); 
+	button_place(button_1, 100, 200); 
 }
 
 int main(void)
 {
 	void	*mlx_ptr = mlx_init();
+	if (!mlx_ptr)
+		return (handle_window_close_err_alloc("main"), 1);
+	
 	void	*win_ptr = mlx_new_window(mlx_ptr, 1000, 800, "Custom Text");
+	if (!win_ptr)
+		return (handle_window_close_err_alloc("main"), 2);
 
 	update_mlx_infos(mlx_ptr, win_ptr, NULL);
-	init_all_text_stuff();
+	init_all_button_stuff();
 
 	mon_prog();
 

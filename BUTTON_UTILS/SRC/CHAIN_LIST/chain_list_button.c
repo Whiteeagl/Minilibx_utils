@@ -6,13 +6,13 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 11:17:17 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/24 17:37:12 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/24 18:27:04 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../INCLUDES/button.h"
 
-t_button	*button_init(void)
+t_button	*chain_list_button_init(void)
 {
 	t_button	*garbage;
 
@@ -105,7 +105,7 @@ void	add_button(void *pointer,
 	│	Destroys all created images.
 
 */
-void	free_button_list(void)
+void	free_all_button_stuff(void)
 {
 	t_button				*garbage;
 	t_button_lst			*save;

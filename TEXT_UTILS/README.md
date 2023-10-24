@@ -88,12 +88,12 @@ void  tests_here(void)
 
 ## To prevent memory leaks
 
-1. If you want to clean up all the images created to prevent memory leaks, call the `free_text_addr_list()` function when necessary.
+1. If you want to clean up all the images created to prevent memory leaks, call the `free_all_text_stuff()` function when necessary.
 
 **Example Usage:**
 
 ```c
-free_text_addr_list();
+free_all_text_stuff();
 ```
 
 Enjoy !

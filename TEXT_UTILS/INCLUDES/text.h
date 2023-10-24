@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 16:00:52 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/24 15:56:36 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/24 18:29:57 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -160,7 +160,7 @@ void			update_numbers(char c, int (*elmt)[WIDTH]);
 void			update_min_letters(char c, int (*elmt)[WIDTH]);
 void			update_scale_value(int new_scale);
 void			add_text_pointer(void *pointer);
-void			free_text_addr_list(void);
+void			free_all_text_stuff(void);
 void			err_charactere_not_recoginzed(char c);
 void			parse_and_print(void *img, char *string,
 					t_fbg_color *fbg_colors);

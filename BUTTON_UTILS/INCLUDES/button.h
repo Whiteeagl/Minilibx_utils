@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 11:52:04 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/24 17:07:18 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/24 18:27:13 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,7 +138,7 @@ t_button_lst			*get_button_stuff_by_id(int id);
 t_button_lst			*get_button_stuff_by_addr(void *button);
 
 t_button				*button_list_instance(void);
-t_button				*button_init(void);
+t_button				*chain_list_button_init(void);
 
 t_mouse					*get_mouse_instance(void);
 
@@ -160,7 +160,6 @@ void					add_button(void *pointer,
 void					update_button_coord(void *button, int x, int y);
 void					display_collide_img(t_button_lst *to_display,
 							void *window_ptr);
-void					free_button_list(void);
 void					update_coord(int x, int y);
 void					add_button_event(void *button,
 							t_event_function event_func);
@@ -169,8 +168,9 @@ void					add_event_to_lst(void *button_img,
 
 void					free_button_event_list(void);
 void					init_button_event(void);
-void					button_place(void *button, int x,
-							int y, void *window_ptr);
+void					button_place(void *button, int x, int y);
+void					init_all_button_stuff(void);
+void					free_all_button_stuff(void);
 
 int						mouse_hook_function(int click_id, int x, int y);
 int						did_it_collide(int click_id);

@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 11:15:40 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/23 23:32:06 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/24 16:01:32 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ bool	is_mouse_inside_rect(void)
 	t_button_lst	*idx;
 	int				x;
 	int				y;
+	int				button_width;
 
 	button_lst = button_list_instance();
 	idx = button_lst->head;
@@ -33,7 +34,8 @@ bool	is_mouse_inside_rect(void)
 	y = get_my();
 	while (idx)
 	{
-		if (x >= idx->sub_data->x && x <= idx->sub_data->x + idx->width
+		button_width = idx->width + idx->width / 3;
+		if (x >= idx->sub_data->x && x <= idx->sub_data->x + button_width
 			&& y >= idx->sub_data->y && y <= idx->sub_data->y + idx->height)
 			return (update_collide_one(idx, idx->next), true);
 		idx = idx->next;
@@ -60,8 +62,8 @@ void	display_origin_img(t_button_lst	*o_collide,
 		scale = o_collide->sub_data->text_scale;
 		display_collide_img(o_collide, window_ptr);
 		display_string(o_collide->sub_data->text_img,
-			o_collide->sub_data->x + scale,
-			o_collide->sub_data->y + (scale * 2), window_ptr);
+			o_collide->sub_data->x + scale + o_collide->width / LENGTH,
+			o_collide->sub_data->y + (scale * WIDTH), window_ptr);
 	}
 	update_collide_one(NULL, NULL);
 	*already_set = false;
@@ -79,8 +81,8 @@ void	display_collided_img(t_button_lst *o_collide,
 		scale = img_collide->sub_data->text_scale;
 		display_collide_img(img_collide, window_ptr);
 		display_string(img_collide->sub_data->text_collide_img,
-			img_collide->sub_data->x + scale,
-			img_collide->sub_data->y + (scale * 2), window_ptr);
+			img_collide->sub_data->x + scale + img_collide->width / LENGTH,
+			img_collide->sub_data->y + (scale * WIDTH), window_ptr);
 		*already_set = true;
 	}
 }

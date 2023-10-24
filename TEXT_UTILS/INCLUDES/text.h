@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 16:00:52 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/22 01:26:52 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/24 15:56:36 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@
 # define DEFAULT_SCALE		4
 
 # define LENGTH				6
+# define BUTTON_LENGTH		(LENGTH + LENGTH/3)
+
 # define WIDTH				4
 
 # include "../../Mlx/mlx.h"

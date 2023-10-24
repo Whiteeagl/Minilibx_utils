@@ -6,81 +6,48 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 11:16:18 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/23 23:31:12 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/24 16:21:55 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../INCLUDES/button.h"
 
 /* 
-	Création de l'image du bouton avec [ mlx_new_image(params...) ]
-	À la fin on renvoie son adresse histoire de pouvoir l'utiliser n'importe quand.
+	[-- FR --]
+	|
+	|	Ici on créer de toute pièce le bouton en question.
+	|
+	|	Recette :
+	|
+	|			● Création du texte d'origine et du texte mirroir.
+	|			
+	|			● Création de l'image d'origine du bouton et de son image mirroir
+	|				en prenant en compte le texte pour les calculs de dimensions.
+	|
+	|			● Ajout des deux images dans l'historique des boutons.
+	|			● Initialisation de l'event associé à NULL.
+	|
+	|	(Toutes les données non utilisées tout de suite
+	|		 sont sauvegardées dans sub_data.)
 
-*/
-void	*init_button(int width, int height, int color)
-{
-	t_image_stuff	img;
-	int				bits_per_pixel;
-	int				size_line;
-	int				endian;
-	int				i;
-
-	i = 0;
-	img.image_ptr = mlx_new_image(get_mlx_ptr(), width, height);
-	img.image_data = mlx_get_data_addr(img.image_ptr,
-			&bits_per_pixel, &size_line, &endian);
-	while (i < width * height * (bits_per_pixel / 8))
-	{
-		img.image_data[i] = (color & 0xFF);
-		img.image_data[i + 1] = ((color >> 8) & 0xFF);
-		img.image_data[i + 2] = ((color >> 16) & 0xFF);
-		img.image_data[i + 3] = ((color >> 24) & 0xFF);
-		i += 4;
-	}
-	return (img.image_ptr);
-}
-
-/* 
-	Ici on créer de toute pièce le bouton en question.
- 
-	Recette :
-
-			● Création de l'image d'origine et de l'image mirroir.
-			● Ajout des deux images dans l'historique des boutons.
-			● Affichage du bouton d'origine.
-			● Detection des collisions + clic.
+	[-- EN --]
+	|
+	|	Here, we create the button from scratch.
+	|
+	|	Recipe:
+	|
+	|			● Creation of the original text and the mirrored text.
+	|		
+	|			● Creation of the original button image and its mirrored image
+	|				taking into account the text for dimension calculations.
+	|
+	|			● Adding both images to the button history.
+	|			● Initialization of the associated event to NULL.
+	|
+	|	(All data not immediately used
+	|		are saved in sub_data.)
  
 */
-
-t_button_sub_data	*sub_data(void *text_img,
-						void *text_collide_img, void (*event_func)(void))
-{
-	t_button_sub_data	*sub_data;
-	int					actual_scale;
-
-	sub_data = ft_malloc(sizeof(t_button_sub_data));
-	if (!sub_data)
-		handle_window_close_err_alloc("sub_data");
-	actual_scale = get_scale();
-	sub_data->text_img = text_img;
-	sub_data->event_function = event_func;
-	sub_data->text_collide_img = text_collide_img;
-	sub_data->text_scale = actual_scale;
-	sub_data->x = 0;
-	sub_data->y = 0;
-	return (sub_data);
-}
-
-void	*create_button_img(int width, int length, int color)
-{
-	void	*img;
-
-	img = init_button(width, length, color);
-	if (!img)
-		handle_window_close_err_alloc("create_button_img");
-	return (img);
-}
-
 void	*create_button(char *string, int fg_color,
 	int bg_color, t_event_function event_func)
 {
@@ -97,13 +64,12 @@ void	*create_button(char *string, int fg_color,
 		return (write_func_msg("create_button", ERR_PREVIOUS_SCALE), NULL);
 	text = build_string(string, get_scale(), fg_color, bg_color / 3);
 	text_collide = build_string(string, get_scale(), fg_color, bg_color);
-	width = sum_icc_letters(string) * get_scale();
-	width = width + (ft_len_text(string) - 1) * get_scale();
-	width += get_scale() * 3;
-	image = create_button_img(width, (get_scale() * LENGTH) * 2, bg_color / 3);
-	collide_image = create_button_img(width,
-			(get_scale() * LENGTH) * 2, bg_color);
-	update_tmp_stuff(bg_color, width, (get_scale() * LENGTH) * 2,
+	width = button_width_calcul(string);
+	image = create_button_img(width + width / 3,
+			(get_scale() * (BUTTON_LENGTH)) * 2, bg_color / 3);
+	collide_image = create_button_img(width + width / 3,
+			(get_scale() * BUTTON_LENGTH) * 2, bg_color);
+	update_tmp_stuff(bg_color, width, (get_scale() * BUTTON_LENGTH) * 2,
 		sub_data(text, text_collide, event_func));
 	add_button(image, get_tmp_stuff());
 	add_button(collide_image, get_tmp_stuff());
@@ -111,6 +77,30 @@ void	*create_button(char *string, int fg_color,
 	return (image);
 }
 
+/*
+	[-- FR --]
+	|
+	|	Permet de placer un bouton et :
+	|		
+	|		● D'afficher son texte
+	|		
+	|		● De détecter si il est en collision avec la souris,
+	|			+ de détecter si il est cliqué.
+	|
+	|		● De lui associer son event
+
+	[-- EN --]
+	|
+	|	Allows placing a button and:
+	|		
+	|		● Displaying its text.
+	|	
+	|		● Detecting if it is in collision with the mouse,
+	|			+ detecting if it is clicked.
+	|
+	|		● Associating its event.
+
+*/
 void	button_place(void *button, int x, int y, void *window_ptr)
 {
 	t_button_lst		*button_stuff;
@@ -119,8 +109,8 @@ void	button_place(void *button, int x, int y, void *window_ptr)
 	update_button_coord(button, x, y);
 	mlx_put_image_to_window(get_mlx_ptr(), window_ptr, button, x, y);
 	display_string(button_stuff->sub_data->text_img,
-		x + button_stuff->sub_data->text_scale,
-		y + (button_stuff->sub_data->text_scale * 2), window_ptr);
+		x + button_stuff->sub_data->text_scale + (button_stuff->width / LENGTH),
+		y + (button_stuff->sub_data->text_scale * WIDTH), window_ptr);
 	mlx_hook(window_ptr, 6, (1L << 6), handle_mouse_move, window_ptr);
 	add_button_event(button, button_stuff->sub_data->event_function);
 }

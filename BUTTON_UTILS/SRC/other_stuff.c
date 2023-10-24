@@ -6,14 +6,20 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 11:15:31 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/22 01:28:45 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/24 17:37:12 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../INCLUDES/button.h"
 
 /*
-	Permet d'afficher un bouton d'origine et son mirroir.
+	[── FR ──]
+	│
+	│	Permet d'afficher un bouton d'origine et son miroir.
+
+	[── EN ──]
+	│
+	│	Allows displaying an original button and its mirror.
 
 */
 void	display_collide_img(t_button_lst *to_display, void *window_ptr)

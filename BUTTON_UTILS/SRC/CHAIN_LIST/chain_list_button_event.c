@@ -6,16 +6,12 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 21:12:35 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/23 23:34:04 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/24 17:37:12 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../INCLUDES/button.h"
 
-/*
-	Ajout d'un bloc mémoire pour loger un événement bouton.
-
-*/
 void	init_button_event(void)
 {
 	t_event_button	*garbage;
@@ -44,9 +40,16 @@ t_event_button_lst	*new_button_event(t_event_function event_function)
 }
 
 /*
-	Si un bouton est relancé avec un nouvel évènement,
-	alors on le localise et on remplace l'évènement précédent par
-	le nouveau.
+	[── FR ──]
+	│
+	│	Si un bouton est relancé avec un nouvel event,
+	│		alors on le localise et on remplace l'event précédent par
+	│		le nouveau.
+
+	[── EN ──]
+	│
+	│	If a button is relaunched with a new event,
+	│		then we locate it and replace the previous event with the new one.
 
 */
 int	update_button_event(int button_id, t_event_function event_function)
@@ -74,7 +77,13 @@ int	update_button_event(int button_id, t_event_function event_function)
 }
 
 /*
-	Permet d'ajouter à l'historique des évènements boutons.
+	[── FR ──]
+	│
+	│	Permet d'ajouter l'event à la liste des events déjà présents.
+
+	[── EN ──]
+	│
+	│	Allows adding the event to the list of already present events.
 
 */
 void	add_event_to_lst(void *button_img, t_event_function event_function)
@@ -106,7 +115,13 @@ void	add_event_to_lst(void *button_img, t_event_function event_function)
 }
 
 /*
-	Permet de free l'historique des évènements boutons.
+	[── FR ──]
+	│
+	│	Permet de libérer toute mémoire alloué sur les events.
+
+	[── EN ──]
+	│
+	│	Allows releasing all allocated memory for events.
 
 */
 void	free_button_event_list(void)

@@ -6,14 +6,20 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 11:16:06 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/23 23:32:18 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/24 17:37:12 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../INCLUDES/button.h"
 
-/* 
-	Pour quitter le programme de manière "propre".
+/*
+	[── FR ──]
+	│
+	│	Permet de quitter le programme de manière "propre".
+
+	[── EN ──]
+	│
+	│	Allows exiting the program cleanly.
 
 */
 void	handle_window_close(char *msg)
@@ -27,6 +33,17 @@ void	handle_window_close(char *msg)
 	exit(EXIT_SUCCESS);
 }
 
+/*
+	[── FR ──]
+	│
+	│	Même chose que [handle_window_close(...)] mais quand une
+	│		erreur d'allocation mémoire s'est produite.
+
+	[── EN ──]
+	│
+	│	Allows exiting the program cleanly.
+
+*/
 void	handle_window_close_err_alloc(char *function)
 {
 	write_func_msg(function, ERR_ALLOCATION);

@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 11:52:04 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/23 23:35:42 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/24 17:07:18 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,7 +147,8 @@ bool					is_mouse_inside_rect(void);
 void					*init_button(int width, int height, int color);
 void					*init_button(int width, int height, int color);
 void					*create_button(char *string, int fg_color,
-							int bg_color, void (*event_func)(void));
+							int bg_color, t_event_function event_func);
+void					*create_button_img(int width, int length, int color);
 
 void					update_d_factor(int factor);
 void					update_tmp_stuff(int bg_color,
@@ -178,5 +179,6 @@ int						get_mx(void);
 int						get_my(void);
 int						get_button_id_by_addr(void *button);
 int						get_d_factor(void);
+int						button_width_calcul(char *string);
 
 #endif

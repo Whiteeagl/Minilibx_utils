@@ -6,46 +6,46 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 11:16:18 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/24 16:21:55 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/24 17:37:12 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../INCLUDES/button.h"
 
 /* 
-	[-- FR --]
-	|
-	|	Ici on créer de toute pièce le bouton en question.
-	|
-	|	Recette :
-	|
-	|			● Création du texte d'origine et du texte mirroir.
-	|			
-	|			● Création de l'image d'origine du bouton et de son image mirroir
-	|				en prenant en compte le texte pour les calculs de dimensions.
-	|
-	|			● Ajout des deux images dans l'historique des boutons.
-	|			● Initialisation de l'event associé à NULL.
-	|
-	|	(Toutes les données non utilisées tout de suite
-	|		 sont sauvegardées dans sub_data.)
+	[── FR ──]
+	│
+	│	Ici on créer de toute pièce le bouton en question.
+	│
+	│	Recette :
+	│
+	│			● Création du texte d'origine et du texte miroir.
+	│			
+	│			● Création de l'image d'origine du bouton et de son image miroir
+	│				en prenant en compte le texte pour les calculs de dimensions.
+	│
+	│			● Ajout des deux images dans l'historique des boutons.
+	│			● Initialisation de l'event associé à NULL.
+	│
+	│	(Toutes les données non utilisées tout de suite
+	│		 sont sauvegardées dans sub_data.)
 
-	[-- EN --]
-	|
-	|	Here, we create the button from scratch.
-	|
-	|	Recipe:
-	|
-	|			● Creation of the original text and the mirrored text.
-	|		
-	|			● Creation of the original button image and its mirrored image
-	|				taking into account the text for dimension calculations.
-	|
-	|			● Adding both images to the button history.
-	|			● Initialization of the associated event to NULL.
-	|
-	|	(All data not immediately used
-	|		are saved in sub_data.)
+	[── EN ──]
+	│
+	│	Here, we create the button from scratch.
+	│
+	│	Recipe:
+	│
+	│			● Creation of the original text and the mirrored text.
+	│		
+	│			● Creation of the original button image and its mirrored image
+	│				taking into account the text for dimension calculations.
+	│
+	│			● Adding both images to the button history.
+	│			● Initialization of the associated event to NULL.
+	│
+	│	(All data not immediately used
+	│		are saved in sub_data.)
  
 */
 void	*create_button(char *string, int fg_color,
@@ -78,27 +78,27 @@ void	*create_button(char *string, int fg_color,
 }
 
 /*
-	[-- FR --]
-	|
-	|	Permet de placer un bouton et :
-	|		
-	|		● D'afficher son texte
-	|		
-	|		● De détecter si il est en collision avec la souris,
-	|			+ de détecter si il est cliqué.
-	|
-	|		● De lui associer son event
+	[── FR ──]
+	│
+	│	Permet de placer un bouton et :
+	│		
+	│		● D'afficher son texte
+	│		
+	│		● De détecter si il est en collision avec la souris,
+	│			+ de détecter si il est cliqué.
+	│
+	│		● De lui associer son event
 
-	[-- EN --]
-	|
-	|	Allows placing a button and:
-	|		
-	|		● Displaying its text.
-	|	
-	|		● Detecting if it is in collision with the mouse,
-	|			+ detecting if it is clicked.
-	|
-	|		● Associating its event.
+	[── EN ──]
+	│
+	│	Allows placing a button and:
+	│		
+	│		● Displaying its text.
+	│	
+	│		● Detecting if it is in collision with the mouse,
+	│			+ detecting if it is clicked.
+	│
+	│		● Associating its event.
 
 */
 void	button_place(void *button, int x, int y, void *window_ptr)

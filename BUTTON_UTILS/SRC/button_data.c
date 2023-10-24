@@ -6,24 +6,24 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 16:21:14 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/24 16:22:10 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/24 17:37:12 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../INCLUDES/button.h"
 
 /*
-	[-- FR --]
-	|
-	|	Création de l'image du bouton avec [ mlx_new_image(params...) ]
-	|	À la fin on renvoie son adresse,
-	|		 histoire de pouvoir l'utiliser n'importe quand / où.
+	[── FR ──]
+	│
+	│	Création de l'image du bouton avec [ mlx_new_image(params...) ]
+	│	À la fin on renvoie son adresse,
+	│		 histoire de pouvoir l'utiliser n'importe quand / où.
 
-	[-- EN --]
-	|
-	|	Creation of the button's image using [mlx_new_image(params...)].
-	|	At the end, its address is returned,
-	|		so that it can be used anytime, anywhere.
+	[── EN ──]
+	│
+	│	Creation of the button's image using [mlx_new_image(params...)].
+	│	At the end, its address is returned,
+	│		so that it can be used anytime, anywhere.
 
 */
 void	*init_button(int width, int height, int color)
@@ -50,15 +50,15 @@ void	*init_button(int width, int height, int color)
 }
 
 /*
-	[-- FR --]
-	|
-	|	Permet de sauvegarder les données importantes 
-	|		non utilisées sur le moment.
+	[── FR ──]
+	│
+	│	Permet de sauvegarder les données importantes 
+	│		non utilisées sur le moment.
 	
-	[-- EN --]
-	|
-	|	Allows saving important data
-	|		not used at the moment.
+	[── EN ──]
+	│
+	│	Allows saving important data
+	│		not used at the moment.
 
 */
 t_button_sub_data	*sub_data(void *text_img,
@@ -81,15 +81,15 @@ t_button_sub_data	*sub_data(void *text_img,
 }
 
 /*
-	[-- FR --]
-	|
-	|	Lance la fonction [init_button(...)],
-	|		pour créer l'image du bouton demandé.
+	[── FR ──]
+	│
+	│	Lance la fonction [init_button(...)],
+	│		pour créer l'image du bouton demandé.
 
-	[-- EN --]
-	|
-	|	Launches the function [init_button(...)],
-	|		to create the requested button's image.
+	[── EN ──]
+	│
+	│	Launches the function [init_button(...)],
+	│		to create the requested button's image.
 
 */
 void	*create_button_img(int width, int length, int color)
@@ -103,13 +103,13 @@ void	*create_button_img(int width, int length, int color)
 }
 
 /*
-	[-- FR --]
-	|
-	|	Permet de calculer la largeur du bouton en fonction du texte donné.
+	[── FR ──]
+	│
+	│	Permet de calculer la largeur du bouton en fonction du texte donné.
 	
-	[-- EN --]
-	|
-	|	Allows calculating the button's width based on the given text.
+	[── EN ──]
+	│
+	│	Allows calculating the button's width based on the given text.
 
 */
 int	button_width_calcul(char *string)

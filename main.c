@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 22:34:45 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/24 15:35:15 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/24 17:12:16 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,33 +15,31 @@
 int	handle_keypress(int keycode)
 {
 	if (keycode == ESC)
-		handle_window_close("Window closed by ESC key");
+		handle_window_close_err_alloc("handle_keypress");
 	return (0);
 }
 
 void	a(void)
 {
-	write_msg("Je suis un bouton\n");
+	write_msg("I'm a button.\n");
 }
 
 
 void	b(void)
 {
-	write_msg("Je suis un autre bouton\n");
+	write_msg("I'm another button.\n");
 }
 
 void	mon_prog(void)
 {
 	void	*button_1;
 
-	button_1 = create_button("test", COLOR_BLACK, COLOR_GREEN, a);
+	button_1 = create_button("first one", COLOR_BLACK, COLOR_GREEN, a);
 	button_place(button_1, 100, 100, get_win_ptr());
 
-	void	*button_2;
-
 	update_scale_value(20);
-	button_2 = create_button("test2", COLOR_BLACK, COLOR_GREEN, b);
-	button_place(button_2, 100, 300, get_win_ptr()); 
+	button_1 = create_button("test2", COLOR_BLACK, COLOR_GREEN, NULL);
+	button_place(button_1, 100, 200, get_win_ptr()); 
 }
 
 int main(void)

@@ -6,16 +6,12 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 11:17:17 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/23 23:33:50 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/24 17:37:12 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../INCLUDES/button.h"
 
-/*
-	Permet d'initialiser l'historique de boutons.
-
-*/
 t_button	*button_init(void)
 {
 	t_button	*garbage;
@@ -28,8 +24,15 @@ t_button	*button_init(void)
 }
 
 /*
-	Permet de créer un nouveau bouton,
-	sans l'ajouter dans l'historique des boutons.
+	[── FR ──]
+	│
+	│	Permet de créer un nouveau bouton
+	│		sans l'ajouter dans l'historique des boutons.
+
+	[── EN ──]
+	│
+	│	Allows creating a new button
+	│		without adding it to the button history
 
 */
 t_button_lst	*new_button(void *pointer_to,
@@ -58,8 +61,15 @@ t_button_lst	*new_button(void *pointer_to,
 }
 
 /*
-	Permet d'ajouter un nouveau bouton (qui a été créé),
-	dans l'historique des boutons.
+	[── FR ──]
+	│
+	│	Permet d'ajouter un nouveau bouton (qui a été créé),
+	│		dans l'historique des boutons.
+
+	[── EN ──]
+	│
+	│	Allows adding a new button (that has been created)
+	│		to the button history.
 
 */
 void	add_button(void *pointer,
@@ -84,8 +94,15 @@ void	add_button(void *pointer,
 }
 
 /*
-	Permet de free l'historique des boutons.
-	Détruit toutes les images créée.
+	[── FR ──]
+	│
+	│	Permet de libérer l'historique des boutons.
+	│	Détruit toutes les images créées.
+
+	[── EN ──]
+	│
+	│	Allows freeing the button history.
+	│	Destroys all created images.
 
 */
 void	free_button_list(void)

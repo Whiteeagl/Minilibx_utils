@@ -6,18 +6,30 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 11:15:40 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/24 16:01:32 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/24 17:37:12 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../INCLUDES/button.h"
 
 /*
-	Ici on regarde pour chaque bouton créé si "mouse"
-	rentre en collision avec l'un d'entre eux.
-	
-	Si oui, on met à jour le dernier bouton touché,
-	et on renvoie (bool == true).
+	[── FR ──]
+	│
+	│	Ici on va détécter la collision
+	│		entre la souris et tous les boutons.
+	│
+	│	Si l'un d'eux est touché,
+	│		alors on update la valeur du dernier bouton touché,
+	│			et on retourne true.
+
+	[── EN ──]
+	│
+	│	Here we will detect the collision
+	│		between the mouse and all the buttons.
+	│
+	│	If that's the case,
+	│		then we update the value of the last touched button,
+	│		and return true.
 
 */
 bool	is_mouse_inside_rect(void)
@@ -44,12 +56,17 @@ bool	is_mouse_inside_rect(void)
 }
 
 /*
-	Ici on va venir modifier la couleur du carré en fonction
-	de si il est touché ou non.
+	[── FR ──]
+	│
+	│	Ici on va venir afficher l'image d'origine du bouton en question.
+	│	Ce processus se déclenche lorsque le bouton
+	│		a été touché et qu'il ne l'est plus.
 
-	Utilise la fonction : [ is_mouse_inside_rect() ] 
-
-		Pour la detection des collisions.
+	[── EN ──]
+	│
+	│	Here we will display the original image of the button in question.
+	│	This process is triggered when the button
+	│		has been touched and is no longer touched.
 
 */
 void	display_origin_img(t_button_lst	*o_collide,
@@ -69,6 +86,24 @@ void	display_origin_img(t_button_lst	*o_collide,
 	*already_set = false;
 }
 
+/*
+	[── FR ──]
+	│
+	│	Permet d'afficher l'image miroir à celle d'origine
+	│		pour créer l'effet de séléction.
+	│
+	│	Ce processus se déclenche lorsque le bouton
+	│		entre en collision avec la souris.
+
+	[── EN ──]
+	│
+	│	Allows displaying the mirrored image alongside the original
+	│	to create the selection effect.
+	│
+	│	This process is triggered when the button is in collision
+	│		with the mouse.
+
+*/
 void	display_collided_img(t_button_lst *o_collide,
 			bool *already_set, void *window_ptr)
 {
@@ -87,6 +122,24 @@ void	display_collided_img(t_button_lst *o_collide,
 	}
 }
 
+/*
+	[── FR ──]
+	│
+	│	Permet de regarder si une collision
+	│		est présente entre la souris et un bouton.
+	│	
+	│	Si c'est le cas, alors on affiche les images miroirs.
+	│	Sinon, on affiche les images d'origines.
+
+	[── EN ──]
+	│
+	│	Allows checking if a collision
+	│		is present between the mouse and a button.
+	│
+	│	If so, then we display the mirrored images.
+	│	Otherwise, we display the original images.
+	│
+*/
 int	handle_mouse_move(int x, int y, void *window_ptr)
 {
 	t_button_lst	*o_collide;

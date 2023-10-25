@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   design_p_min_letters.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tboldrin <tboldrin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 16:20:00 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/20 15:17:00 by tboldrin         ###   ########.fr       */
+/*   Updated: 2023/10/25 22:33:12 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	update_min_letters(char c, int (*elmt)[WIDTH])
 	int			i;
 
 	if (c < 97 || c > 122)
-		return (write_func_msg("update_min_letters",
+		return (write_func_msg(A_FUNC,
 				"Doit être une lettre en minuscule."));
 	idx = (c - 97);
 	all_letters = get_all_text_instance();

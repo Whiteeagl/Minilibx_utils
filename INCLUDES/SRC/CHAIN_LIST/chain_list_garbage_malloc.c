@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 11:44:11 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/24 23:30:44 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/25 22:31:45 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ t_garbage_lst	*new_elmt(void *pointer_to)
 
 	new = malloc(sizeof(t_garbage_lst));
 	if (!new)
-		handle_window_close_err_alloc("new_elmt");
+		handle_window_close_err_alloc(A_FUNC);
 	if (!pointer_to)
 		new->pointer = NULL;
 	else

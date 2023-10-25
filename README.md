@@ -87,11 +87,11 @@ int  main(void)
 	
 	mlx_ptr = mlx_init();
 	if (!mlx_ptr)
-		return (handle_window_close_err_alloc("main"), 1);
+		return (handle_window_close_err_alloc(A_FUNC), 1);
 		
 	win_ptr = mlx_new_window(mlx_ptr, 1000, 800, "Custom Text");
 	if (!win_ptr)
-		return (handle_window_close_err_alloc("main"), 2);
+		return (handle_window_close_err_alloc(A_FUNC), 2);
 
 	update_mlx_infos(mlx_ptr, win_ptr, NULL); // Very important.
 
@@ -135,7 +135,7 @@ void	my_prog(void)
 	// A better example (More useful)
 	test = mlx_new_image(get_mlx_ptr(), 100, 100);
 	if (!test)
-		handle_window_close_err_alloc("my_prog");
+		handle_window_close_err_alloc(A_FUNC);
 }
 
 int  main(void)
@@ -145,11 +145,11 @@ int  main(void)
 	
 	mlx_ptr = mlx_init();
 	if (!mlx_ptr)
-		return (handle_window_close_err_alloc("main"), 1);
+		return (handle_window_close_err_alloc(A_FUNC), 1);
 		
 	win_ptr = mlx_new_window(mlx_ptr, 1000, 800, "Custom Text");
 	if (!win_ptr)
-		return (handle_window_close_err_alloc("main"), 2);
+		return (handle_window_close_err_alloc(A_FUNC), 2);
 		
 	update_mlx_infos(mlx_ptr, win_ptr, NULL); // Very important.
 	my_prog();
@@ -159,7 +159,10 @@ int  main(void)
 }
 ```
 
-- Here, the function `handle_window_close_err_alloc("function_name")` is used to write an error message to the standard output when a memory allocation has failed.
+- Here, the function `handle_window_close_err_alloc(A_FUNC)` is used to write an error message to the standard output when a memory allocation has failed.
+
+- The macro `A_FUNC` returns the currently visited function using the existing `__FUNCTION__` macro in C.
+
 This function will then free all memory allocated by our library and close the mlx window.
 
 - A similar function can be used for other errors or when everything goes well. It's the `handle_window_close("Your msg")` function.
@@ -167,7 +170,7 @@ This function will then free all memory allocated by our library and close the m
 ***Here are their signatures for each of them*** :
 ```c
 void  handle_window_close(char  *msg);
-void  handle_window_close_err_alloc(char  *function_name);
+void  handle_window_close_err_alloc(const char  *function_name);
 ```
 
  - You can look at their code and modify it as much as you want.

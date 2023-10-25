@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 11:52:04 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/24 23:32:55 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/25 23:14:23 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@
 
 # define RECT_COLOR	0x808080
 # define ESC		65307
+
+# define START_D_FACTOR	0.8
+# define D_FACTOR		0.5
 
 typedef void	(*t_event_function)(void);
 
@@ -47,7 +50,7 @@ typedef struct c_button_sub_data
 	t_event_function		event_function;
 }t_button_sub_data;
 
-typedef struct s_button_lst
+typedef struct c_button_lst
 {	
 	void					*pointer;
 	int						id;
@@ -55,10 +58,10 @@ typedef struct s_button_lst
 	int						height;
 	int						color;
 	t_button_sub_data		*sub_data;
-	struct s_button_lst		*next;	
+	struct c_button_lst		*next;	
 }t_button_lst;
 
-typedef struct s_button
+typedef struct c_button
 {
 	int						len_of_lst;
 	t_button_lst			*head;
@@ -67,14 +70,14 @@ typedef struct s_button
 // END : BUTTON
 
 // 				START : BUTTON EVENT
-typedef struct s_event_button_lst
+typedef struct c_event_button_lst
 {
 	t_event_function				event_func;
 	t_button_sub_data				*sub_data;
-	struct s_event_button_lst		*next;
+	struct c_event_button_lst		*next;
 }t_event_button_lst;
 
-typedef struct s_event_button
+typedef struct c_event_button
 {
 	int							len_of_lst;
 	t_event_button_lst			*head;
@@ -82,7 +85,7 @@ typedef struct s_event_button
 }t_event_button;
 // END : BUTTON EVENT
 
-typedef struct s_tmp_button_min_stuff
+typedef struct c_tmp_button_min_stuff
 {	
 	void					*text_image;
 	int						bg_color;
@@ -113,13 +116,20 @@ typedef struct s_button_collide
 
 typedef struct s_darkening_factor
 {
-	int	dark_factor;
+	double	dark_factor;
 }t_darkening_factor;
+
+typedef struct c_building_button
+{
+	bool	building_button;
+}t_building_button;
 
 t_tmp_button_min_stuff	*tmp_stuff_instance(void);
 t_tmp_button_min_stuff	*get_tmp_stuff(void);
 
 t_darkening_factor		*get_d_factor_instance(void);
+
+t_building_button		*get_button_building_info(void);
 
 t_button_sub_data		*sub_data(void *text_img,
 							void *text_collide_img, void (*event_func)(void));
@@ -140,7 +150,10 @@ t_button				*chain_list_button_init(void);
 
 t_mouse					*get_mouse_instance(void);
 
+double					get_d_factor(void);
+
 bool					is_mouse_inside_rect(void);
+bool					do_we_are_building_button(void);
 
 void					*init_button(int width, int height, int color);
 void					*init_button(int width, int height, int color);
@@ -148,7 +161,7 @@ void					*create_button(char *string, int fg_color,
 							int bg_color, t_event_function event_func);
 void					*create_button_img(int width, int length, int color);
 
-void					update_d_factor(int factor);
+void					update_d_factor(double factor);
 void					update_tmp_stuff(int bg_color,
 							int width, int heigth, t_button_sub_data *sub_data);
 void					update_collide_one(t_button_lst *origin_one,
@@ -169,6 +182,9 @@ void					init_button_event(void);
 void					button_place(void *button, int x, int y);
 void					init_all_button_stuff(void);
 void					free_all_button_stuff(void);
+void					update_button_building_info(bool info);
+void					add_button_identity(void *original_image,
+							void *collide_image);
 
 int						mouse_hook_function(int click_id, int x, int y);
 int						did_it_collide(int click_id);
@@ -176,7 +192,6 @@ int						handle_mouse_move(int x, int y, void *window_ptr);
 int						get_mx(void);
 int						get_my(void);
 int						get_button_id_by_addr(void *button);
-int						get_d_factor(void);
 int						button_width_calcul(char *string);
 int						button_length_calcul(void);
 

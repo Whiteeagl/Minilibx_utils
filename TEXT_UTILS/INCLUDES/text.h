@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 16:00:52 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/24 19:01:30 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/25 22:47:10 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,6 +138,7 @@ t_all_text		*get_all_text_instance(void);
 t_numbers		*get_numbers_instance(void);
 
 size_t			ft_len_text(char *string);
+size_t			ft_len_const_text(const char *string);
 
 void			*ft_memcpy_text(void *dest, const void *src, size_t n);
 void			*build_string(char *string,
@@ -174,7 +175,8 @@ void			dipslay_cara(void *img,
 					char c, int x, t_fbg_color *fbg_colors);
 
 void			write_msg(char *string);
-void			write_func_msg(char *func_name, char *msg);
+void			write_func_msg(const char *func_name, char *msg);
+void			write_const_msg(const char *string);
 void			free_all_text_stuff(void);
 
 void			create_n_0(t_numbers *n_numb);

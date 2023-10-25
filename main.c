@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 22:34:45 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/24 19:04:04 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/25 23:12:47 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	mon_prog(void)
 {
 	void	*button_1;
 
-	button_1 = create_button("first one", COLOR_BLACK, COLOR_GREEN, a);
+	button_1 = create_button("first one", COLOR_BLACK, COLOR_BLUE, a);
 	button_place(button_1, 100, 100);
 
 	update_scale_value(10);
@@ -46,11 +46,11 @@ int main(void)
 {
 	void	*mlx_ptr = mlx_init();
 	if (!mlx_ptr)
-		return (handle_window_close_err_alloc("main"), 1);
+		return (handle_window_close_err_alloc(A_FUNC), 1);
 	
 	void	*win_ptr = mlx_new_window(mlx_ptr, 1000, 800, "Custom Text");
 	if (!win_ptr)
-		return (handle_window_close_err_alloc("main"), 2);
+		return (handle_window_close_err_alloc(A_FUNC), 2);
 
 	update_mlx_infos(mlx_ptr, win_ptr, NULL);
 	init_all_button_stuff();

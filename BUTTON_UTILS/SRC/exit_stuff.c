@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 11:16:06 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/24 20:15:26 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/25 22:49:51 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	handle_window_close(char *msg)
 	│		memory allocation error occurs.
 
 */
-void	handle_window_close_err_alloc(char *function_name)
+void	handle_window_close_err_alloc(const char *function_name)
 {
 	write_func_msg(function_name, ERR_ALLOCATION);
 	write_msg(WINDOW_CLOSE_ERR_ALLOC);

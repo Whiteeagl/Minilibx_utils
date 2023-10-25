@@ -6,17 +6,25 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 15:07:11 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/19 22:56:57 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/25 22:47:28 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../INCLUDES/text.h"
 
-void	write_func_msg(char *func_name, char *msg)
+void	write_func_msg(const char *func_name, char *msg)
 {
-	write_msg(func_name);
+	write_const_msg(func_name);
 	write_msg("() : ");
 	write_msg(msg);
+}
+
+void	write_const_msg(const char *string)
+{
+	int	len_of_string;
+
+	len_of_string = ft_len_const_text(string);
+	write(1, string, len_of_string);
 }
 
 void	write_msg(char *string)

@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 11:48:31 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/23 23:37:56 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/25 22:30:30 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_malloc(size_t size)
 
 	ptr = malloc(size);
 	if (!ptr)
-		handle_window_close_err_alloc("ft_malloc");
+		handle_window_close_err_alloc(A_FUNC);
 	garbage_add(ptr);
 	return (ptr);
 }

@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 21:12:35 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/24 17:37:12 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/25 22:32:38 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ t_event_button_lst	*new_button_event(t_event_function event_function)
 
 	new = malloc(sizeof(t_event_button_lst));
 	if (!new)
-		handle_window_close_err_alloc("new_button_event");
+		handle_window_close_err_alloc(A_FUNC);
 	if (first_one == 0)
 		new->event_func = NULL;
 	else
@@ -62,7 +62,7 @@ int	update_button_event(int button_id, t_event_function event_function)
 	current = garbage->head;
 	idx = -1;
 	if (button_id > garbage->len_of_lst)
-		return (write_func_msg("update_button_event",
+		return (write_func_msg(A_FUNC,
 				"Error in finding the button \
 			corresponding to the previous ID.\n"),
 			-1);
@@ -96,7 +96,7 @@ void	add_event_to_lst(void *button_img, t_event_function event_function)
 	existing_one = update_button_event(get_button_id_by_addr(button_img) / 2,
 			event_function);
 	if (existing_one < 0)
-		write_func_msg("add_event_to_lst",
+		write_func_msg(A_FUNC,
 			"Creation of an additional memory block.\n");
 	if (existing_one > 0)
 		return ;

@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   design_p_darkening_factor.c                        :+:      :+:    :+:   */
+/*   design_p_are_we_building_button.c                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/22 01:36:46 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/25 22:58:23 by wolf             ###   ########.fr       */
+/*   Created: 2023/10/25 22:35:34 by wolf              #+#    #+#             */
+/*   Updated: 2023/10/25 22:40:33 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../INCLUDES/button.h"
 
-t_darkening_factor	*get_d_factor_instance(void)
+t_building_button	*get_button_building_info(void)
 {
-	static t_darkening_factor	instance;
+	static t_building_button	instance;
 
 	return (&instance);
 }
 
-void	update_d_factor(double factor)
+void	update_button_building_info(bool info)
 {
-	t_darkening_factor	*f;
+	t_building_button	*instance;
 
-	f = get_d_factor_instance();
-	f->dark_factor = factor;
+	instance = get_button_building_info();
+	instance->building_button = info;
 }
 
-double	get_d_factor(void)
+bool	do_we_are_building_button(void)
 {
-	t_darkening_factor	*f;
+	t_building_button	*instance;
 
-	f = get_d_factor_instance();
-	return (f->dark_factor);
+	instance = get_button_building_info();
+	return (instance->building_button);
 }

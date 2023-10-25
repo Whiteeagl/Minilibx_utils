@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 22:53:51 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/23 23:19:07 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/25 23:13:58 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,15 @@ void	fill_whitespace(void *img, int x_start, int bg_color)
 	p_stuff.x = x_start;
 	p_stuff.y = 0;
 	p_stuff.i = -1;
+	if (do_we_are_building_button())
+		update_d_factor(D_FACTOR);
 	while (++p_stuff.i < LENGTH)
 	{
 		p_stuff.j = -1;
 		while (++p_stuff.j < WIDTH / 2)
 			check_if_one(img, &p_stuff, bg_color);
 	}
+	update_d_factor(START_D_FACTOR);
 }
 
 /*
@@ -71,15 +74,17 @@ void	*build_string(char *string, int scale, int fg_color, int bg_color)
 	fbg_colors.fg_color = fg_color;
 	fbg_colors.bg_color = bg_color;
 	if (scale <= 0)
-		return (write_func_msg("build_string", ERR_SCALE_VALUE), NULL);
+		return (write_func_msg(A_FUNC, ERR_SCALE_VALUE), NULL);
 	update_scale_value(scale);
 	width = sum_icc_letters(string) * get_scale();
 	width = width + (ft_len_text(string) - 1) * get_scale();
 	new_text = mlx_new_image(get_mlx_ptr(), width, scale * LENGTH);
 	if (!new_text)
-		return (handle_window_close_err_alloc("build_string"), NULL);
+		return (handle_window_close_err_alloc(A_FUNC), NULL);
 	parse_and_print(new_text, string, &fbg_colors);
 	add_text_pointer(new_text);
+	if (do_we_are_building_button())
+		update_d_factor(START_D_FACTOR);
 	return (new_text);
 }
 
@@ -91,7 +96,7 @@ void	*build_string(char *string, int scale, int fg_color, int bg_color)
 void	display_string(void *img, int x, int y, void *window_ptr)
 {
 	if (!img)
-		return (write_func_msg("display_string", ERR_NULL_VALUE));
+		return (write_func_msg(A_FUNC, ERR_NULL_VALUE));
 	if (!window_ptr)
 		window_ptr = get_win_ptr();
 	mlx_put_image_to_window(get_mlx_ptr(), window_ptr,

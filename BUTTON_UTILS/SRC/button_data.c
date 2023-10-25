@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 16:21:14 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/24 18:59:56 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/25 22:30:17 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,10 @@ void	*init_button(int width, int height, int color)
 			&bits_per_pixel, &size_line, &endian);
 	while (i < width * height * (bits_per_pixel / 8))
 	{
-		img.image_data[i] = (color & 0xFF);
-		img.image_data[i + 1] = ((color >> 8) & 0xFF);
-		img.image_data[i + 2] = ((color >> 16) & 0xFF);
-		img.image_data[i + 3] = ((color >> 24) & 0xFF);
+		img.image_data[i] = ((color & 0xFF) * get_d_factor());
+		img.image_data[i + 1] = (((color >> 8) & 0xFF) * get_d_factor());
+		img.image_data[i + 2] = (((color >> 16) & 0xFF) * get_d_factor());
+		img.image_data[i + 3] = (((color >> 24) & 0xFF) * get_d_factor());
 		i += 4;
 	}
 	return (img.image_ptr);
@@ -69,7 +69,7 @@ t_button_sub_data	*sub_data(void *text_img,
 
 	sub_data = ft_malloc(sizeof(t_button_sub_data));
 	if (!sub_data)
-		handle_window_close_err_alloc("sub_data");
+		handle_window_close_err_alloc(A_FUNC);
 	actual_scale = get_scale();
 	sub_data->text_img = text_img;
 	sub_data->event_function = event_func;
@@ -98,7 +98,7 @@ void	*create_button_img(int width, int length, int color)
 
 	img = init_button(width, length, color);
 	if (!img)
-		handle_window_close_err_alloc("create_button_img");
+		handle_window_close_err_alloc(A_FUNC);
 	return (img);
 }
 

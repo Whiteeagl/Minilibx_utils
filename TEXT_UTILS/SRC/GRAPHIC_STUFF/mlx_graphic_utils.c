@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 22:51:59 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/23 23:38:40 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/25 23:13:48 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ void	put_pixel_to_image(void *img, int x, int y, int color)
 		&& y / 6 >= 0 && y / 6 < img_width)
 	{
 		pixel_offset = (y * img_width + x) * (tmp_p.bits_per_pixel / 8);
-		img_data[pixel_offset] = color & 0xFF;
-		img_data[pixel_offset + 1] = (color >> 8) & 0xFF;
-		img_data[pixel_offset + 2] = (color >> 16) & 0xFF;
+		img_data[pixel_offset] = ((color & 0xFF) * get_d_factor());
+		img_data[pixel_offset + 1] = (((color >> 8) & 0xFF) * get_d_factor());
+		img_data[pixel_offset + 2] = (((color >> 16) & 0xFF) * get_d_factor());
 	}
 }
 
@@ -76,10 +76,15 @@ void	check_if_one(void *img, t_pixel_stuff *p_stuff, int color)
 void	draw_pixel_baby(void *img, t_pixel_stuff *p_stuff,
 			int (*array)[WIDTH], t_fbg_color *fbg_colors)
 {
+	update_d_factor(START_D_FACTOR);
 	if (array[p_stuff->i][p_stuff->j] == 1)
 		check_if_one(img, p_stuff, fbg_colors->fg_color);
 	else
+	{
+		if (do_we_are_building_button())
+			update_d_factor(D_FACTOR);
 		check_if_one(img, p_stuff, fbg_colors->bg_color);
+	}
 }
 
 void	fill_icc_cara(void *img, char c, int x, t_fbg_color *fbg_colors)
@@ -92,7 +97,7 @@ void	fill_icc_cara(void *img, char c, int x, t_fbg_color *fbg_colors)
 	p_stuff.y = 0;
 	array2 = get_min_icc_letters(c);
 	if (!array2)
-		return (write_func_msg("fill_icc_cara",
+		return (write_func_msg(A_FUNC,
 				"Error, can not find the letter array.\n"));
 	p_stuff.i = -1;
 	stop = do_we_stop(array2);
@@ -122,7 +127,7 @@ void	dipslay_cara(void *img, char c, int x, t_fbg_color *fbg_colors)
 	p_stuff.i = -1;
 	array = get_min_letters(c);
 	if (!array)
-		return (write_func_msg("dipslay_cara",
+		return (write_func_msg(A_FUNC,
 				"Error, can not find the letter array.\n"));
 	stop = do_we_stop(array);
 	while (++p_stuff.i < LENGTH)

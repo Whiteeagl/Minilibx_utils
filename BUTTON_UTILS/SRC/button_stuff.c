@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 11:16:18 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/24 18:59:22 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/25 23:09:45 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,23 +58,51 @@ void	*create_button(char *string, int fg_color,
 	int						width;
 
 	if (!string)
-		return (write_func_msg("create_button", "Error, need text title."),
+		return (write_func_msg(A_FUNC, "Error, need text title."),
 			NULL);
 	if (!get_scale())
-		return (write_func_msg("create_button", ERR_PREVIOUS_SCALE), NULL);
-	text = build_string(string, get_scale(), fg_color, bg_color / 3);
+		return (write_func_msg(A_FUNC, ERR_PREVIOUS_SCALE), NULL);
+	text = build_string(string, get_scale(), fg_color, bg_color);
+	update_button_building_info(true);
 	text_collide = build_string(string, get_scale(), fg_color, bg_color);
 	width = button_width_calcul(string);
 	image = create_button_img(width + width / 3,
-			button_length_calcul(), bg_color / 3);
+			button_length_calcul(), bg_color);
+	update_d_factor(D_FACTOR);
 	collide_image = create_button_img(width + width / 3,
 			button_length_calcul(), bg_color);
 	update_tmp_stuff(bg_color, width, button_length_calcul(),
 		sub_data(text, text_collide, event_func));
-	add_button(image, get_tmp_stuff());
+	add_button_identity(image, collide_image);
+	return (update_button_building_info(false), image);
+}
+
+/*
+	[── FR ──]
+	│
+	│	Permet d'ajouter :
+	│
+	│		● l'identité du bouton à l'historique des boutons
+	│
+	│		● D'initialiser son event à NULL.
+
+	[── EN ──]
+	│
+	│	Allows to add:
+	│
+	│		● The button's identity to the button history
+	│
+	│		● To initialize its event to NULL.
+
+*/
+void	add_button_identity(void *original_image, void *collide_image)
+{
+	if (!get_tmp_stuff())
+		return (write_func_msg(A_FUNC,
+				"Can not recover 'get_tmp_stuff()' correctly."));
+	add_button(original_image, get_tmp_stuff());
 	add_button(collide_image, get_tmp_stuff());
-	add_event_to_lst(image, NULL);
-	return (image);
+	add_event_to_lst(original_image, NULL);
 }
 
 /*

@@ -6,11 +6,11 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 22:35:34 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/25 22:40:33 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/25 23:45:02 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../INCLUDES/button.h"
+#include "../../INCLUDES/text.h"
 
 t_building_button	*get_button_building_info(void)
 {

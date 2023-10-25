@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 11:52:04 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/25 23:14:23 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/25 23:49:16 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,20 +27,20 @@
 
 typedef void	(*t_event_function)(void);
 
-typedef struct c_B
+typedef struct s_B
 {
 	int					button_id;
 	t_event_function	event_function;
 }t_B;
 
-typedef struct c_image_stuff
+typedef struct s_image_stuff
 {
 	void	*image_ptr;
 	char	*image_data;
 }t_image_stuff;
 
 // 				START : BUTTON
-typedef struct c_button_sub_data
+typedef struct s_button_sub_data
 {
 	void					*text_img;
 	void					*text_collide_img;
@@ -61,7 +61,7 @@ typedef struct c_button_lst
 	struct c_button_lst		*next;	
 }t_button_lst;
 
-typedef struct c_button
+typedef struct s_button
 {
 	int						len_of_lst;
 	t_button_lst			*head;
@@ -70,11 +70,11 @@ typedef struct c_button
 // END : BUTTON
 
 // 				START : BUTTON EVENT
-typedef struct c_event_button_lst
+typedef struct s_event_button_lst
 {
 	t_event_function				event_func;
 	t_button_sub_data				*sub_data;
-	struct c_event_button_lst		*next;
+	struct s_event_button_lst		*next;
 }t_event_button_lst;
 
 typedef struct c_event_button
@@ -85,7 +85,7 @@ typedef struct c_event_button
 }t_event_button;
 // END : BUTTON EVENT
 
-typedef struct c_tmp_button_min_stuff
+typedef struct s_tmp_button_min_stuff
 {	
 	void					*text_image;
 	int						bg_color;
@@ -100,7 +100,7 @@ typedef struct s_mouse
 	int	my;
 }t_mouse;
 
-typedef struct c_tmp_mouse_stuff
+typedef struct s_tmp_mouse_stuff
 {
 	void	*text_ptr;
 	void	*window_ptr;
@@ -119,17 +119,10 @@ typedef struct s_darkening_factor
 	double	dark_factor;
 }t_darkening_factor;
 
-typedef struct c_building_button
-{
-	bool	building_button;
-}t_building_button;
-
 t_tmp_button_min_stuff	*tmp_stuff_instance(void);
 t_tmp_button_min_stuff	*get_tmp_stuff(void);
 
 t_darkening_factor		*get_d_factor_instance(void);
-
-t_building_button		*get_button_building_info(void);
 
 t_button_sub_data		*sub_data(void *text_img,
 							void *text_collide_img, void (*event_func)(void));

@@ -121,7 +121,6 @@ void  free_mlx_infos(void);
 
 ```c
 #include  "INCLUDES/basique_mlx_needed.h"
-#include <stdio.h>
 
 // Func test to show you how to call get_mlx_ptr() and get_win_ptr().
 void	my_prog(void)
@@ -136,6 +135,7 @@ void	my_prog(void)
 	test = mlx_new_image(get_mlx_ptr(), 100, 100);
 	if (!test)
 		handle_window_close_err_alloc(A_FUNC);
+	mlx_destroy_image(get_mlx_ptr(), test);
 }
 
 int  main(void)
@@ -153,8 +153,9 @@ int  main(void)
 		
 	update_mlx_infos(mlx_ptr, win_ptr, NULL); // Very important.
 	my_prog();
-	
-	mlx_hook(mlx_ptr);
+
+	mlx_hook(win_ptr, 2, 1L << 0, &handle_keypress, NULL);
+	mlx_loop(mlx_ptr);
 	return (0);
 }
 ```

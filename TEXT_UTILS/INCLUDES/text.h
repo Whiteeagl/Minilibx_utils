@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 16:00:52 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/25 22:47:10 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/25 23:44:45 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,117 +129,123 @@ typedef struct s_fbg_color
 	int	bg_color;
 }t_fbg_color;
 
-t_text_addr_lst	*new_pointer(void *pointer_to);
-t_special_cara	*get_special_cara_instance(void);
-t_icc_letters	*get_icc_letters_instance(void);
-t_text_addr		*get_text_list_instance(void);
-t_tmp_scale		*get_scale_instance(void);
-t_all_text		*get_all_text_instance(void);
-t_numbers		*get_numbers_instance(void);
+typedef struct s_building_button
+{
+	bool	building_button;
+}t_building_button;
 
-size_t			ft_len_text(char *string);
-size_t			ft_len_const_text(const char *string);
+t_building_button	*get_button_building_info(void);
+t_text_addr_lst		*new_pointer(void *pointer_to);
+t_special_cara		*get_special_cara_instance(void);
+t_icc_letters		*get_icc_letters_instance(void);
+t_text_addr			*get_text_list_instance(void);
+t_tmp_scale			*get_scale_instance(void);
+t_all_text			*get_all_text_instance(void);
+t_numbers			*get_numbers_instance(void);
 
-void			*ft_memcpy_text(void *dest, const void *src, size_t n);
-void			*build_string(char *string,
-					int scale, int fg_color, int bg_color);
+size_t				ft_len_text(char *string);
+size_t				ft_len_const_text(const char *string);
 
-void			create_icc_letters(t_min_letters *min_letters);
-void			create_no_icc_letters(t_min_letters *min_letters);
-void			init_min_letter_first_part(t_min_letters *min_letters);
-void			init_min_letter_last_part(t_min_letters *min_letters);
+void				*ft_memcpy_text(void *dest, const void *src, size_t n);
+void				*build_string(char *string,
+						int scale, int fg_color, int bg_color);
 
-void			init_all_min_letters(void);
-void			init_all_special_cara(void);
-void			init_all_numbers(void);
+void				create_icc_letters(t_min_letters *min_letters);
+void				create_no_icc_letters(t_min_letters *min_letters);
+void				init_min_letter_first_part(t_min_letters *min_letters);
+void				init_min_letter_last_part(t_min_letters *min_letters);
 
-void			init_all_text_stuff(void);
+void				init_all_min_letters(void);
+void				init_all_special_cara(void);
+void				init_all_numbers(void);
 
-void			update_numbers(char c, int (*elmt)[WIDTH]);
-void			update_min_letters(char c, int (*elmt)[WIDTH]);
-void			update_scale_value(int new_scale);
-void			add_text_pointer(void *pointer);
-void			err_charactere_not_recoginzed(char c);
-void			parse_and_print(void *img, char *string,
-					t_fbg_color *fbg_colors);
-void			display_string(void *img, int x, int y, void *window_ptr);
-void			put_pixel_to_image(void *img, int x, int y, int color);
-void			draw_pixel_baby(void *img, t_pixel_stuff *p_stuff,
-					int (*array)[WIDTH], t_fbg_color *fbg_colors);
-void			check_if_one(void *img,
-					t_pixel_stuff *p_stuff, int color);
+void				init_all_text_stuff(void);
 
-void			fill_icc_cara(void *img,
-					char c, int x, t_fbg_color *fbg_colors);
-void			dipslay_cara(void *img,
-					char c, int x, t_fbg_color *fbg_colors);
+void				update_numbers(char c, int (*elmt)[WIDTH]);
+void				update_min_letters(char c, int (*elmt)[WIDTH]);
+void				update_scale_value(int new_scale);
+void				add_text_pointer(void *pointer);
+void				err_charactere_not_recoginzed(char c);
+void				parse_and_print(void *img, char *string,
+						t_fbg_color *fbg_colors);
+void				display_string(void *img, int x, int y, void *window_ptr);
+void				put_pixel_to_image(void *img, int x, int y, int color);
+void				draw_pixel_baby(void *img, t_pixel_stuff *p_stuff,
+						int (*array)[WIDTH], t_fbg_color *fbg_colors);
+void				check_if_one(void *img,
+						t_pixel_stuff *p_stuff, int color);
 
-void			write_msg(char *string);
-void			write_func_msg(const char *func_name, char *msg);
-void			write_const_msg(const char *string);
-void			free_all_text_stuff(void);
+void				fill_icc_cara(void *img,
+						char c, int x, t_fbg_color *fbg_colors);
+void				dipslay_cara(void *img,
+						char c, int x, t_fbg_color *fbg_colors);
 
-void			create_n_0(t_numbers *n_numb);
-void			create_n_1(t_numbers *n_numb);
-void			create_n_2(t_numbers *n_numb);
-void			create_n_3(t_numbers *n_numb);
-void			create_n_4(t_numbers *n_numb);
-void			create_n_5(t_numbers *n_numb);
-void			create_n_6(t_numbers *n_numb);
-void			create_n_7(t_numbers *n_numb);
-void			create_n_8(t_numbers *n_numb);
-void			create_n_9(t_numbers *n_numb);
+void				write_msg(char *string);
+void				write_func_msg(const char *func_name, char *msg);
+void				write_const_msg(const char *string);
+void				free_all_text_stuff(void);
 
-void			create_a(t_min_letters *min_letters);
-void			create_b(t_min_letters *min_letters);
-void			create_c(t_min_letters *min_letters);
-void			create_d(t_min_letters *min_letters);
-void			create_e(t_min_letters *min_letters);
-void			create_f(t_min_letters *min_letters);
-void			create_g(t_min_letters *min_letters);
-void			create_h(t_min_letters *min_letters);
-void			create_i(t_min_letters *min_letters);
-void			create_j(t_min_letters *min_letters);
-void			create_k(t_min_letters *min_letters);
-void			create_l(t_min_letters *min_letters);
-void			create_m(t_min_letters *min_letters);
-void			create_n(t_min_letters *min_letters);
-void			create_o(t_min_letters *min_letters);
-void			create_p(t_min_letters *min_letters);
-void			create_q(t_min_letters *min_letters);
-void			create_r(t_min_letters *min_letters);
-void			create_s(t_min_letters *min_letters);
-void			create_t(t_min_letters *min_letters);
-void			create_u(t_min_letters *min_letters);
-void			create_v(t_min_letters *min_letters);
-void			create_w(t_min_letters *min_letters);
-void			create_x(t_min_letters *min_letters);
-void			create_y(t_min_letters *min_letters);
-void			create_z(t_min_letters *min_letters);
+void				create_n_0(t_numbers *n_numb);
+void				create_n_1(t_numbers *n_numb);
+void				create_n_2(t_numbers *n_numb);
+void				create_n_3(t_numbers *n_numb);
+void				create_n_4(t_numbers *n_numb);
+void				create_n_5(t_numbers *n_numb);
+void				create_n_6(t_numbers *n_numb);
+void				create_n_7(t_numbers *n_numb);
+void				create_n_8(t_numbers *n_numb);
+void				create_n_9(t_numbers *n_numb);
 
-void			create_m_end(t_icc_letters *icc_l);
-void			create_v_end(t_icc_letters *icc_l);
-void			create_w_end(t_icc_letters *icc_l);
-void			create_x_end(t_icc_letters *icc_l);
-void			create_y_end(t_icc_letters *icc_l);
-void			create_z_end(t_icc_letters *icc_l);
+void				create_a(t_min_letters *min_letters);
+void				create_b(t_min_letters *min_letters);
+void				create_c(t_min_letters *min_letters);
+void				create_d(t_min_letters *min_letters);
+void				create_e(t_min_letters *min_letters);
+void				create_f(t_min_letters *min_letters);
+void				create_g(t_min_letters *min_letters);
+void				create_h(t_min_letters *min_letters);
+void				create_i(t_min_letters *min_letters);
+void				create_j(t_min_letters *min_letters);
+void				create_k(t_min_letters *min_letters);
+void				create_l(t_min_letters *min_letters);
+void				create_m(t_min_letters *min_letters);
+void				create_n(t_min_letters *min_letters);
+void				create_o(t_min_letters *min_letters);
+void				create_p(t_min_letters *min_letters);
+void				create_q(t_min_letters *min_letters);
+void				create_r(t_min_letters *min_letters);
+void				create_s(t_min_letters *min_letters);
+void				create_t(t_min_letters *min_letters);
+void				create_u(t_min_letters *min_letters);
+void				create_v(t_min_letters *min_letters);
+void				create_w(t_min_letters *min_letters);
+void				create_x(t_min_letters *min_letters);
+void				create_y(t_min_letters *min_letters);
+void				create_z(t_min_letters *min_letters);
 
-void			create_spc_space(t_special_cara *special_cara);
+void				create_m_end(t_icc_letters *icc_l);
+void				create_v_end(t_icc_letters *icc_l);
+void				create_w_end(t_icc_letters *icc_l);
+void				create_x_end(t_icc_letters *icc_l);
+void				create_y_end(t_icc_letters *icc_l);
+void				create_z_end(t_icc_letters *icc_l);
 
-int				(*get_min_icc_letters(char c))[WIDTH];
-int				(*get_min_letters(char c))[WIDTH];
-int				(*is_it_a_special_cara(char c))[WIDTH];
-int				(*get_number_array(char c))[WIDTH];
-int				(*is_it_a_number(char c))[WIDTH];
-int				(*maybe_not_a_letter(char c))[WIDTH];
+void				create_spc_space(t_special_cara *special_cara);
 
-int				get_scale(void);
-int				icc_letters(char c);
-int				icc_letters(char c);
-int				spaces_letters(char c);
-int				count_icc_letters(char *str);
-int				particular_scale(char c);
-int				sum_icc_letters(char *str);
-int				do_we_stop(int (*array)[WIDTH]);
+int					(*get_min_icc_letters(char c))[WIDTH];
+int					(*get_min_letters(char c))[WIDTH];
+int					(*is_it_a_special_cara(char c))[WIDTH];
+int					(*get_number_array(char c))[WIDTH];
+int					(*is_it_a_number(char c))[WIDTH];
+int					(*maybe_not_a_letter(char c))[WIDTH];
+
+int					get_scale(void);
+int					icc_letters(char c);
+int					icc_letters(char c);
+int					spaces_letters(char c);
+int					count_icc_letters(char *str);
+int					particular_scale(char c);
+int					sum_icc_letters(char *str);
+int					do_we_stop(int (*array)[WIDTH]);
 
 #endif

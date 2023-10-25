@@ -6,7 +6,7 @@
 /*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 12:35:55 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/25 22:48:53 by wolf             ###   ########.fr       */
+/*   Updated: 2023/10/25 23:38:46 by wolf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include "../Mlx/mlx.h"
 # include "../BUTTON_UTILS/INCLUDES/button.h"
 # include "../TEXT_UTILS/INCLUDES/text.h"
+# include "../LINE_UTILS/includes/line.h"
+# include "../RECTANGLE_UTILS/includes/rectangle.h"
 # include "../LINE_UTILS/includes/line.h"
 
 # define ERR_ALLOCATION		"Cannot allocate enough memory. Allocation failed.\n"
@@ -75,5 +77,7 @@ void			handle_window_close(char *msg);
 void			handle_window_close_err_alloc(const char *function_name);
 void			garbage_add(void *pointer);
 void			free_garbage(void);
+
+int				handle_keypress(int keycode);
 
 #endif

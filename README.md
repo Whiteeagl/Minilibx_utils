@@ -204,9 +204,7 @@ This toolset is designed to be compatible with the 42 norm. The current compatib
 Check your version using the command :
 
 ```
-
 norminette --version
-
 ```
 
 ## Creators

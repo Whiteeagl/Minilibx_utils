@@ -95,7 +95,7 @@ int  main(void)
 
 	update_mlx_infos(mlx_ptr, win_ptr, NULL); // Very important.
 
-	mlx_hook(mlx_ptr);
+	mlx_look(mlx_ptr);
 	return (0);
 }
 ```

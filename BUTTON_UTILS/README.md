@@ -26,7 +26,7 @@ int  main(void)
 	init_all_button_stuff();
 	// your program
 
-	// mlx hook stuff
+	// mlx look stuff
 	return (0);
 }
 ```

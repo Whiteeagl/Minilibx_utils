@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wolf <wolf@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: tboldrin <tboldrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 22:34:45 by wolf              #+#    #+#             */
-/*   Updated: 2023/10/25 23:49:07 by wolf             ###   ########.fr       */
+/*   Updated: 2023/11/23 18:20:58 by tboldrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,13 @@ int	handle_keypress(int keycode)
 
 void	a(void)
 {
+	static void	*txt;
+
+	if (!txt)
+	{
+		txt = build_string("abcdefghijklmnopqrstuvwxyz0123456789", 8, COLOR_BLUE, COLOR_BLACK);
+		display_string(txt, 200, 700, get_win_ptr());
+	}
 	write_msg("I'm a button.\n");
 }
 

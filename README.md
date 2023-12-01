@@ -40,17 +40,17 @@ Working with MiniLibX can be both exciting (no) and challenging. This repository
 
   
 
-- [x] Button_utils : A tool to create... Buttons. - `Still in development.`
+- [x] Button_utils : A tool to create... Buttons. - `Still in development but usable. 👌`
 
-- [x] Line_utils : A tool to create... Lines. - ` Finished.`
+- [ ] Line_utils : A tool to create... Lines. - ` In correction 🛠️.`
 
-- [x] Text_utils : - A tool to create... Text. - `Still in active development`
+- [x] Text_utils : - A tool to create... Text. - `Still in development but usable. 👌`
 
-- [x] Rectangle_utils : A tool to create... Rectangle. - `Finished.`
+- [ ] Rectangle_utils : A tool to create... Rectangle. - `In correction. 🛠️`
 
-- [ ] Circle_utils : A tool to create... Circles. - `Upcoming`
+- [ ] Circle_utils : A tool to create... Circles. - `Upcoming ⏳`
 
-- [ ] Triangle_utils : A tool to create... Triangles. - `Upcoming`
+- [ ] Triangle_utils : A tool to create... Triangles. - `Upcoming ⏳`
 
 And more to come...
 

@@ -1,48 +1,34 @@
-NAME				=	rectangle
-SRC					=	src/
-SRC_LINE		 	=	../LINE_UTILS/src/
-MLX_PATH		 	=	../Mlx/
+PARENT_DIR			:=	$(notdir $(patsubst %/,%,$(dir $(abspath $(lastword $(MAKEFILE_LIST))))))
+
+SRC					=	SRC/
 MLX_BASIQUE_STUFF	=	../INCLUDES/SRC/
+SRC_LINE		 	=	../LINE_UTILS/src/
+
+NAME				=	button_utils
+
+vpath %.c			$(SRC) 					\
+					$(MLX_BASIQUE_STUFF)
+
+FILES				:=	$(wildcard $(SRC)*.c)				\
+						$(wildcard $(SRC_LINE)*.c)
+						$(wildcard $(MLX_BASIQUE_STUFF)*.c)
+
 FLAGS				=	-Wall -Wextra -Werror -g3
-MLXFLAGS		 	=	-L../Mlx -lmlx -L/usr/include/../lib -lXext -lX11 -lm -lbsd
-CC			   		=	cc
+CC					=	gcc
 
-SRCS			 	=	main.c							\
-						rectangle.c						\
-						draw_lines.c					\
-						utils.c							\
-						design_p_mlx.c
-
-OBJ					=	$(patsubst %.c, obj/%.o, $(SRCS))
-CLEANF				=	@(find . -name "*.o" -type f -delete)
-
-BOLD				=	"\033[1m"
-RESET				=	"\033[0m"
-LIGHT_GREEN	 		=	"\033[92m"
-LIGHT_CYAN	  		=	"\033[96m"
+OBJ_DIR				=	../obj/$(PARENT_DIR)
+OBJS				=	$(addprefix $(OBJ_DIR)/, $(notdir $(FILES:.c=.o)))
 
 all: $(NAME)
 
-obj/%.o: %.c 
-	@mkdir -p $(dir $@)
-	@echo $(BOLD)$(LIGHT_CYAN)Compiling $<... $(RESET)
-	@$(CC) $(FLAGS) -c $< -o $@
+$(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
+	$(CC) $(FLAGS) -c $< -g -o $@
 
-$(NAME): $(OBJ)
-	@$(MAKE) -s -C $(MLX_PATH)
-	@$(CC) $(CFLAGS) $(OBJ) $(MLXFLAGS) -o $(NAME)
+$(OBJ_DIR):
+	mkdir -p $@
 
-clean :
-	@$(CLEANF)
-	@echo $(BOLD)$(LIGHT_GREEN).o deleted.$(RESET)
-	@rm -rf obj/
+$(NAME): $(OBJS)
+	ar rc $(NAME).a $(OBJS)
+	mv $(NAME).a ../lib
 
-fclean : clean
-	@rm -f $(NAME)
-	@rm -f line.a
-
-re : fclean all
-
-vpath %.c $(SRC) $(SRC_LINE) $(MLX_BASIQUE_STUFF)
-
-
+.PHONY: all

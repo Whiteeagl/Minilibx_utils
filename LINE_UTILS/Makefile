@@ -3,7 +3,7 @@ PARENT_DIR			:=	$(notdir $(patsubst %/,%,$(dir $(abspath $(lastword $(MAKEFILE_L
 SRC					=	SRC/
 MLX_BASIQUE_STUFF	=	../INCLUDES/SRC/
 
-NAME				=	button_utils
+NAME				=	line_utils
 
 vpath %.c			$(SRC) 					\
 					$(MLX_BASIQUE_STUFF)

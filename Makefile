@@ -1,6 +1,8 @@
 SUBDIRS		=	TEXT_UTILS/ \
 				BUTTON_UTILS/ \
-				INCLUDES/
+				LINE_UTILS/ \
+				INCLUDES/ \
+				RECTANGLE_UTILS/ \
 
 MLX_PATH	=	./Mlx
 EXEC_NAME	=	exec

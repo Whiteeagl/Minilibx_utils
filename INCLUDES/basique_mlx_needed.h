@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   basique_mlx_needed.h                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tboldrin <tboldrin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: raphael <raphael@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 12:35:55 by wolf              #+#    #+#             */
-/*   Updated: 2023/11/30 17:18:39 by tboldrin         ###   ########.fr       */
+/*   Updated: 2023/12/14 17:18:31 by raphael          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include "../Mlx/mlx.h"
 # include "../BUTTON_UTILS/INCLUDES/button.h"
 # include "../TEXT_UTILS/INCLUDES/text.h"
+# include "../LINE_UTILS/includes/line.h"
+# include "../RECTANGLE_UTILS/includes/rectangle.h"
 
 # define ERR_ALLOCATION		"Cannot allocate enough memory. Allocation failed.\n"
 # define ERR_NULL_VALUE		"Error, must me != NULL.\n"
